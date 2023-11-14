@@ -1,0 +1,184 @@
+.admin-reports-section {
+	.no-reports {
+		color: $white;
+		font-size: 18px;
+		font-family: 'DinPro Medium', sans-serif;
+	}
+  .button-section {
+    display: flex;
+    grid-gap: 8px;
+    align-items: flex-end;
+    height: 100%;
+    .filter-reset-button {
+      width: 100%;
+      max-width: 300px;
+      height: 44px;
+      background: $primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      color: $white;
+      -webkit-border-radius: 0rem;
+      -moz-border-radius: 0rem;
+      -ms-border-radius: 0rem;
+      border-radius: 0rem;
+      font-size: 14px;
+      font-family: 'DinPro', sans-serif;
+      border: 0.1rem solid $primary;
+      cursor: pointer;
+      grid-gap: 4px;
+      &:hover {
+        background: $success !important;
+        color: $primary !important;
+        border-color: $success !important;
+      }
+      &:focus, &:active {
+        background: $success !important;
+        color: $primary !important;
+        border-color: $success !important;
+        outline: none;
+        box-shadow: none;
+      }
+      .disabled, &:disabled, &[disabled] {
+        opacity: 1 !important;
+      }
+    }
+  }
+
+  .reportFilters {
+    .row {
+      .eachFilter {
+        margin-bottom: 15px;
+        label {
+          font-weight: 500;
+          width: 100%;
+        }
+        input {
+          min-height: 35px;
+          width: 100%;
+          border: solid 1px #eee;
+          padding: 5px 10px;
+        }
+        select {
+          min-height: 35px;
+          width: 100%;
+          border: solid 1px #eee;
+          padding: 5px 10px;
+        }
+      }
+    }
+  }
+  
+  .reportContainer {
+    .reporttable {
+      width: 100% !important;
+      background-color: $white;
+      color: $black-75;
+    }
+  }
+  .reportPrintLeft {
+    text-align: left;
+  }
+  .reportPrintRight {
+    text-align: right;
+  }
+  
+  .reportOptions {
+    margin-bottom: 10px;
+    display: flex;
+    grid-gap: 8px;
+    button {
+      width: 100px;
+      max-width: 300px;
+      height: 44px;
+      background: $primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      color: $white;
+      -webkit-border-radius: 0rem;
+      -moz-border-radius: 0rem;
+      -ms-border-radius: 0rem;
+      border-radius: 0rem;
+      font-size: 14px;
+      font-family: 'DinPro', sans-serif;
+      border: 0.1rem solid $primary;
+      cursor: pointer;
+      grid-gap: 4px;
+      &:hover {
+        background: $success !important;
+        color: $primary !important;
+        border-color: $success !important;
+      }
+      &:focus, &:active {
+        background: $success !important;
+        color: $primary !important;
+        border-color: $success !important;
+        outline: none;
+        box-shadow: none;
+      }
+      .disabled, &:disabled, &[disabled] {
+        opacity: 1 !important;
+      }
+      i {
+        font-size: 14px;
+        padding-right: 4px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 991.98px) {
+  .admin-reports-section {
+  	.search-input-section {
+			display: flex;
+	    .form-control {
+	      height: 60px;
+	      padding-left: 16px;
+	      padding-right: 16px;
+	    }
+	    .search-icon-section {
+	    	width: 60px;
+	    	height: 60px;
+	    	.search-icon {
+		      font-size: 24px;
+		    }
+	    }
+	  }
+    .title-section {
+      height: 60px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .admin-reports-section {
+    .reportFilters {
+      .eachFilter.operation.col-md-3.col-sm-3 {
+        width: 50%;
+        float: left;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 575.98px) {
+  .admin-reports-section {
+  	.no-reports {
+  		font-size: 18px;
+  	}
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-reports-section {
+    .reportFilters {
+      .eachFilter.operation.col-md-3.col-sm-3 {
+        width: 100%;
+        float: none;
+      }
+    }
+  }
+}

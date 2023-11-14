@@ -1,0 +1,577 @@
+.posts-section {
+	position: absolute;
+	height: calc(100vh - 120px);
+	top: 80px;
+	display: flex;
+	justify-content: center;
+	overflow-y: scroll;
+	flex-wrap: wrap;
+	z-index: 10;
+	width: 100%;
+	padding-left: 2.5px !important;
+	padding-right: 2.5px !important;
+	.gap {
+		gap: 2px;
+	}
+	.no-members {
+  	color: $white;
+    font-size: 18px;
+    font-family: 'DinPro Medium', sans-serif;
+		min-height: calc(100vh - 250px);
+	}
+
+  .create-title {
+    font-size: 18px;
+    font-family: 'DinPro', sans-serif;
+		margin-top: 8px;
+    margin-bottom: 8px;
+  }
+	
+	.contentItem-wrp { 
+		display: block;
+		position: relative;
+		height: 0;
+		width: 100%;
+		padding-bottom: 65%;
+		overflow: hidden;
+		text-decoration: none;
+		background-color: $primary-50;
+		margin-top: 2px;
+
+		.optional-section {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 16px;
+			z-index: 2;
+
+			.option-icon {
+				font-size: 30px;
+				font-weight: 600;
+				cursor: pointer;
+				color: $success;
+				width: 35px;
+				height: auto;
+				position: relative;
+			}
+		}
+
+		.image-container {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: $primary-50;
+			z-index: 1;
+		}
+
+		.thumbnail-card {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+			object-position: center;
+
+			transition: all ease 0.3s;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			img {
+				position: relative;
+				max-width: 10%;
+				height: auto;
+			}
+		}
+
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+			object-position: center;
+			transition: all ease 0.3s;
+		}
+    
+	}
+	.contentItem {
+		padding: 0;
+		flex: 0 0 calc(33.333333% - 0.1rem) !important;
+		max-width: calc(33.333333% - 0.1rem) !important;
+		.contentItem-wrp { 
+				display: block;
+				position: relative;
+				height: 0;
+				width: 100%;
+				padding-bottom: 100%;
+				overflow: hidden;
+				text-decoration: none;
+
+				.optional-section {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						gap: 16px;
+						z-index: 2;
+
+						.option-icon {
+								font-size: 30px;
+								font-weight: 600;
+								cursor: pointer;
+								color: $success;
+						}
+				}
+
+				.thumbnail-card {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						object-fit: cover;
+						object-position: center;
+
+						transition: all ease 0.3s;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						img {
+								position: relative;
+								max-width: 30%;
+								height: auto;
+						}
+				}
+
+				img {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						top: 0;
+						left: 0;
+						object-fit: cover;
+						object-position: center;
+						transition: all ease 0.3s;
+				}
+				.image-container {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					background-color: $primary-50;
+					z-index: 1;
+				}
+		}
+	}
+
+	.created-at-label {
+		font-size: 14px;
+	}
+
+	.member-body {
+    width: 100%;
+    .member-item {
+    	display: flex;
+    	align-items: center;
+    	justify-content: space-between;
+    	.member-link {
+				width: 100%;
+		    display: flex;
+		    align-items: center;
+				text-decoration: none;
+				position: relative;
+				flex: 1;
+	    	.member-avatar-wrp { 
+	        display: block;
+	        position: relative;
+	        height: 0;
+	        width: 80px;
+	        min-width: 60px;
+	        padding-bottom: 80px;
+	        overflow: hidden;
+	        text-decoration: none;
+		    	background-color: $primary-75;
+
+	        .member-avatar {
+	          position: absolute;
+	          width: 100%;
+	          height: 100%;
+	          top: 0;
+	          left: 0;
+	          object-fit: cover;
+	          object-position: center;
+	          display: flex;
+				 .social-logo {
+					width: 50%;
+					height: auto;
+					margin: auto;
+				 }
+				    img {
+				    	width: 100%;
+					    height: 100%;
+					    object-fit: cover;
+				    }
+						.first_letter {
+							font-family: "DinPro Bold", sans-serif;
+							font-size: 30px;
+							color: $white;
+							text-transform: uppercase;
+							margin:auto;
+						}
+						.svg-avatar {
+							max-width: 50%;
+						}
+	        }
+	      }
+		    .member-name {				
+				background: $primary-25;
+				height: 80px;
+				margin-left: 2px;
+				width: calc(100% - 82px);
+				align-items: center;
+				display: flex;
+				.member-name-wrp {
+					color: $white !important;
+					text-decoration: none !important;
+					-webkit-text-decoration: none !important;
+					p {
+						font-size: 18px;
+						font-family: 'DinPro Medium', sans-serif;
+						margin-bottom: 0px !important;
+					}
+				}
+				.member-name-wrp:hover {
+					text-decoration: none !important;
+					-webkit-text-decoration: none !important;
+				}
+		    	color: $white;
+			    padding-left: 20px;
+			    font-size: 18px;
+			    font-family: 'DinPro Medium', sans-serif;
+		    }
+			}
+	    .notification-section {
+	    	padding-left: 16px;
+	    	padding-right: 16px;
+	    	display: flex;
+	    	align-items: center;
+	    	gap: 18px;
+	    	z-index: 3;
+	    	color: $white;
+		    font-size: 10px;
+		    font-family: 'DinPro', sans-serif;
+	    	.option-icon-btn {
+	    		cursor: pointer;
+	    		text-decoration: none;
+	    		.option-icon {
+	    			font-size: 24px;
+	    			color: $white;
+	    		}
+		  		&:hover {
+		    		.option-icon {
+		    			color: $success;
+		    		}
+		  		}
+	    	}
+	    }
+			.plus-icon-wrp { 
+				display: block;
+				position: relative;
+				height: 0;
+				width: 80px;
+				min-width: 60px;
+				padding-bottom: 80px;
+				overflow: hidden;
+				text-decoration: none;
+				background-color: $primary;
+
+				.member-avatar {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					object-fit: cover;
+					object-position: center;
+					display: flex;
+	    		.plus-icon {
+	    			font-size: 21px;
+	    			color: $white;
+						margin: auto;
+	    		}
+				}
+			}
+    }
+	}
+
+	.title-section {
+    padding: 24px 32px;
+    background: $primary;
+    .title {
+      font-size: 18px;
+      font-family: 'DinPro Medium', sans-serif;
+    }
+  }
+
+	.description-section {
+		padding: 24px 32px;
+		background: $secondary;
+		position: relative;
+		.title {
+			font-size: 18px;
+			font-family: 'DinPro Medium', sans-serif;
+		}
+		.content {
+			font-size: 16px;
+			font-family: 'DinPro Light', sans-serif;
+			line-break: anywhere;
+		}
+		.btn-header-link {
+			color: transparent;
+			display: block;
+			text-align: left;
+			padding: 20px;
+			padding-left: 32px;
+			font-size: 20px;
+			font-family: 'DinPro Medium', sans-serif;
+			border: 0;
+			border-radius: 0px;
+			height: 74px;
+			position: absolute;
+			bottom: 0px;
+			right: 4px;
+			&::after {
+				content: "\f068";
+				font-family: 'FontAwesome';  
+				font-weight: 900;
+				float: right;
+				color: $white;
+			}
+			&.collapsed {
+				background: $secondary;
+				&::after {
+					content: "\f067";
+					color: $white;
+				}
+			}
+			&.active {
+				background: $primary;
+			}
+		}
+	}
+
+	.post-top-content {
+		padding: 24px 32px;
+		background: $primary-25;
+		margin-top: 2px;
+		position: relative;
+		.title {
+			font-size: 18px;
+			font-family: 'DinPro Medium', sans-serif;
+			line-height: 32px;
+		}
+		.content {
+			font-size: 16px;
+			font-family: 'DinPro Light', sans-serif;
+			line-height: 32px;
+			line-break: anywhere;
+		}
+		.editable {
+			color: $success;
+		}
+		.optional-section {
+			position: absolute;
+			bottom: 22px;
+			right: 24px;
+			display: flex;
+			z-index: 1;
+
+			.option-icon {
+				font-size: 20px;
+				font-weight: 600;
+				cursor: pointer;
+				color: $white;
+
+				&::after {
+					content: "\f068";
+					font-family: 'FontAwesome';  
+					font-weight: 900;
+					float: right;
+				}
+				&.collapsed {
+					&::after {
+						content: "\f067";
+					}
+				}
+
+				&:hover {
+					color: $success;
+				}
+			}
+		}
+  }
+
+	.post-content {
+	padding-left:32px;
+	padding-right: 32px;
+	padding-top: 24px;
+	padding-bottom: 35px;
+    background: $primary-25;
+	 margin-top: 2px;
+    .title {
+      	font-size: 18px;
+      	font-family: 'DinPro Medium', sans-serif;
+				line-height: 42px;
+    }
+    .content {
+      	font-size: 16px;
+      	font-family: 'DinPro Light', sans-serif;
+				line-height: 21px;	
+				line-break: anywhere;	
+    }
+		.editable {
+			color: $success;
+		}
+  }
+
+  .like-section {
+		position: relative;
+    padding: 8px;
+    background: $primary-75;
+	 margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 6px;
+		font-size: 18px;
+		.heart-icon {
+			font-size: 20px;
+			cursor: pointer;
+		}
+		.like {
+			color: $success;
+		}
+		.option-icon-section {
+			position: absolute;
+			height: 100%;
+			right: 0;
+			padding-left: 16px;
+			padding-right: 24px;
+			display: flex;
+			align-items: center;
+			gap: 18px;
+			.option-icon-btn {
+				cursor: pointer;
+				text-decoration: none;
+				.option-icon {
+					font-size: 20px;
+					color: $white;
+				}
+				&:hover {
+					.option-icon {
+						color: $success;
+					}
+				}
+			}
+		}
+  }
+
+	.trash-icon {
+		cursor: pointer;
+		font-size: 24px;
+		color: $white;
+	}
+
+	.post-button {
+		width: 100%;
+		width: 300px;
+		height: 44px;
+		background: $primary;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-transform: uppercase;
+		color: $white;
+		-webkit-border-radius: 10rem;
+		-moz-border-radius: 10rem;
+		-ms-border-radius: 10rem;
+		border-radius: 10rem;
+		font-size: 16px;
+    font-family: 'DinPro', sans-serif;
+		border: 0.1rem solid $primary;
+		cursor: pointer;
+		&:hover {
+			background: $success !important;
+			color: $primary !important;
+			border-color: $success !important;
+		}
+		&:focus, &:active {
+			background: $success !important;
+			color: $primary !important;
+			border-color: $success !important;
+			outline: none;
+			box-shadow: none;
+		}
+		.disabled, &:disabled, &[disabled] {
+			opacity: 1 !important;
+		}
+	}
+}
+
+
+
+@media only screen and (max-width: 991.98px) {
+  .posts-section {
+    .member-body {
+			.member-item {
+				.member-link {
+					.member-avatar-wrp {
+						width: 60px;
+						padding-bottom: 60px;
+					}
+					.member-name {
+						padding-left: 16px;
+						font-size: 18px;
+						font-family: 'DinPro Medium', sans-serif;
+						height: 60px;
+						width: calc(100% - 62px);
+					}
+				}
+				.plus-icon-wrp {
+					width: 60px;
+					padding-bottom: 60px;
+				}
+			}
+		}
+  }
+}
+
+@media only screen and (max-width: 598.98px) {
+  .posts-section {
+  	.no-members {
+  		font-size: 18px;
+  	}
+		.created-at-label {
+			font-size: 12px;
+		}
+		.post-button {
+			font-size: 14px;
+		}
+		.post-content {
+			.title {
+				font-size: 18px;
+			}
+			.content {
+				font-size: 16px;
+			}
+		}
+  }
+}

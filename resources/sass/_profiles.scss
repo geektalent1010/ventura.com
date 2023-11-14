@@ -1,0 +1,876 @@
+
+.profile-section {
+    position: absolute;
+    height: calc(100vh - 120px);
+    top: 80px;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    z-index: 10;
+    width: 100%;
+    padding-top: 2px !important;
+    .profile-person-section {
+        border-right: 0.2rem solid transparent;
+    }
+    .interests-section {
+        border-left: 0.2rem solid transparent;
+        border-right: 0.2rem solid transparent;
+    }
+    .card-border-wrp {
+        border-left: 0.1rem solid transparent !important;
+        border-right: 0.1rem solid transparent !important;
+    }
+    .contentItem {
+        padding: 0;
+        .profile-avatar-wrp {
+            border-left: 0.2rem solid transparent;
+        }
+        .face {
+            border-left: 0.2rem solid transparent;
+            border-right: 0.2rem solid transparent;
+        }
+        .contentItem-wrp { 
+            display: block;
+            position: relative;
+            height: 0;
+            width: 100%;
+            padding-bottom: 100%;
+            overflow: hidden;
+            text-decoration: none;
+            .profile-avatar {
+                background-color: $primary-75 !important;
+            }
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+                object-position: center;
+    
+                transition: all ease 0.3s;
+            }
+    
+            .profile-card {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+                object-position: center;
+                padding: 32px;
+                overflow-y: auto;
+    
+                .profile-content {
+                    flex: 1;
+                    img {
+                        width: 15%;
+                        height: auto;
+                    }
+                    img.default-logo {
+                        opacity: 0.5;
+                    }
+                    span.default-logo-label {
+                        color: $white-50;
+                    }
+                }
+    
+                .connect-btn-section {
+                    .profile-connect-btn {
+                        width: 100%;
+                        height: 44px;
+                        background: $primary;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-transform: uppercase;
+                        color: $white;
+                        -webkit-border-radius: 10rem;
+                        -moz-border-radius: 10rem;
+                        -ms-border-radius: 10rem;
+                        border-radius: 10rem;
+                        font-size: 16px;
+                        font-family: 'DinPro', sans-serif;
+                        border: 2px solid $primary;
+                        cursor: pointer;
+    
+                        &:hover {
+                            background: $success !important;
+                            color: $primary !important;
+                            border-color: $success !important;
+                        }
+                        &:focus, &:active {
+                            background: $success !important;
+                            color: $primary !important;
+                            border-color: $success !important;
+                            outline: none;
+                            box-shadow: none;
+                        }
+                        .disabled, &:disabled, &[disabled] {
+                            opacity: 1 !important;
+                        }
+                    }
+                }
+
+                .profile-card-title {
+                    font-family: 'DinPro Medium', sans-serif;
+                    font-size: 18px; 
+                    color: $white;
+                    margin-bottom: 16px;
+                    margin-top: 30px;
+                }
+                .profile-card-context {
+                    font-family: 'DinPro', sans-serif;
+                    font-size: 16px; 
+                    color: $white;
+                    margin-bottom: 12px;
+                    margin-top: 25px;
+                }
+
+                .contact-info-icon {
+                    font-size: 16px;
+                }
+
+                
+    
+                .search-icon {
+                    font-size: 20px;
+                }
+                
+            }
+    
+            .thumbnail-card {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+                object-position: center;
+    
+                transition: all ease 0.3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $primary-50;
+    
+                img {
+                    position: relative;
+                    max-width: 30%;
+                    height: auto;
+                }
+                .first_letter {
+                    font-family: "DinPro Bold", sans-serif;
+                    font-size: 80px;
+                    color: $white;
+                    text-transform: uppercase;
+                    margin-bottom: 0px;
+                }
+                .logo {
+                    color: $third;
+                    font-family: "DinPro Bold", sans-serif;
+                    font-size: 21px;
+                }
+            }
+
+            .main_avatar_card_bg {
+                background-color: $primary-50;
+                img {
+                    width: 50px;
+                }
+            }
+        }
+        
+        .main-avatar {
+            padding-bottom: 40% !important;
+            border-top: 2px solid transparent;
+            border-bottom: 2px solid transparent;
+            border-left: 0.2rem solid transparent;
+            border-right: 0.2rem solid transparent;
+        }
+        .person-info-section {
+            background-color: $primary-25;
+            .profile-card {
+                width: 100%;
+                padding: 32px;
+    
+                .profile-content {
+                    flex: 1;
+                    .buddies-icon {
+                        flex: 1;
+                        img {
+                            width: 20px;
+                            height: auto;
+                            margin-right: 10px;
+                        }
+                        img.default-logo {
+                            opacity: 0.5;
+                        }
+                        .position-relative {
+                            margin-top: 15px;
+                        }
+                        .buddies-count {
+                            margin-top: 12px;
+                            font-family: 'DinPro Light', sans-serif;
+                            font-size: 18px;
+                        }
+                    }
+                    .profile-card-title {
+                        font-family: 'DinPro Medium', sans-serif;
+                        font-size: 21px; 
+                        color: $white;
+                        margin-bottom: 0;
+                        line-height: 32px;
+                    }
+                    .profile-card-context {
+                        font-family: 'DinPro Light', sans-serif;
+                        font-size: 16px;
+                        color: $white;
+                        margin-bottom: 0;
+                        line-height: 24px;
+                    }
+                }
+                .connect-btn-section {
+                    .profile-connect-btn {
+                        width: 100%;
+                        height: 44px;
+                        background: $primary;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-transform: uppercase;
+                        color: $white;
+                        -webkit-border-radius: 10rem;
+                        -moz-border-radius: 10rem;
+                        -ms-border-radius: 10rem;
+                        border-radius: 10rem;
+                        font-size: 16px;
+                        font-family: 'DinPro', sans-serif;
+                        border: 2px solid $primary;
+                        cursor: pointer;
+    
+                        &:hover {
+                            background: $success !important;
+                            color: $primary !important;
+                            border-color: $success !important;
+                        }
+                        &:focus, &:active {
+                            background: $success !important;
+                            color: $primary !important;
+                            border-color: $success !important;
+                            outline: none;
+                            box-shadow: none;
+                        }
+                        .disabled, &:disabled, &[disabled] {
+                            opacity: 1 !important;
+                        }
+                    }
+                }
+            }
+        }
+    
+        .profile-card {
+            width: 100%;
+            padding-left: 42px;
+            padding-right: 42px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+
+            .profile-content {
+                flex: 1;
+                span.default-logo-label {
+                    color: $white-50;
+                }
+                .buddies-icon {
+                    flex: 1;
+                    img {
+                        width: 20px;
+                        height: auto;
+                        margin-right: 10px;
+                    }
+                    img.default-logo {
+                        opacity: 0.5;
+                    }
+                    .position-relative {
+                        margin-top: 15px;
+                    }
+                    .buddies-count {
+                        margin-top: 12px;
+                        font-family: 'DinPro Light', sans-serif;
+                        font-size: 18px;
+                    }
+                }
+                .connect-btn-section {
+                    margin-top: 15px;
+                    .profile-connect-btn {
+                        width: 80%;
+                        height: 40px;
+                        background: $primary;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-transform: uppercase;
+                        color: $white;
+                        -webkit-border-radius: 10rem;
+                        -moz-border-radius: 10rem;
+                        -ms-border-radius: 10rem;
+                        border-radius: 10rem;
+                        font-size: 16px;
+                        font-family: 'DinPro', sans-serif;
+                        border: 2px solid $primary;
+                        cursor: pointer;
+    
+                        &:hover {
+                            background: $success !important;
+                            color: $primary !important;
+                            border-color: $success !important;
+                        }
+                        &:focus, &:active {
+                            background: $success !important;
+                            color: $primary !important;
+                            border-color: $success !important;
+                            outline: none;
+                            box-shadow: none;
+                        }
+                        .disabled, &:disabled, &[disabled] {
+                            opacity: 1 !important;
+                        }
+                    }
+                }
+            }
+            .profile-card-title {
+                font-family: 'DinPro Medium', sans-serif;
+                font-size: 21px; 
+                color: $white;
+                margin-bottom: 3px;
+                line-height: 42px;
+            }
+            .profile-card-context {
+                font-family: 'DinPro Light', sans-serif;
+                font-size: 16px; 
+                color: $white;
+                margin-bottom: 0;
+                line-height: 24px;
+            }
+            
+            .contact-info-icon {
+                font-size: 16px;
+            }
+
+            .arrow {
+                margin-left: 6px;
+            }
+
+            .search-icon {
+                font-size: 20px;
+            }
+        }
+
+        .company-profile-card {
+            padding-left: 15px;
+        }
+        
+        .profile-card-bg {
+            background-color: $primary-25;
+        }
+    
+        .story-content-wrp { 
+            display: block;
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding-bottom: inherit;
+            overflow: hidden;
+            border-bottom: 0.2rem solid transparent;
+            border-left: 0.2rem solid transparent;
+            border-right: 0.2rem solid transparent;
+            .my-story-card {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+    
+                transition: all ease 0.3s;
+                padding-right: 42px;
+                padding-left: 42px;
+                padding-top: 20px;
+                padding-bottom: 30px;
+                background-color: $primary-25;
+                overflow-y: auto;
+                .birthday {
+                    flex: 1;
+                    margin-bottom: 3px;
+                    span {
+                        font-size: 21px;
+                        margin-top: 10px;
+                    }
+                    p {
+                        margin-left: 10px;
+                        margin-top: 13px;
+                        font-size: 16px;
+                        margin-bottom: 5px;
+                        font-family: 'DinPro Light', sans-serif;
+                    }
+                }
+                .about {
+                    flex: 1;
+                    .story-card-title {
+                        font-family: 'DinPro Medium', sans-serif;
+                        font-size: 21px; 
+                        color: $white;
+                        margin-bottom: 0;
+                        line-height: 42px;
+                    }
+                    .story-card-context, div {
+                        font-family: 'DinPro', sans-serif;
+                        font-size: 16px; 
+                        color: $white;
+                        line-height: 21px;
+                    }
+                }
+                .buddies-icon {
+                    flex: 1;
+                    img {
+                        height: 20px;
+                        width: auto;
+                        margin-right: 10px;
+                        margin-top: 10px !important;
+                    }
+                    img.default-logo {
+                        opacity: 0.5;
+                    }
+                    .position-relative {
+                        margin-top: 4px;
+                    }
+                    .buddies-count {
+                        margin-top: 12px;
+                        font-family: 'DinPro Light', sans-serif;
+                        font-size: 18px;
+                    }
+                }
+                
+                .story-card-title {
+                    font-family: 'DinPro Medium', sans-serif;
+                    font-size: 21px; 
+                    color: $white;
+                    margin-bottom: 0;
+                    line-height: 42px;
+                }
+                .story-card-context, div {
+                    font-family: 'DinPro Light', sans-serif;
+                    font-size: 16px; 
+                    color: $white;
+                    line-height: 21px;
+                    line-break: anywhere;
+                }
+            }
+        }
+    
+        .flat-scroll::-webkit-scrollbar-track {
+            border-radius: 5px;
+            background-color: transparent;
+            &:hover {
+                background-color: #f9f9f9;
+            }
+        }
+        .flat-scroll::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+            background-color: transparent;
+        }
+        .flat-scroll::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background-color: $primary-40;
+        }
+    }
+    .company-info {
+        width: 50%;
+        border-left: 0.2rem solid transparent;
+    }
+    .contact-info {
+        width: 50%;
+        border-right: 0.2rem solid transparent;
+    }
+    .thumbnail-card-border {
+        border-top: 0.2rem solid transparent;
+        border-left: 0.1rem solid transparent;
+        border-right: 0.1rem solid transparent;
+    }
+    
+    @media only screen and (max-width: 787.98px) {
+        width: 100%;
+    }
+
+    .btn-section {
+        .profile-edit-btn {
+            width: 100%;
+            max-width: 300px;
+            height: 44px;
+            background: $primary;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            color: $white;
+            -webkit-border-radius: 10rem;
+            -moz-border-radius: 10rem;
+            -ms-border-radius: 10rem;
+            border-radius: 10rem;
+            font-size: 16px;
+            font-family: 'DinPro', sans-serif;
+            border: 2px solid $primary;
+            cursor: pointer;
+
+            &:hover {
+                background: $success !important;
+                color: $primary !important;
+                border-color: $success !important;
+            }
+            &:focus, &:active {
+                background: $success !important;
+                color: $primary !important;
+                border-color: $success !important;
+                outline: none;
+                box-shadow: none;
+            }
+            .disabled, &:disabled, &[disabled] {
+                opacity: 1 !important;
+            }
+        }
+        .profile-save-btn {
+            width: 50%;
+            height: 44px;
+            background: $primary;
+            display: block;
+            text-transform: uppercase;
+            color: $white;
+            -webkit-border-radius: 10rem;
+            -moz-border-radius: 10rem;
+            -ms-border-radius: 10rem;
+            border-radius: 10rem;
+            font-size: 14px;
+            font-family: 'DinPro', sans-serif;
+            border: 2px solid $primary;
+            cursor: pointer;
+
+            &:hover {
+                background: $success !important;
+                color: $primary !important;
+                border-color: $success !important;
+            }
+            &:focus, &:active {
+                background: $success !important;
+                color: $primary !important;
+                border-color: $success !important;
+                outline: none;
+                box-shadow: none;
+            }
+            .disabled, &:disabled, &[disabled] {
+                opacity: 1 !important;
+            }
+        }
+    }
+    .follow-btn-section {
+        background-color: $primary-25;
+        padding-left: 0px;
+        // padding-right: 50px;
+        .follow-btn {
+            width: 60%;
+            height: 44px;
+            background: $primary;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            color: $white;
+            -webkit-border-radius: 10rem;
+            -moz-border-radius: 10rem;
+            -ms-border-radius: 10rem;
+            border-radius: 10rem;
+            font-size: 16px;
+            font-family: 'DinPro', sans-serif;
+            border: 2px solid $primary;
+            cursor: pointer;
+
+            &:hover {
+                background: $success !important;
+                color: $primary !important;
+                border-color: $success !important;
+            }
+            &:focus, &:active {
+                background: $success !important;
+                color: $primary !important;
+                border-color: $success !important;
+                outline: none;
+                box-shadow: none;
+            }
+            .disabled, &:disabled, &[disabled] {
+                opacity: 1 !important;
+            }
+        }
+    }
+    .like-section {
+        background-color: $primary-25;
+        padding-left: 43px;
+        padding-top: 10px;
+        .like {
+            color: $success;
+        }
+    }
+    
+	.search-input-section {
+		display: flex;
+        .form-control {
+            flex: 1;
+            background: $border2Color;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            height: 70px;
+            font-weight: 400;
+            outline: medium none;
+            padding-left: 36px;
+            padding-right: 20px;
+            font-size: 16px;
+            font-family: 'DinPro', sans-serif;
+            line-height: 1.4;
+            color: $white;
+            -webkit-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+
+            &:hover, &:focus {
+                box-shadow: none;
+            }
+
+            &::-webkit-input-placeholder {
+                color: $white-50 !important;
+            }
+            &::-moz-placeholder {
+                color: $white-50 !important;
+            }
+            &:-moz-placeholder {
+                color: $white-50 !important;
+            }
+            &:-ms-input-placeholder {
+                color: $white-50 !important;
+            }
+        }
+        .search-icon-section {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: $border2Color;
+            cursor: pointer;
+            .search-icon {
+                font-size: 30px;
+                color: $white;
+            }
+            &:hover {
+                .search-icon {
+                    color: $white;
+                }
+            }
+        }
+	}
+
+    .addresstab {
+        background-color: $secondary;
+        div {
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            padding-left: 36px;
+            padding-right: 20px;
+        }
+        div:hover {
+            background-color: $primary;
+        }
+        .active {
+            background-color: $primary;
+        }
+    }
+}
+@media only screen and (max-width: 575.98px) {
+    .profile-section {
+        .contentItem {
+            .contentItem-wrp {
+                .profile-card {
+                    padding: 16px;
+    
+                    .profile-card-title {
+                        font-size: 16px;
+                        margin-top: 7px;
+                    }
+                    .profile-card-context {
+                        font-size: 14px;
+                        margin-top: 5px;
+                    }
+    
+                    .search-icon {
+                        font-size: 18px;
+                    }
+    
+                    .connect-btn-section {
+                        margin-top: 22px;
+                        .profile-connect-btn {
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .thumbnail-card {
+                    .first_letter {
+                        font-size: 60px;
+                    }
+                }
+            }
+            .person-info-section {
+                .profile-card {
+                    padding: 16px;
+                    .profile-content {
+                        .profile-card-title {
+                            font-size: 18px;
+                            line-height: 24px;
+                        }
+                        .profile-card-context {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            
+            .profile-card {
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                width: 100%;
+
+                .profile-content {
+                    .profile-card-title {
+                        font-size: 16px;
+                        line-height: 28px;
+                        margin-bottom: 5px;
+                    }
+                    .profile-card-context {
+                        font-size: 14px;
+                        line-height: 18px;
+                        margin-bottom: 0px;
+                    }
+                    .birthday {
+                        margin-bottom: 7px;
+                        span {
+                            font-size: 18px;
+                            margin-top: 0px;
+                        }
+                        p {
+                            font-size: 14px;
+                            margin-left: 7px;
+                            margin-top: 5px;
+                        }
+                        img {
+                            width: 18px;
+                            margin-right: 7px;
+                        }
+                    }
+                    .search-icon {
+                        font-size: 18px;
+                    }
+        
+                    .connect-btn-section {
+                        margin-top: 32px;
+                        .profile-connect-btn {
+                            font-size: 14px;
+                            width: 90%;
+                        }
+                    }
+                    
+                }
+                .profile-card-title {
+                    font-size: 16px;
+                    line-height: 25px;
+                }
+                .profile-card-context {
+                    font-size: 14px;
+                }
+            }
+
+            .company-profile-card {
+                padding-left: 10px !important;
+                padding-top: 15px !important;
+                padding-bottom: 15px !important;
+            }
+
+            .company-address-card {
+                padding-top: 15px !important;
+                padding-bottom: 15px !important;
+            }
+    
+            .story-content-wrp {
+                .my-story-card {
+                    padding-left: 30px;
+                    padding-right: 30px;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    .buddies-icon {
+                        .position-relative {
+                            width: 18px;
+                            margin-top: 3px;
+                        }
+                        
+                        .buddies-count {
+                            margin-top: 7px;
+                            margin-bottom: 0px;
+                        }
+                    }
+                    .about {
+                        .story-card-title {
+                            font-size: 16px;
+                            line-height: 24px;
+                            margin-bottom: 7px;
+                        }
+                        .story-card-context, div {
+                            font-size: 14px;
+                            line-height: 18px;
+                        }
+                    }
+                    .story-card-title {
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                    .story-card-context, div {
+                        font-size: 14px;
+                        line-height: 18px;
+                    }
+                }
+                
+            }
+        }
+        .like-section {
+            padding-left: 30px;
+            padding-top: 5px;
+        }
+        .follow-btn-section {
+            padding-left: 0px;
+            padding-top: 0px;
+            .follow-btn {
+                font-size: 14px;
+                width: 90%;
+            }
+        }
+        .btn-section {
+            .profile-edit-btn {
+                width: 50%;
+            }
+        }
+    }
+}

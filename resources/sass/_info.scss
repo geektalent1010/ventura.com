@@ -1,0 +1,290 @@
+
+.topics-section {
+	position: absolute;
+	height: calc(100vh - 120px);
+	top: 80px;
+	display: flex;
+	justify-content: center;
+	overflow-y: scroll;
+	flex-wrap: wrap;
+	z-index: 10;
+	width: 100%;
+	padding-left: 2px !important;
+	padding-right: 2px !important;
+	.no-members {
+  	color: $white;
+    padding-left: 20px;
+    font-size: 18px;
+    font-family: 'DinPro Medium', sans-serif;
+	}
+
+	.search-input-section {
+		display: flex;
+		margin-top: 2px;
+    .form-control {
+    	flex: 1;
+      background: $primary-50;
+		margin-right: 2px;
+      border: none;
+			border-radius: 0;
+      box-shadow: none;
+      height: 70px;
+      font-weight: 400;
+      outline: medium none;
+      padding-left: 42px;
+      padding-right: 42px;
+      font-size: 16px;
+      font-family: 'DinPro', sans-serif;
+      line-height: 1.4;
+      color: $white;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+
+      &:hover, &:focus {
+        box-shadow: none;
+      }
+
+      &::-webkit-input-placeholder {
+        color: $white-50 !important;
+      }
+      &::-moz-placeholder {
+        color: $white-50 !important;
+      }
+      &:-moz-placeholder {
+        color: $white-50 !important;
+      }
+      &:-ms-input-placeholder {
+        color: $white-50 !important;
+      }
+    }
+    .search-icon-section {
+    	width: 70px;
+    	height: 70px;
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+	    position: relative;
+	    background-color: $primary-75;
+	    cursor: pointer;
+    	.search-icon {
+	      font-size: 30px;
+	      color: $white;
+	    }
+  		&:hover {
+    		.search-icon {
+    			color: $white;
+    		}
+  		}
+    }
+	}
+
+	.member-body {
+    width: 100%;
+    height: 100%;
+    max-height: calc(100vh - 190px);
+    overflow: auto;
+    #faq .card {
+			border: none;
+			border-radius: 0px;
+			background-color: transparent;
+			.card-header {
+				border: 0;
+				border-radius: 0px;
+				padding: 0;
+				margin-bottom: 0px !important;
+				background: transparent !important;
+				.btn-header-link {
+					color: $white;
+					display: block;
+					text-align: left;
+					padding: 20px;
+					padding-left: 42px;
+			    font-size: 18px;
+			    font-family: 'DinPro Medium', sans-serif;
+				 background: $primary-50;
+				 margin-top: 2px;
+					border: none;
+					border-radius: 0px;
+					margin-top: 2px;
+					&::after {
+						content: "\f068";
+						font-family: 'FontAwesome';  
+						font-weight: 900;
+						float: right;
+					}
+					&.collapsed {
+						color: $white;
+						background: $primary-25;
+						&::after {
+							content: "\f067";
+						}
+					}
+				}
+			}
+			.card-body {
+				padding-left: 42px;
+				padding-right: 42px;
+				font-size: 16px;
+				font-family: 'DinPro Light', sans-serif;
+				line-height: 1.5;
+				background-color: $primary-25;
+				margin-top: 2px;
+				.action-title {
+					font-size: 16px;
+			    font-family: 'DinPro Medium', sans-serif;
+				}
+				.tripple-icon-section {
+					width: 60px !important;
+					img {
+						width: 40% !important;
+					}
+				}
+				.icon-section {
+					width: 42px;
+					.main-icon {
+						font-size: 14px;
+						color: $white;
+						&.active {
+							color: $success;
+						}
+						&.offline {
+							color: $primary;
+						}
+						&.medium {
+							font-size: 12px;
+						}
+						&.small {
+							font-size: 6px;
+						}
+					}
+					.new-message-icon {
+						width: 14px;
+						height: 14px;
+						background-color: $success;
+						border-radius: 50%;
+						border: 2px solid $success;
+					}
+					.active {
+						color: $success;
+					}
+					.blue {
+						color: $primary;
+					}
+				}
+			}
+			.collapsing {
+				background: $primary-50;
+				line-height: 30px;
+				color: $white;
+				font-size: 16px;
+				font-family: 'DinPro', sans-serif;
+			}
+			.collapse {
+				border: 0;
+				&.show {
+					line-height: 30px;
+					color: $white;
+					font-size: 16px;
+					font-family: 'DinPro', sans-serif;
+				}
+			}
+		}
+	}
+
+	.flat-scroll::-webkit-scrollbar-track {
+  	border-radius: 5px;
+  	background-color: transparent;
+    &:hover {
+  		background-color: #f9f9f9;
+    }
+  }
+  .flat-scroll::-webkit-scrollbar {
+  	width: 1px;
+  	height: 1px;
+  	background-color: transparent;
+  }
+  .flat-scroll::-webkit-scrollbar-thumb {
+  	border-radius: 5px;
+  	background-color: $primary-40;
+  }
+	.go-to-button {
+		width: 100%;
+		max-width: 300px;
+		height: 44px;
+		background: $primary;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-transform: uppercase;
+		color: $white;
+		-webkit-border-radius: 10rem;
+		-moz-border-radius: 10rem;
+		-ms-border-radius: 10rem;
+		border-radius: 10rem;
+		font-size: 16px;
+    font-family: 'DinPro', sans-serif;
+		border: 0.1rem solid $primary;
+		cursor: pointer;
+		&:hover {
+			background: $success !important;
+			color: $primary !important;
+			border-color: $success !important;
+		}
+		&:focus, &:active {
+			background: $success !important;
+			color: $primary !important;
+			border-color: $success !important;
+			outline: none;
+			box-shadow: none;
+		}
+		.disabled, &:disabled, &[disabled] {
+			opacity: 1 !important;
+		}
+	}
+}
+
+
+
+@media only screen and (max-width: 991.98px) {
+  .topics-section {
+  	.search-input-section {
+			display: flex;
+	    .form-control {
+	      height: 60px;
+	      padding-left: 32px;
+	      padding-right: 32px;
+	    }
+	    .search-icon-section {
+	    	width: 60px;
+	    	height: 60px;
+	    	.search-icon {
+		      font-size: 24px;
+		    }
+	    }
+	  }
+    .member-body {
+	    max-height: calc(100vh - 180px);
+			#faq .card {
+				.card-header {
+					.btn-header-link {
+						font-size: 18px;
+						padding-left: 32px;
+					}
+				}
+				.card-body {
+					padding-left: 32px;
+					padding-right: 32px;
+				}
+			}
+		}
+  }
+}
+
+@media only screen and (max-width: 767.98px) {
+  .topics-section {
+  	.no-members {
+  		font-size: 18px;
+  	}
+  }
+}

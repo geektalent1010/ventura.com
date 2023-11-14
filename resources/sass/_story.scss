@@ -1,0 +1,268 @@
+.story-section {
+    .created-at-label {
+        font-size: 14px;
+    }
+    .member-body {
+        width: 100%;
+        .member-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: $panelColor;
+            .member-link {
+                width: 100%;
+                display: flex;
+		        align-items: center;
+                text-decoration: none;
+				position: relative;
+				flex: 1;
+                .member-avatar-wrp { 
+                    display: block;
+                    position: relative;
+                    height: 0;
+                    width: 70px;
+                    min-width: 60px;
+                    padding-bottom: 70px;
+                    overflow: hidden;
+                    text-decoration: none;
+                    background-color: $primary;
+                    .member-avatar {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        object-fit: cover;
+                        object-position: center;
+                        display: flex;
+                        img {
+                            max-width: 60%;
+                            height: auto;
+                            margin: auto;
+                        }
+                    }
+                }
+                .member-name {
+                    color: $white;
+                    padding-left: 20px;
+                    font-size: 21px;
+                    font-family: 'DinPro Medium', sans-serif;
+                }
+            }
+
+            .notification-section {
+                padding-left: 16px;
+                padding-right: 16px;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                z-index: 3;
+                color: $white;
+                font-size: 10px;
+                font-family: 'DinPro', sans-serif;
+                .option-icon-btn {
+                    cursor: pointer;
+                    text-decoration: none;
+                    .option-icon {
+                        font-size: 24px;
+                        color: $white-50;
+                    }
+                      &:hover {
+                        .option-icon {
+                            color: $white;
+                        }
+                      }
+                }
+            }
+        }
+
+    }
+    .storyItem {
+        padding: 0;
+        .storyItem-wrp { 
+            display: block;
+            position: relative;
+            height: 0;
+            width: 100%;
+            padding-bottom: 60%;
+            overflow: hidden;
+            text-decoration: none;
+            background-color: $oddColor;
+            .post-image {
+                position: absolute;
+                width: 100%;
+                height: auto;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+                object-position: center;
+    
+                transition: all ease 0.3s;
+            }
+            .thumbnail-card {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+                object-position: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+    
+                img {
+                    position: relative;
+                    max-width: 12%;
+                    height: auto;
+                    opacity: 0.5;
+                }
+                
+            }
+        }
+        .story-content-wrp {
+            background-color: $panelColor;
+            .my-story-card {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                padding-left: 20px;
+                .story-card-title {
+                    font-size: 18px;
+                }
+                .story-card-context, div {
+                    font-size: 14px;
+                }
+            }
+        }
+        .optional-section {
+			position: absolute;
+			bottom: 8px;
+			right: 16px;
+			display: flex;
+			gap: 16px;
+			z-index: 1;
+
+			.option-icon {
+				font-size: 22px;
+				font-weight: 600;
+				cursor: pointer;
+				color: $white-50;
+
+				&:hover {
+					color: $white;
+				}
+			}
+		}
+    }
+
+    .publish-content {
+        padding: 24px 32px;
+        background: $panelColor;
+        .title {
+            font-size: 18px;
+            font-family: 'DinPro Medium', sans-serif;
+            padding-bottom: 18px;
+        }
+        .content {
+            font-size: 16px;
+            font-family: 'DinPro Light', sans-serif;
+            line-height: 24px;
+        }
+    }
+    .like-section {
+		position: relative;
+        padding: 8px;
+        background: $primary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-gap: 6px;
+		font-size: 18px;
+        img {
+            width: 25px;
+            opacity: 0.5;
+        }
+        img:hover {
+            opacity: 1;
+        }
+		.heart-icon {
+			font-size: 24px;
+			cursor: pointer;
+		}
+		.like {
+			color: $success;
+		}
+		.option-icon-section {
+			position: absolute;
+			height: 100%;
+			right: 0;
+			padding-left: 16px;
+			padding-right: 16px;
+			display: flex;
+			align-items: center;
+			gap: 18px;
+			.option-icon-btn {
+				cursor: pointer;
+				text-decoration: none;
+				.option-icon {
+					font-size: 24px;
+					color: $white-50;
+				}
+				&:hover {
+					.option-icon {
+						color: $white;
+					}
+				}
+			}
+		}
+    }
+}
+.save-btn-section {
+    .publish-button {
+        width: 25vw;
+        height: 44px;
+        background: $primary;
+        display: block;
+        text-transform: uppercase;
+        color: $white;
+        -webkit-border-radius: 10rem;
+        -moz-border-radius: 10rem;
+        -ms-border-radius: 10rem;
+        border-radius: 10rem;
+        font-size: 14px;
+        font-family: 'DinPro Light', sans-serif;
+        border: 0.1rem solid $primary;
+        cursor: pointer;
+
+        &:hover {
+            background: $success !important;
+            color: $primary !important;
+            border-color: $success !important;
+        }
+        &:focus, &:active {
+            background: $success !important;
+            color: $primary !important;
+            border-color: $success !important;
+            outline: none;
+            box-shadow: none;
+        }
+        .disabled, &:disabled, &[disabled] {
+            opacity: 1 !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 475.98px) {
+    .save-btn-section {
+        .profile-update-btn {
+            width: 50vw;
+            height: 35px;
+            font-size: 13px;
+        }
+        .publish-button {
+            width: 50vw;
+            height: 35px;
+            font-size: 13px;
+        }
+    }
+}

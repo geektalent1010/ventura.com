@@ -1,0 +1,1314 @@
+
+/*  Setting page styles  */
+#imageModalContainer {
+    visibility: visible !important;
+    opacity: 1 !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.crop__modal {
+    max-width: 95vw;
+    min-height: 95vh;
+}
+.crop__modal-content {
+    height: 95vh;
+    border-radius: 16px;
+    background: #DEDCDD;
+    overflow-y: scroll;
+}
+.crop__modal-content .modal-header h5 {
+    font-size: 24px;
+    margin-left: 10px;
+}
+.crop__modal-content .modal-header {
+    border-bottom: none;
+    color: #949191;
+    align-items: center;
+}
+.crop__modal-content .modal-header .close {
+    margin: -1rem !important;
+}
+.crop__modal-content .modal-header .modal-title {
+    flex-grow: 1;
+}
+.crop__modal-content .modal-footer {
+    margin-top: 40px;
+    justify-content: center;
+}
+.crop__action {
+    background: linear-gradient(0.45turn, #D4D2D2, #EEECED);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.35), -3px -3px 8px rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    padding: 16px;
+    color: #949191;
+}
+.crop__action:focus {
+    outline: 0;
+    box-shadow: 0 0 2px 3px #f7c4c9;
+}
+.crop__action:hover {
+    color: #ED8C82;
+}
+.crop__action:first-child {
+    margin-right: 20px;
+}
+.modal-body {
+    max-height: calc(100% - 120px) !important;
+}
+.croppie-container {
+    max-height: 100%;
+}
+input[type=range] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    grid-area: range;
+    width: 100%;
+    box-shadow: 0 0 10px transparent;
+    height: 30px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    border-radius: 5px;
+    background-image: var(--track-background, linear-gradient(180deg, #f8d1d9, #ea8a80));
+    cursor: ew-resize;
+    box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.25), inset 1.5px 1.5px 3px white;
+    border: none;
+    border-radius: 6px;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    top: -5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(0.45turn, #D4D2D2, #EEECED);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.35), -3px -3px 8px rgba(255, 255, 255, 0.6);
+}
+input[type=range]::-moz-range-track {
+    -moz-appearance: none;
+    display: flex;
+    align-items: center;
+    height: 20px;
+    border-radius: 5px;
+    background-image: var(--track-background, linear-gradient(180deg, #f8d1d9, #ea8a80));
+    cursor: ew-resize;
+    box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.25), inset 1.5px 1.5px 3px white;
+}
+input[type=range]::-moz-range-thumb {
+    position: relative;
+    top: -10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(0.45turn, #D4D2D2, #EEECED);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.35), -3px -3px 8px rgba(255, 255, 255, 0.6);
+}
+.croppie-container .cr-boundary {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+.croppie-container .cr-viewport, .croppie-container .cr-resizer {
+    position: absolute;
+    border: 2px solid #fff;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    box-shadow: 0 0 2000px 2000px rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+.croppie-container .cr-overlay {
+    z-index: 1;
+    position: absolute;
+    cursor: move;
+    touch-action: none;
+}
+.croppie-container .cr-slider-wrap {
+    width: 75%;
+    margin: 15px auto;
+    text-align: center;
+}
+.cr-slider {
+    -webkit-appearance: none;
+    border: 1px solid white;
+    width: 300px;
+    max-width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: transparent;
+}
+.croppie-container .cr-original-image {
+    display: none;
+}
+.croppie-container {
+    width: 100%;
+    height: 100%;
+}
+.crop__modal-content .modal-body {
+    max-height : 65% !important;
+}
+.changeable {
+    font-family: 'DinPro', sans-serif;
+    font-size: 16px; 
+    color: $success !important;
+    line-height: 24px;
+}
+.setting-section {
+    position: absolute;
+    height: calc(100vh - 120px);
+    top: 80px;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    z-index: 10;
+    width: 100%;
+    padding-top: 2px !important;
+	.search-input-section {
+		display: flex;
+        .form-control {
+            flex: 1;
+            background: $borderColor;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            height: 70px;
+            font-weight: 400;
+            outline: medium none;
+            padding-left: 36px;
+            padding-right: 20px;
+            font-size: 16px;
+            font-family: 'DinPro', sans-serif;
+            line-height: 1.4;
+            color: $white;
+            -webkit-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+
+            &:hover, &:focus {
+                box-shadow: none;
+            }
+
+            &::-webkit-input-placeholder {
+                color: $white-50 !important;
+            }
+            &::-moz-placeholder {
+                color: $white-50 !important;
+            }
+            &:-moz-placeholder {
+                color: $white-50 !important;
+            }
+            &:-ms-input-placeholder {
+                color: $white-50 !important;
+            }
+        }
+        .search-icon-section {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: $borderColor;
+            cursor: pointer;
+            .search-icon {
+            font-size: 30px;
+            color: $white;
+            }
+            &:hover {
+                .search-icon {
+                    color: $white;
+                }
+            }
+        }
+	}
+    .profile-person-section {
+        border-left: 2px solid transparent;
+        border-right: 1px solid transparent;
+    }
+    .interests-section {
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+    }
+    .contentItem {
+        padding: 0;
+        .profile-avatar-wrp {
+            border-left: 1px solid transparent;
+        }
+        .contentItem-wrp { 
+            display: block;
+            position: relative;
+            height: 0;
+            width: 100%;
+            padding-bottom: 100%;
+            overflow: hidden;
+            text-decoration: none;
+            .profile-avatar {
+                background-color: $primary-75 !important;
+            }
+            .optional-section {
+                position: absolute;
+                display: flex;
+                gap: 16px;
+                z-index: 2;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                align-items: center;
+    
+                .option-icon {
+                    font-size: 30px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    color: $success;
+    
+                    &:hover {
+                        color: $white;
+                    }
+                }
+                img {
+                    position: relative;
+                    width: 35px !important;
+                    height: auto;
+                }
+            }
+
+            .image-container {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: $primary-50;
+                z-index: 1;
+            }
+    
+            .thumbnail-card {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+                object-position: center;
+    
+                transition: all ease 0.3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $primary-50;
+
+                .option-icon {
+                    font-size: 30px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    color: $success;
+                    width: 35px;
+                    height: auto;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    &:hover {
+                        color: $white;
+                    }
+                }
+    
+                #crop__result {
+                    width: 100% !important;
+                    display: none;
+                }
+                .file-selector__input {
+                    position: relative;
+                    width: 100%;
+                    height: auto;
+                    opacity: 0;
+                    z-index: 10;
+                }
+                .first_letter {
+                    font-family: "DinPro Bold", sans-serif;
+                    font-size: 100px;
+                    color: #ffffff;
+                    text-transform: uppercase;
+                    margin-bottom: 0px;
+                }
+                .logo {
+                    color: $third;
+                    font-family: "DinPro Bold", sans-serif;
+                    font-size: 21px;
+                }
+            }
+    
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+                object-position: center;
+                transition: all ease 0.3s;
+            }
+    
+            .profile-card {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+                object-position: center;
+                padding: 32px;
+                overflow-y: auto;
+    
+                .profile-content {
+                    flex: 1;
+                    img {
+                        width: 15%;
+                        height: auto;
+                        cursor: pointer;
+                    }
+                    img.default-logo {
+                        opacity: 0.5;
+                    }
+                    span.default-logo-label {
+                        color: $white-50;
+                    }
+                }
+                .profile-card-title {
+                    font-family: 'DinPro Medium', sans-serif;
+                    font-size: 18px; 
+                    color: $white;
+                    margin-bottom: 16px;
+                    margin-top: 30px;
+                }
+                .profile-card-context {
+                    font-family: 'DinPro', sans-serif;
+                    font-size: 16px; 
+                    color: $white;
+                    margin-bottom: 12px;
+                    margin-top: 25px;
+                }
+
+                .contact-info-icon {
+                    font-size: 16px;
+                }
+    
+                .search-icon {
+                    font-size: 20px;
+                }
+    
+                .connect-btn-section {
+                    .profile-connect-btn {
+                        width: 100%;
+                        height: 44px;
+                        background: $primary;
+                        display: block;
+                        text-transform: uppercase;
+                        color: $white;
+                        -webkit-border-radius: 10rem;
+                        -moz-border-radius: 10rem;
+                        -ms-border-radius: 10rem;
+                        border-radius: 10rem;
+                        font-size: 16px;
+                        font-family: 'DinPro', sans-serif;
+                        border: 0.1rem solid $primary;
+                        cursor: pointer;
+    
+                        &:hover {
+                            background: $success !important;
+                            color: $primary !important;
+                            border-color: $success !important;
+                        }
+                        &:focus, &:active {
+                            background: $success !important;
+                            color: $primary !important;
+                            border-color: $success !important;
+                            outline: none;
+                            box-shadow: none;
+                        }
+                        .disabled, &:disabled, &[disabled] {
+                            opacity: 1 !important;
+                        }
+                    }
+                }
+            }
+
+            .main_avatar_card_bg {
+                background-color: $primary-50;
+            }
+    
+        }
+        .main-avatar {
+            padding-bottom: 40% !important;
+            border-left: 1px solid transparent;
+            border-right: 1px solid transparent;
+            border-top: 2px solid transparent;
+            border-bottom: 2px solid transparent;
+        }
+
+        .person-info-section {
+            background-color: $primary-25;
+            .profile-card {
+                width: 100%;
+                padding-left: 42px;
+                padding-right: 42px;
+                padding-top: 20px;
+                padding-bottom: 30px;
+    
+                .profile-content {
+                    flex: 1;
+
+                    .profile-card-title {
+                        font-family: 'DinPro Medium', sans-serif;
+                        font-size: 24px; 
+                        color: $white;
+                        margin-bottom: 0;
+                        line-height: 36px;
+                    }
+                    .profile-card-context {
+                        font-family: "DinPro Light", sans-serif;
+                        font-size: 16px;
+                        color: #ffffff;
+                        margin-bottom: 0;
+                        line-height: 24px;
+                    }
+                }
+            }
+        }
+    
+        .profile-card {
+            width: 100%;
+            padding-left: 42px;
+            padding-right: 42px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            .arrow {
+                margin-left: 6px;
+            }
+            .profile-content {
+                flex: 1;
+                img {
+                    width: 20px;
+                    height: auto;
+                    margin-right: 10px;
+                }
+                img.default-logo {
+                    opacity: 0.5;
+                }
+                span.default-logo-label {
+                    color: $white-50;
+                }
+            }
+            .profile-card-title {
+                font-family: 'DinPro Medium', sans-serif;
+                font-size: 21px; 
+                color: $white;
+                margin-bottom: 0;
+                line-height: 42px;
+            }
+            .profile-card-context {
+                font-family: "DinPro Light", sans-serif;
+                font-size: 16px;
+                color: #ffffff;
+                margin-bottom: 0;
+                line-height: 24px;
+            }
+            .position-relative {
+                margin-top: 13px;
+            }
+            .buddies-count {
+                margin-top: 12px;
+            }
+            .contact-info-icon {
+                font-size: 16px;
+            }
+
+            .search-icon {
+                font-size: 20px;
+            }
+        }
+
+        .profile-card-bg {
+            background-color: $primary-25;
+        }
+    
+        .story-content-wrp { 
+            display: block;
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding-bottom: inherit;
+            overflow: hidden;
+            border-bottom: 2px solid transparent;
+            border-left: 1px solid transparent;
+            border-right: 1px solid transparent;
+            .my-story-card {
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+                -o-object-position: center;
+                object-position: center;
+                transition: all ease 0.3s;
+                padding-right: 42px;
+                padding-left: 42px;
+                padding-top: 20px;
+                padding-bottom: 30px;
+                background-color: rgba(4, 36, 107, 0.2509803922);
+                overflow-y: auto;
+    
+                .about {
+                    flex: 1;
+                    .story-card-title {
+                        font-family: 'DinPro Medium', sans-serif;
+                        font-size: 21px; 
+                        color: $white;
+                        margin-bottom: 0;
+                        line-height: 42px;
+                    }
+                    .story-card-context, div {
+                        font-family: 'DinPro', sans-serif;
+                        font-size: 16px; 
+                        color: $white;
+                        line-height: 21px;
+                    }
+                }
+                .buddies-icon {
+                    flex: 1;
+                    img {
+                        height: 20px;
+                        width: auto;
+                        margin-right: 10px;
+                        margin-top: 10px !important;
+                    }
+                    img.default-logo {
+                        opacity: 0.5;
+                    }
+                    .position-relative {
+                        margin-top: 4px;
+                    }
+                    .buddies-count {
+                        margin-top: 12px;
+                        font-family: 'DinPro Light', sans-serif;
+                        font-size: 18px;
+                    }
+                }
+                .birthday {
+                    flex: 1;
+                    span {
+                        font-size: 21px;
+                        margin-top: 10px;
+                    }
+                    p {
+                        margin-left: 10px;
+                        margin-top: 13px;
+                        margin-bottom: 0px;
+                        font-size: 16px;
+                    }
+                }
+                .story-card-title {
+                    font-family: 'DinPro Medium', sans-serif;
+                    font-size: 21px; 
+                    color: $white;
+                    margin-bottom: 0;
+                    line-height: 42px;
+                }
+                .story-card-context, div {
+                    font-family: 'DinPro Light', sans-serif;
+                    font-size: 16px; 
+                    color: $white;
+                    line-height: 21px;
+                    line-break: anywhere;
+                }
+                
+            }
+        }
+    
+        .flat-scroll::-webkit-scrollbar-track {
+            border-radius: 5px;
+            background-color: transparent;
+            &:hover {
+                background-color: #f9f9f9;
+            }
+        }
+        .flat-scroll::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+            background-color: transparent;
+        }
+        .flat-scroll::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background-color: $primary-40;
+        }
+    }
+    .thumbnail-card-border {
+        border: 1px solid transparent;
+    }
+    .company-info {
+        width: 50%;
+    }
+    .contact-info {
+        width: 50%;
+    }
+    p {
+        font-size: 18px;
+    }
+
+    .distancetab {
+        background-color: $secondary;
+        div {
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 18px;
+            width: 25%;
+            text-align: center;
+        }
+        div:hover {
+            background-color: $primary;
+        }
+        .active {
+            background-color: $primary;
+        }
+    }
+
+    .addresstab {
+        background-color: $secondary;
+        div {
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            padding-left: 36px;
+            padding-right: 20px;
+        }
+        div:hover {
+            background-color: $primary;
+        }
+        .active {
+            background-color: $primary;
+        }
+    }
+    .gendertab {
+        margin-top: 2px !important;
+        margin-bottom: 2px !important;
+        .female-tab {
+            margin-right: 1px;
+        }
+        .male-tab {
+            margin-left: 1px;
+        }
+        div {
+            border-left: 2px solid transparent;
+            background-color: $primary-50;
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 18px;
+            width: calc(50% - 1px);
+            text-align: center;
+        }
+        div:hover {
+            background-color: $primary-75;
+        }
+        .active {
+            background-color: $primary-75;
+        }
+    }
+    .agetab {
+        background-color: $secondary;
+        div {
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 18px;
+            width: 25%;
+            text-align: center;
+        }
+        div:hover {
+            background-color: $primary;
+        }
+        .active {
+            background-color: $primary;
+        }
+    }
+    .basedtab {
+        background-color: $secondary;
+        div {
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 18px;
+            width: 50%;
+            text-align: center;
+        }
+        div:hover {
+            background-color: $primary;
+        }
+        .active {
+            background-color: $primary;
+        }
+    }
+
+    .border-color-section {        
+        background-color: $borderColor;
+    }
+    .bg-color-section {
+        background-color: $primary-25;
+        font-family: 'DinPro Medium', sans-serif;
+    }
+    .category-section {
+        background-color: $borderColor;
+        position:relative;
+        align-items: center;
+        padding-bottom: 35px;
+        padding-top: 35px;
+        cursor: pointer;
+        .left-section {
+            position: absolute;            
+            left: 30px;
+            font-size: 18px;
+        }
+        .right-section {
+            position: absolute;
+            right: 30px;
+            align-items: center;
+            div {
+                font-size: 18px;
+                font-weight: bold;
+                margin-right: 10px;
+            }
+            .inactive {
+                color: $white-50;
+            }
+        }
+        .personal-panel-extend {
+            cursor: pointer;
+            padding-left: 4px;
+            padding-right: 4px;
+            .option-icon {
+                font-size: 22px;
+                font-weight: 600;
+                cursor: pointer;
+                color: $white;
+
+                &::after {
+                    content: "\f068";
+                    font-family: 'FontAwesome';  
+                    font-weight: 900;
+                    float: right;
+                }
+                &.collapsed {
+                    &::after {
+                        content: "\f067";
+                    }
+                }
+            }
+        }
+        &.active {
+            background-color: $third;
+        }
+    }
+
+    .sub-category-section {
+        background-color: $borderColor;
+        p {
+            font-size: 15px;
+            padding-left: 40px;
+            margin-bottom: 0px;
+        }
+    }
+
+    .btn-section {
+        .setting-save-btn {
+            width: 100%;
+            max-width: 300px;
+            height: 44px;
+            background: $primary;
+            display: block;
+            text-transform: uppercase;
+            color: $white;
+            -webkit-border-radius: 10rem;
+            -moz-border-radius: 10rem;
+            -ms-border-radius: 10rem;
+            border-radius: 10rem;
+            font-size: 16px;
+            font-family: 'DinPro', sans-serif;
+            border: 0.1rem solid $primary;
+            cursor: pointer;
+
+            &:hover {
+                background: $success !important;
+                color: $primary !important;
+                border-color: $success !important;
+            }
+            &:focus, &:active {
+                background: $success !important;
+                color: $primary !important;
+                border-color: $success !important;
+                outline: none;
+                box-shadow: none;
+            }
+            .disabled, &:disabled, &[disabled] {
+                opacity: 1 !important;
+            }
+        }
+    }
+    .save-button {
+		width: 100%;
+        max-width: 300px;
+		height: 44px;
+		background: $primary;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-transform: uppercase;
+		color: $white;
+		-webkit-border-radius: 10rem;
+		-moz-border-radius: 10rem;
+		-ms-border-radius: 10rem;
+		border-radius: 10rem;
+        font-size: 16px;
+        font-family: 'DinPro', sans-serif;
+		border: 0.1rem solid $primary;
+		cursor: pointer;
+        &:hover {
+            background: $success !important;
+            color: $primary !important;
+            border-color: $success !important;
+        }
+        &:focus, &:active {
+            background: $success !important;
+            color: $primary !important;
+            border-color: $success !important;
+            outline: none;
+            box-shadow: none;
+        }
+        .disabled, &:disabled, &[disabled] {
+            opacity: 1 !important;
+        }
+	}
+}
+
+.page-content {
+    max-width: 767.98px;
+    .content-card {
+        position: relative;
+        padding: 5px;
+
+        .change-data-input-section {
+            width: 300px;
+            
+            span {
+                font-size: 16px;
+                font-family: 'DinPro Light', sans-serif;
+            }
+    
+            .update-button {
+                width: 100%;
+                height: 44px;
+                background: $primary;
+                display: block;
+                text-transform: uppercase;
+                color: $white;
+                -webkit-border-radius: 10rem;
+                -moz-border-radius: 10rem;
+                -ms-border-radius: 10rem;
+                border-radius: 10rem;
+                font-size: 16px;
+                font-family: 'DinPro', sans-serif;
+                border: 0.1rem solid $primary;
+                cursor: pointer;
+                &:hover {
+                    background: $success !important;
+                    color: $primary !important;
+                    border-color: $success !important;
+                }
+                &:focus, &:active {
+                    background: $success !important;
+                    color: $primary !important;
+                    border-color: $success !important;
+                    outline: none;
+                    box-shadow: none;
+                }
+                .disabled, &:disabled, &[disabled] {
+                    opacity: 1 !important;
+                }
+            }
+        }
+    }
+
+    .separators {
+        margin: 40px 5px;
+        border-top: 2px solid #1f199066;
+    }
+
+    .interest-tags-section {
+        max-width: 550px;
+        width: 100%;
+        padding-left: 32px;
+        padding-right: 32px;
+    
+        .tag-prefix {
+            padding-left: 24px;
+            span {
+                font-family: 'DinPro Medium', sans-serif;
+                font-size: 18px; 
+                color: $white;
+                text-transform: uppercase;
+            }
+        }
+    
+        span {
+            font-size: 16px;
+            font-family: 'DinPro Light', sans-serif;
+        }
+    }
+
+    .company-profile-section {
+    
+        .form-control {
+            background: $borderColor;
+            border: none;
+            -webkit-border-radius: 10rem;
+            -moz-border-radius: 10rem;
+            -ms-border-radius: 10rem;
+            border-radius: 10rem;
+            box-shadow: none;
+            height: 44px;
+            font-weight: 400;
+            outline: medium none;
+            padding-left: 40px;
+            padding-right: 40px;
+            font-size: 16px;
+            line-height: 1.4;
+            color: $white;
+            text-align: center;
+            -webkit-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+
+            &:hover, &:focus {
+                box-shadow: none;
+            }
+
+            &::-webkit-input-placeholder {
+                color: #fff !important;
+            }
+            &::-moz-placeholder {
+                color: #fff !important;
+            }
+            &:-moz-placeholder {
+                color: #fff !important;
+            }
+            &:-ms-input-placeholder {
+                color: #fff !important;
+            }
+        }
+        .checkbox-container {
+            width: fit-content;
+            .checkbox-name {
+                font-size: 18px;
+                font-family: 'DinPro', sans-serif;
+                text-transform: uppercase;
+            }
+        }
+        .business-checkbox-descriptions {
+            padding-left: 24px;
+            p {
+                font-size: 14px;
+                font-family: 'DinPro', sans-serif;
+            }
+        }
+    }
+}
+
+
+#category .card {
+    border: 0;
+    border-radius: 0px;
+    background-color: transparent;
+    margin-top: 2px;
+    .card-header {
+        border: 0;
+        border-radius: 0px;
+        padding: 0;
+        position: relative;
+        .title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 74px;
+            width: 85%;
+            display: flex;
+            align-items: center;
+            padding-left: 32px;
+            font-size: 18px;
+            font-family: 'DinPro Medium', sans-serif;
+            z-index: 1;
+            cursor: pointer;
+        }
+        .btn-header-link {
+            color: transparent;
+            display: block;
+            text-align: left;
+            background: $primary-50;
+            padding: 20px;
+            padding-left: 32px;
+            font-size: 21px;
+            font-family: 'DinPro Medium', sans-serif;
+            border: 0;
+            border-radius: 0px;
+            height: 74px;
+            &::after {
+                content: "\f068";
+                font-family: 'FontAwesome';  
+                font-weight: 900;
+                float: right;
+                color: $white;
+            }
+            &.collapsed {
+                background: $primary-50;
+                &::after {
+                    content: "\f067";
+                    color: $white;
+                }
+            }
+            &.active {
+                background: $primary-75;
+            }
+        }
+    }
+    .card-body {
+        border: 0;
+        padding-top: 0;
+        padding-left: 32px;
+        margin-bottom: -1px;
+        p {
+            font-size: 18px;
+            font-family: 'DinPro', sans-serif;
+            margin-bottom: 4px;
+        }
+    }
+    .collapsing {
+        background: $primary-25;
+        line-height: 30px;
+        color: $white;
+        font-size: 16px;
+        font-family: 'DinPro', sans-serif;
+        &.active {
+            background: $primary-50;
+        }
+    }
+    .collapse {
+        border: 0;
+        &.show {
+            background: $primary-25;
+            line-height: 30px;
+            color: $white;
+            font-size: 16px;
+            font-family: 'DinPro', sans-serif;
+        }
+        &.active {
+            background: $primary-25;
+        }
+    }
+}
+    
+@media only screen and (max-width: 787.98px) {
+    .setting-section {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 695.98px) {
+    .setting-section .contentItem {
+        .contentItem-wrp {
+            .profile-card {
+                padding: 24px;
+                .profile-card-context {
+                    margin-bottom: 8px;
+                }
+            }
+        }
+        .profile-card {
+            padding: 24px;
+            .profile-card-context {
+                margin-bottom: 8px;
+            }
+        }
+
+        .story-content-wrp {
+            .my-story-card {
+                padding: 24px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 668.98px) {
+    .page-content {
+        .profile-info-change-section {
+            justify-content: center;
+        }
+    }
+}
+
+@media only screen and (max-width: 575.98px) {
+    .crop__modal-content .modal-body {
+        max-height : 65% !important;
+    }
+    .setting-section .contentItem {
+        .contentItem-wrp {
+            .profile-card {
+                padding: 16px;
+
+                .profile-card-title {
+                    font-size: 16px;
+                    margin-top: 7px;
+                }
+                .profile-card-context {
+                    font-size: 14px;
+                    margin-top: 5px;
+                }
+
+                .search-icon {
+                    font-size: 18px;
+                }
+
+                .connect-btn-section {
+                    .profile-connect-btn {
+                        height: auto;
+                    }
+                }
+            }
+            .thumbnail-card {
+                .first_letter {
+                    font-size: 60px;
+                }
+            }
+        }
+
+        .person-info-section {
+            .profile-card {
+                padding: 16px;
+                .profile-content {
+                    .profile-card-title {
+                        font-size: 18px;
+                        line-height: 24px;
+                    }
+                    .profile-card-context {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        
+        .profile-card {
+            padding: 16px;
+
+            .profile-content {
+                .profile-card-title {
+                    font-size: 16px;
+                    line-height: 28px;
+                }
+                .profile-card-context {
+                    font-size: 14px;
+                    line-height: 18px;
+                    margin-bottom: 0px;
+                }
+    
+                .search-icon {
+                    font-size: 18px;
+                }
+    
+                .connect-btn-section {
+                    .profile-connect-btn {
+                        height: auto;
+                    }
+                }
+                img {
+                    width: 18px;
+                    margin-right: 7px;
+                }
+            }
+        }
+
+        .story-content-wrp {
+            .my-story-card {
+                padding: 16px;
+                .about {
+                    .story-card-title {
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                    .story-card-context, div {
+                        font-size: 14px;
+                        line-height: 18px;
+                    }
+                }
+                .birthday {
+                    span {
+                        font-size: 18px;
+                        margin-top: 2px;
+                    }
+                    p {
+                        font-size: 14px;
+                        margin-left: 7px;
+                        margin-top: 5px;
+                    }
+                }
+                .story-card-title {
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+                .story-card-context, div {
+                    font-size: 14px;
+                    line-height: 18px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 509.98px) {
+    .setting-section {
+        .profile-avatar {
+            width: 165px;
+            max-width: 165px;
+            flex: 1;
+        }
+        .profile-person-section {
+            flex: 1;
+        }
+        .contentItem {
+            padding: 0;
+        }
+        .save-button {
+            width: 50%;
+        }
+        .btn-section  {
+            .setting-save-btn {
+                width: 50%;
+            }
+        }
+    }
+    
+}

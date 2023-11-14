@@ -1,0 +1,366 @@
+.admin-members-section {
+  .title-section {
+    background: $primary;
+    height: 70px;
+    font-size: 16px;
+    font-family: 'DinPro', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .red-bg {
+    background: $danger;
+  }
+	.search-input-section {
+		display: flex;
+    .form-control {
+    	flex: 1;
+      background: $primary-50;
+      margin-right: 2px;
+      border: none;
+			border-radius: 0;
+      box-shadow: none;
+      height: 70px;
+      font-weight: 400;
+      outline: medium none;
+      padding-left: 20px;
+      padding-right: 20px;
+      font-size: 16px;
+      font-family: 'DinPro', sans-serif;
+      line-height: 1.4;
+      color: $white;
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+
+      &:hover, &:focus {
+        box-shadow: none;
+      }
+
+      &::-webkit-input-placeholder {
+        color: $white-50 !important;
+      }
+      &::-moz-placeholder {
+        color: $white-50 !important;
+      }
+      &:-moz-placeholder {
+        color: $white-50 !important;
+      }
+      &:-ms-input-placeholder {
+        color: $white-50 !important;
+      }
+    }
+    .search-icon-section {
+    	width: 70px;
+    	height: 70px;
+    	display: flex;
+    	align-items: center;
+    	justify-content: center;
+	    position: relative;
+	    background-color: $primary-75;
+	    cursor: pointer;
+    	.search-icon {
+	      font-size: 30px;
+	      color: $white;
+	    }
+  		&:hover {
+    		.search-icon {
+    			color: $white;
+    		}
+  		}
+    }
+	}
+  
+  .user-search-section {
+    background-color: $third;
+    display: none;
+    width: 100%;
+    z-index: 1000; 
+    position: absolute;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    max-height: 250px;
+    overflow-y: auto;
+    div {
+      color: $white;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 14px;
+      width: 100%;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    div:hover {
+      background-color: $primary;
+    }
+  }
+  .user-info-item {
+    display: flex;
+    grid-gap: 0.25rem;
+    position: relative;
+    .item-label {
+      background: $primary;
+      width: 25%;
+      height: 44px;
+      font-size: 12px;
+      font-family: 'DinPro', sans-serif;
+      padding: 12px;
+    }
+    .item-value {
+      flex: 1;
+      .form-group {
+        margin-bottom: 0;
+        .form-control {
+          background: $primary-25;
+          border: none;
+          -webkit-border-radius: 10rem;
+          -moz-border-radius: 10rem;
+          -ms-border-radius: 10rem;
+          border-radius: 0;
+          box-shadow: none;
+          height: 44px;
+          font-weight: 400;
+          outline: medium none;
+          padding-left: 16px;
+          padding-right: 16px;
+          font-size: 14px;
+          line-height: 1.4;
+          color: $white;
+          -webkit-transition: all 0.2s ease-in-out;
+          -moz-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+
+          &:hover, &:focus {
+            box-shadow: none;
+          }
+
+          &::-webkit-input-placeholder {
+            color: $white-50 !important;
+          }
+          &::-moz-placeholder {
+            color: $white-50 !important;
+          }
+          &:-moz-placeholder {
+            color: $white-50 !important;
+          }
+          &:-ms-input-placeholder {
+            color: $white-50 !important;
+          }
+        }
+            
+        label.has-error {
+          padding: 8px;
+          font-size: 14px;
+          color: $success;
+          text-align: left;
+          font-family: 'DinPro Light', sans-serif;
+          margin: 0;
+        }
+        label.valid {
+          padding: 8px;
+          font-size: 14px;
+          color: $success;
+          text-align: left;
+          font-family: 'DinPro Light', sans-serif;
+          margin: 0;
+        }
+        .disabled {
+          color: $white;
+        }
+      }
+      
+      .package-card {
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        background: $primary-25;
+        font-size: 14px;
+        font-family: 'DinPro', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.active {
+          background: $primary-75;
+        }
+        &:hover {
+          background: $primary-75;
+        }
+      }
+      .button-section {
+        flex: 1;
+        .save-button {
+          width: 100%;
+          max-width: 300px;
+          height: 44px;
+          background: $primary;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-transform: uppercase;
+          color: $white;
+          -webkit-border-radius: 0rem;
+          -moz-border-radius: 0rem;
+          -ms-border-radius: 0rem;
+          border-radius: 0rem;
+          font-size: 14px;
+          font-family: 'DinPro', sans-serif;
+          border: 0.1rem solid $primary;
+          cursor: pointer;
+          &:hover {
+            background: $success !important;
+            color: $primary !important;
+            border-color: $success !important;
+          }
+          &:focus, &:active {
+            background: $success !important;
+            color: $primary !important;
+            border-color: $success !important;
+            outline: none;
+            box-shadow: none;
+          }
+          .disabled, &:disabled, &[disabled] {
+            opacity: 1 !important;
+          }
+        }
+      }
+    }
+    .address-search-section {
+      background-color: $third;
+      display: none;
+      width: 100%;
+      z-index: 1000; 
+      position: absolute;
+      top: 45px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      max-height: 250px;
+      overflow-y: auto;
+      div {
+        color: $white;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 14px;
+        width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      div:hover {
+        background-color: $primary;
+      }
+    }
+  }
+  .payment-card-section {
+    height: 84px;
+    .payment-card {
+      flex: 1;
+      background-color: $primary-25;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-family: 'DinPro', sans-serif;
+      &.active {
+        background-color: $primary-75;
+      }
+    }
+  }
+  .unblock-user-content {
+    background-color: $primary-25;
+    padding: 12px;
+    height: 84px;
+    font-size: 12px;
+    font-family: 'DinPro', sans-serif;
+  }
+  .transactions-section {
+    flex: 1 1 auto;
+    padding: 12px;
+    background-color: $primary-25;
+    font-size: 14px;
+    font-family: 'DinPro', sans-serif;
+    .transaction-date {
+      width: 30%;
+    }
+    .transaction-in-out {
+      width: 15%;
+      font-family: "DinPro Bold", sans-serif;
+      &.active {
+        color: $success;
+      }
+    }
+    .transaction-price {
+      width: 25%;
+    }
+    .transaction-package {
+      width: 30%;
+    }
+  }
+  .referrals-section {
+    flex: 1 1 auto;
+    padding: 12px;
+    background-color: $primary-25;
+    font-size: 14px;
+    font-family: 'DinPro', sans-serif;
+    .referral-date {
+      width: 30%;
+    }
+    .referral-user {
+      width: 35%;
+    }
+    .referral-status {
+      width: 35%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .status {
+        color: $primary;
+        margin-right: 4px;
+        &.active {
+          color: $success;
+        }
+      }
+      .value {
+        color: $white;
+        min-width: 20px;
+        text-align: right;
+      }
+    }
+  }
+}
+
+
+
+@media only screen and (max-width: 991.98px) {
+  .admin-members-section {
+  	.search-input-section {
+			display: flex;
+	    .form-control {
+	      height: 60px;
+	      padding-left: 16px;
+	      padding-right: 16px;
+	    }
+	    .search-icon-section {
+	    	width: 60px;
+	    	height: 60px;
+	    	.search-icon {
+		      font-size: 24px;
+		    }
+	    }
+	  }
+    .title-section {
+      height: 60px;
+    }
+  }
+}
+
+@media only screen and (max-width: 575.98px) {
+  .admin-members-section {
+  	.no-members {
+  		font-size: 18px;
+  	}
+  }
+}

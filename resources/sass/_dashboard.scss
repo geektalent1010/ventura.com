@@ -1,0 +1,111 @@
+.dashboard-section {
+    width: 50%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    top: 80px;
+    display: flex;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    border: 2px solid transparent;
+    .navItem {
+        position: relative;
+        padding: 0;
+        border: 0.1rem solid transparent;
+        .notification-section {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            .notify-status {
+                font-size: 18px;
+                color: $success;
+            }
+        }
+        .navItem-wrp { 
+            display: block;
+            position: relative;
+            height: 0;
+            width: 100%;
+            padding-bottom: 100%;
+            overflow: hidden;
+            text-decoration: none;
+            background: $primary-25;
+    
+            .item {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                object-fit: cover;
+                object-position: center;
+    
+                transition: all ease 0.3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+    
+                .item-icon {
+                    max-width: 50%;
+                    width: 100%;
+                    margin-bottom: 20px;
+                    .st0 {
+                        fill: $white;
+                    }
+                    .st1 {
+                        fill: $white;
+                        fill-rule:evenodd;
+                        clip-rule: evenodd;
+                    }
+                }
+                span {
+                    font-family: 'DinPro Light', sans-serif;
+                    font-size: 16px;
+                    color: $white;
+                }
+            }
+            &:hover, &:focus {
+                background-color: $primary-75;
+    
+                .item {
+                    .item-icon {
+                        .st0, .st1 {
+                            fill: $white;
+                        }
+                    }
+                    span {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    
+        @media (min-width: 767.98px) {
+            -ms-flex: 0 0 20%;
+            flex: 0 0 20%;
+        }
+    
+        @media only screen and (max-width: 991.98px) {
+            .navItem-wrp .item span {
+                font-size: 18px;
+            }
+        }
+    
+        @media only screen and (max-width: 575.98px) {
+            .navItem-wrp .item .item-icon {
+                margin-bottom: 16px;
+            }
+            .navItem-wrp .item .buddies-icon {
+                margin-bottom: 10px !important;
+            }
+            .navItem-wrp .item span {
+                font-size: 18px;
+            }    
+        }
+    }
+    @media only screen and (max-width: 991.98px) {
+        width: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}

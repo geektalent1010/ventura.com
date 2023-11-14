@@ -1,0 +1,304 @@
+
+@font-face {
+  font-family: 'Raleway Black';
+  src: url('../fonts/raleway/Raleway-Black.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway BlackItalic';
+  src: url('../fonts/raleway/Raleway-BlackItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway Bold';
+  src: url('../fonts/raleway/Raleway-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway BoldItalic';
+  src: url('../fonts/raleway/Raleway-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway ExtraBold';
+  src: url('../fonts/raleway/Raleway-ExtraBold.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway ExtraBoldItalic';
+  src: url('../fonts/raleway/Raleway-ExtraBoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway ExtraLight';
+  src: url('../fonts/raleway/Raleway-ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway ExtraLightItalic';
+  src: url('../fonts/raleway/Raleway-ExtraLightItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway Italic';
+  src: url('../fonts/raleway/Raleway-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway Light';
+  src: url('../fonts/raleway/Raleway-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway LightItalic';
+  src: url('../fonts/raleway/Raleway-LightItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway Medium';
+  src: url('../fonts/raleway/Raleway-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway MediumItalic';
+  src: url('../fonts/raleway/Raleway-MediumItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway Regular';
+  src: url('../fonts/raleway/Raleway-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway SemiBold';
+  src: url('../fonts/raleway/Raleway-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway SemiBoldItalic';
+  src: url('../fonts/raleway/Raleway-SemiBoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway Thin';
+  src: url('../fonts/raleway/Raleway-Thin.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway ThinItalic';
+  src: url('../fonts/raleway/Raleway-ThinItalic.ttf');
+}
+
+
+
+
+@font-face {
+  font-family: 'Montserrat Black';
+  src: url('../fonts/Montserrat/Montserrat-Black.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat BlackItalic';
+  src: url('../fonts/Montserrat/Montserrat-BlackItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat Bold';
+  src: url('../fonts/Montserrat/Montserrat-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat BoldItalic';
+  src: url('../fonts/Montserrat/Montserrat-BoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat ExtraBold';
+  src: url('../fonts/Montserrat/Montserrat-ExtraBold.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat ExtraBoldItalic';
+  src: url('../fonts/Montserrat/Montserrat-ExtraBoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat ExtraLight';
+  src: url('../fonts/Montserrat/Montserrat-ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat ExtraLightItalic';
+  src: url('../fonts/Montserrat/Montserrat-ExtraLightItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat Italic';
+  src: url('../fonts/Montserrat/Montserrat-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat Light';
+  src: url('../fonts/Montserrat/Montserrat-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat LightItalic';
+  src: url('../fonts/Montserrat/Montserrat-LightItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat Medium';
+  src: url('../fonts/Montserrat/Montserrat-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat MediumItalic';
+  src: url('../fonts/Montserrat/Montserrat-MediumItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat Regular';
+  src: url('../fonts/Montserrat/Montserrat-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat SemiBold';
+  src: url('../fonts/Montserrat/Montserrat-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat SemiBoldItalic';
+  src: url('../fonts/Montserrat/Montserrat-SemiBoldItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat Thin';
+  src: url('../fonts/Montserrat/Montserrat-Thin.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat ThinItalic';
+  src: url('../fonts/Montserrat/Montserrat-ThinItalic.ttf');
+}
+
+
+
+
+@font-face {
+  font-family: 'DinPro';
+  src: url('../fonts/DinPro/DINPro.otf');
+}
+
+@font-face {
+  font-family: 'DinPro Black';
+  src: url('../fonts/DinPro/DINPro-Black.otf');
+}
+
+@font-face {
+  font-family: 'DinPro BlackItalic';
+  src: url('../fonts/DinPro/DINPro-BlackItalic.otf');
+}
+
+@font-face {
+  font-family: 'DinPro Bold';
+  src: url('../fonts/DinPro/DINPro-Bold.otf');
+}
+
+@font-face {
+  font-family: 'DinPro BoldItalic';
+  src: url('../fonts/DinPro/DINPro-BoldItalic.otf');
+}
+
+@font-face {
+  font-family: 'DinPro Italic';
+  src: url('../fonts/DinPro/DINPro-Italic.otf');
+}
+
+@font-face {
+  font-family: 'DinPro Light';
+  src: url('../fonts/DinPro/DINPro-Light.otf');
+}
+
+@font-face {
+  font-family: 'DinPro LightItalic';
+  src: url('../fonts/DinPro/DINPro-LightItalic.otf');
+}
+
+@font-face {
+  font-family: 'DinPro Medium';
+  src: url('../fonts/DinPro/DINPro-Medium.otf');
+}
+
+@font-face {
+  font-family: 'DinPro MediumItalic';
+  src: url('../fonts/DinPro/DINPro-MediumItalic.otf');
+}
+
+@font-face {
+  font-family: 'DinPro Cond';
+  src: url('../fonts/DinPro/DINPro-Cond.otf');
+}
+
+@font-face {
+  font-family: 'DinPro CondBlack';
+  src: url('../fonts/DinPro/DINPro-CondBlack.otf');
+}
+
+@font-face {
+  font-family: 'DinPro CondBlackItalic';
+  src: url('../fonts/DinPro/DINPro-CondBlackIta.otf');
+}
+
+@font-face {
+  font-family: 'DinPro CondBold';
+  src: url('../fonts/DinPro/DINPro-CondBold.otf');
+}
+
+@font-face {
+  font-family: 'DinPro CondBoldItalic';
+  src: url('../fonts/DinPro/DINPro-CondBoldIta.otf');
+}
+
+@font-face {
+  font-family: 'DinPro CondItalic';
+  src: url('../fonts/DinPro/DINPro-CondIta.otf');
+}
+
+@font-face {
+  font-family: 'DinPro CondLight';
+  src: url('../fonts/DinPro/DINPro-CondLight.otf');
+}
+
+@font-face {
+  font-family: 'DinPro CondLightItalic';
+  src: url('../fonts/DinPro/DINPro-CondLightIta.otf');
+}
+
+@font-face {
+  font-family: 'DinPro CondMedium';
+  src: url('../fonts/DinPro/DINPro-CondMedium.otf');
+}
+
+@font-face {
+  font-family: 'DinPro CondMediumItalic';
+  src: url('../fonts/DinPro/DINPro-CondMediIta.otf');
+}
+
+
+
+
+@font-face {
+  font-family: 'Concord Light';
+  src: url('../fonts/Concord/Concord-W00-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Concord Medium';
+  src: url('../fonts/Concord/Concord-W00-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Concord Regular';
+  src: url('../fonts/Concord/Concord-W00-Regular.ttf');
+}

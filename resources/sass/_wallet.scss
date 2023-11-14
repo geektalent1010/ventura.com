@@ -1,0 +1,114 @@
+.wallet-section {
+    position: absolute;
+    height: calc(100vh - 120px);
+    top: 80px;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    z-index: 10;
+    width: 100%;
+    padding-top: 2px !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    p {
+        font-size: 18px;
+    }
+    .text-bold {
+        font-weight: bold;
+    }
+    .text-gray {
+        color: $white-50;
+    }
+    .dark-color-section {
+        background-color: $primary-75;
+        margin-bottom: 2px !important;
+    }
+    .panel-color-section {
+        background-color: $primary-50;
+        margin-bottom: 2px !important;
+    }
+    .odd-color-section {
+        background-color: $primary-25;
+        margin-bottom: 2px !important;
+    }
+    .success-color-section {
+        background-color: $success-50;
+        margin-bottom: 2px !important;
+        color: $white;
+    }
+    .dot-section {
+        width: 25px;
+        height: 25px;
+        border-radius: 100px;
+        margin-right: 20px;
+        margin-top: 2px;
+    }
+    .dis-selected {
+        background-color: white;
+    }
+    .selected {
+        background-color: $success;
+    }
+    .edit-section {
+        img {
+            width: 25px;
+        }
+    }
+    .wallet-address {
+        margin-left: 45px;
+        font-size: 16px !important;
+    }
+}
+.btn-section {
+    .profile-update-btn {
+        width: 100%;
+        max-width: 300px;
+        height: 44px;
+        background: $primary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        color: $white;
+        -webkit-border-radius: 10rem;
+        -moz-border-radius: 10rem;
+        -ms-border-radius: 10rem;
+        border-radius: 10rem;
+        font-size: 16px;
+        font-family: 'DinPro', sans-serif;
+        border: 0.1rem solid $primary;
+        cursor: pointer;
+
+        &:hover {
+            background: $success !important;
+            color: $primary !important;
+            border-color: $success !important;
+        }
+        &:focus, &:active {
+            background: $success !important;
+            color: $primary !important;
+            border-color: $success !important;
+            outline: none;
+            box-shadow: none;
+        }
+        .disabled, &:disabled, &[disabled] {
+            opacity: 1 !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 475.98px) {
+    .wallet-section {
+        .wallet-address {
+            font-size: 14px !important;
+        }
+    }
+    .btn-section {
+        .profile-update-btn {
+            width: 50vw;
+            height: 35px;
+            font-size: 13px;
+        }
+    }
+}
