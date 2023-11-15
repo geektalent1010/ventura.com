@@ -16,3 +16,4 @@ yarn-error.log
 *.lock
 *-lock
 package-lock.json
+error_log
