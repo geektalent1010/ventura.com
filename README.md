@@ -33,3 +33,6 @@ Go to [http://localhost](http://localhost) in order to see the application runni
 - if somehow one will push with `--no-verify` a github action will be triggered which will create a commit on the top of the PR with the needed fixes
 - to enhance the IDE's autocomplete we are using a helper to generate the ide helper file. for more [details](https://github.com/barryvdh/laravel-ide-helper)
 - in order to merge a PR an approval is required
+
+
+[![Laravel Forge Site Deployment Status](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2Fa6c72835-a21e-4f6c-a2ed-f1948abd086b%3Fdate%3D1%26commit%3D1&style=flat-square)](https://forge.laravel.com/servers/738683/sites/2177792)
