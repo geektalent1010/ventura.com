@@ -1,4 +1,3 @@
-
 <div class="member-body flat-scroll">
   <div class="accordion" id="faq">
     <div class="card">
@@ -11,7 +10,7 @@
           <div class="">Dashboard is your easy access to anything in Ventura Pro. Just click or tap on one of the dashboard icons and you will be forwarded to the requested page.</div>
           <div class="action-title my-3">Actions</div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section">              
+            <div class="icon-section">
               <span class="nav-icon d-flex align-items-center"><img src="{{ asset('images/svg/Logout.svg') }}" class="img-fluid w-50" alt="Logout" title="Logout" /></span>
             </div>
             <div>Logout</div>
@@ -41,7 +40,7 @@
           <div class="action-title my-3">Actions</div>
           <div class="mb-3">Click or tap EDIT to go into edit mode.</div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section">              
+            <div class="icon-section">
               <span class="nav-icon d-flex align-items-center"><img src="{{ asset('images/svg/Logout.svg') }}" class="img-fluid w-50" alt="Logout" title="Logout" /></span>
             </div>
             <div>Logout</div>
@@ -104,13 +103,13 @@
           <div class="">To connect with someone, you are obliged to write and send a message first to introduce yourself. If someone reads your message and clicks accept, you will be connected. Your new connection will now be visible on your friends list.</div>
           <div class="action-title my-3">Actions</div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section">              
+            <div class="icon-section">
               <span class="nav-icon d-flex align-items-center"><img src="{{ asset('images/svg/Logout.svg') }}" class="img-fluid w-50" alt="Logout" title="Logout" /></span>
             </div>
             <div>Logout</div>
           </div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section">              
+            <div class="icon-section">
               <span class="nav-icon"><i class="fa fa-plus" aria-hidden="true"></i></span>
             </div>
             <div>Accept request</div>
@@ -143,7 +142,7 @@
           <div class="">See new friend requests and all connected friends in alphabetical order. Simply type any name in the search field to quickly find one of your friends.</div>
           <div class="action-title my-3">Actions</div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section">              
+            <div class="icon-section">
               <span class="nav-icon d-flex align-items-center"><img src="{{ asset('images/svg/Logout.svg') }}" class="img-fluid w-50" alt="Logout" title="Logout" /></span>
             </div>
             <div>Logout</div>
@@ -189,7 +188,7 @@
           <div class="">To start a first or new chat with a friend not visible on the chat list, go to your friends list, find the friend and click the chat icon.</div>
           <div class="action-title my-3">Actions</div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section">              
+            <div class="icon-section">
               <span class="nav-icon d-flex align-items-center"><img src="{{ asset('images/svg/Logout.svg') }}" class="img-fluid w-50" alt="Logout" title="Logout" /></span>
             </div>
             <div>Logout</div>
@@ -263,7 +262,7 @@
           <div class="">Rooms are only visible and accessible for invited members. Only the creator of a room is obliged to add or remove members.</div>
           <div class="action-title my-3">Actions</div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section tripple-icon-section">              
+            <div class="icon-section tripple-icon-section">
               <span class="nav-icon d-flex align-items-center"><img src="{{ asset('images/svg/Logout.svg') }}" class="img-fluid w-50" alt="Logout" title="Logout" /></span>
             </div>
             <div>Logout</div>
@@ -293,7 +292,7 @@
             <div>Room chat</div>
           </div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section tripple-icon-section">              
+            <div class="icon-section tripple-icon-section">
               <span class="nav-icon"><i class="fa fa-plus" aria-hidden="true"></i></span>
             </div>
             <div>Accept request</div>
@@ -332,7 +331,7 @@
           <div class="mb-3">Everyone has a success story. On the stories channel, you can read success stories from others and write your own. Add a nice picture and let us know where it’s taken. Stories is a great way to introduce yourself to the Ventura Pro business platform which might lead to new connections. If you like a post, just click the heart.</div>
           <div class="action-title my-3">Actions</div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section tripple-icon-section">              
+            <div class="icon-section tripple-icon-section">
               <span class="nav-icon d-flex align-items-center"><img src="{{ asset('images/svg/Logout.svg') }}" class="img-fluid w-50" alt="Logout" title="Logout" /></span>
             </div>
             <div>Logout</div>
@@ -401,7 +400,7 @@
           <div class="mb-3">Find market related companies in this constantly growing list. If you find your favorite company, give them a like. If you don’t find your favorite company, send us a request so we can add it to the list.</div>
           <div class="action-title my-3">Actions</div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section">              
+            <div class="icon-section">
               <span class="nav-icon d-flex align-items-center"><img src="{{ asset('images/svg/Logout.svg') }}" class="img-fluid w-50" alt="Logout" title="Logout" /></span>
             </div>
             <div>Logout</div>
@@ -430,7 +429,7 @@
           <div class="mb-3">Find market related coaches in this constantly growing list. Coaches can be added as a friend as soon as they accept your request. Find your favorite coach and give them a like. If your favorite coach is not on the list, send us a request so we can add them.</div>
           <div class="action-title my-3">Actions</div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section">              
+            <div class="icon-section">
               <span class="nav-icon d-flex align-items-center"><img src="{{ asset('images/svg/Logout.svg') }}" class="img-fluid w-50" alt="Logout" title="Logout" /></span>
             </div>
             <div>Logout</div>
@@ -459,7 +458,7 @@
           <div class="mb-3">The wisdom channel will be filled with inspiration, tips and insights to create better performance. Active coaches might post their words of wisdom, to help you grow as a person and in business. If you like a post, just click the heart.</div>
           <div class="action-title my-3">Actions</div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section">              
+            <div class="icon-section">
               <span class="nav-icon d-flex align-items-center"><img src="{{ asset('images/svg/Logout.svg') }}" class="img-fluid w-50" alt="Logout" title="Logout" /></span>
             </div>
             <div>Logout</div>
@@ -489,7 +488,7 @@
           <div class="mb-3">The brands channel is a great way to introduce and promote your brand to the Ventura Pro business platform which might lead to new connections and new business. If you like a post, just click the heart.</div>
           <div class="action-title my-3">Actions</div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section tripple-icon-section">              
+            <div class="icon-section tripple-icon-section">
               <span class="nav-icon d-flex align-items-center"><img src="{{ asset('images/svg/Logout.svg') }}" class="img-fluid w-50" alt="Logout" title="Logout" /></span>
             </div>
             <div>Logout</div>
@@ -559,7 +558,7 @@
           <div class="">Stay Tuned!</div>
           <div class="action-title my-3">Actions</div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section">              
+            <div class="icon-section">
               <span class="nav-icon d-flex align-items-center"><img src="{{ asset('images/svg/Logout.svg') }}" class="img-fluid w-50" alt="Logout" title="Logout" /></span>
             </div>
             <div>Logout</div>
@@ -589,7 +588,7 @@
           <div class="mb-3">Feel free to contact the event publisher when you see an event you would like to attend. If you like a post, just click the heart.</div>
           <div class="action-title my-3">Actions</div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section tripple-icon-section">              
+            <div class="icon-section tripple-icon-section">
               <span class="nav-icon d-flex align-items-center"><img src="{{ asset('images/svg/Logout.svg') }}" class="img-fluid w-50" alt="Logout" title="Logout" /></span>
             </div>
             <div>Logout</div>
@@ -660,7 +659,7 @@
           <div class="mb-3">Be creative and surprise followers with your brand-new brand campaign!</div>
           <div class="action-title my-3">Actions</div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section">              
+            <div class="icon-section">
               <span class="nav-icon d-flex align-items-center"><img src="{{ asset('images/svg/Logout.svg') }}" class="img-fluid w-50" alt="Logout" title="Logout" /></span>
             </div>
             <div>Logout</div>
@@ -706,7 +705,7 @@
           <div class="mb-3">No serious business survives without real-time statistics. Stats is for marketers that actively market Ventura Pro software licenses and shows the process of financial growth in detail.</div>
           <div class="mb-3">View the status of personal sales, channel sales, sales floors and qualifications.</div>
           <div class="d-flex align-items-center mb-3">
-            <div class="icon-section">              
+            <div class="icon-section">
               <span class="nav-icon d-flex align-items-center"><img src="{{ asset('images/svg/Logout.svg') }}" class="img-fluid w-50" alt="Logout" title="Logout" /></span>
             </div>
             <div>Logout</div>

@@ -13,7 +13,7 @@
                 <p>LOGIN</p>
                 <span>FOR REGISTERED USERS</span>
             </div>
-            
+
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
@@ -108,8 +108,8 @@
         }
 
         $usernameInput.on("keyup", onChangeUsernameInput);
-        $passwordInput.on("keyup", onChangePasswordInput);       
+        $passwordInput.on("keyup", onChangePasswordInput);
     });
-    
+
 </script>
 @endsection

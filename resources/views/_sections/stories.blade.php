@@ -1,13 +1,13 @@
 <div class="accordion" id="stories">
   @foreach ($stories as $index => $story)
     <div class="w-100 post-item mb-3">
-      <div class="text-right p-2 pr-md-0 created-at-label">{{ date_format($story->created_at, "d/m/Y" )}}</div>
+      <div class="text-right p-2 pr-md-0 created-at-label">{{ date_format($story->created_at, "d/m/Y" ) }}</div>
       <div class="member-body">
         <div class="member-item">
           <div class="member-link">
             <div class="member-avatar-wrp">
               <div class="member-avatar">
-                @if($story->user->profile->main_avatar_url)
+                @if ($story->user->profile->main_avatar_url)
                 <img src="{{ asset('uploads/'.$story->user->username.'/'.$story->user->profile->main_avatar_url.'?'.time()) }}">
                 @else
                 <p class="first_letter">{{ $story->user->getMono() }}</p>

@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateRankUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('rank_users', function (Blueprint $table) {
@@ -25,11 +20,6 @@ class CreateRankUsersTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('rank_users');

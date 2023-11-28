@@ -1,5 +1,4 @@
-
-        <form class="filterForm">
+<form class="filterForm">
             <div class="row">
                 <div class="eachFilter operation col-md-3 col-sm-6">
                     <label>Username</label>
@@ -11,7 +10,7 @@
                     <select name="filters[package]">
                         <option value="">Select Package</option>
                         <option value="0">All</option>
-                        @foreach($package as $pack)
+                        @foreach ($package as $pack)
                             <option value="{{ $pack->id }}"> {{ $pack->name }} </option>
                         @endforeach
                     </select>

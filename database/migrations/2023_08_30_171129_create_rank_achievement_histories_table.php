@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateRankAchievementHistoriesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('rank_achievement_histories', function (Blueprint $table) {
@@ -25,11 +20,6 @@ class CreateRankAchievementHistoriesTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('rank_achievement_histories');

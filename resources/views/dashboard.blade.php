@@ -148,7 +148,7 @@
             </a>
         </div>
         <div class="col-4 navItem" id="app">
-            <a class="navItem-wrp" href="{{ route('chat.chatting', [ 'ids' => auth()->user()->id . '_' ])}}">
+            <a class="navItem-wrp" href="{{ route('chat.chatting', [ 'ids' => auth()->user()->id . '_' ]) }}">
                 <div class="item">
                     <div class="item-icon">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 62 38" style="enable-background:new 0 0 62 38;" xml:space="preserve">

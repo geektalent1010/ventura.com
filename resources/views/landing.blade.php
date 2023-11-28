@@ -25,7 +25,7 @@
 
    const play_icon = document.querySelector('.play-icon');
    const stop_icon = document.querySelector('.stop-icon');
-   
+
    play_icon.addEventListener('mouseover', function() {
       play_icon.src = '/images/svg/PlayButtonBlue.svg';
    });
@@ -42,7 +42,7 @@
 
    let video = document.querySelector('.video-section');
    let video_mobile = document.querySelector('.video-section-mobile');
-   
+
    $('.play-icon').click(function() {
       if (window.innerWidth > 769) {
          video.querySelector('source').src = '/Video/VenturaH.mp4';
@@ -77,7 +77,7 @@
          video_mobile.querySelector('source').src = '/Video/VenturaGlobeV.mp4';
          video_mobile.load();
          video_mobile.muted = true;
-      }    
+      }
       $('.stop-icon').addClass('d-none');
       $('.play-icon').removeClass('d-none');
       $('.title-section').addClass('d-flex');

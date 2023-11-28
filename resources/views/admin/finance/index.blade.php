@@ -76,7 +76,7 @@
     $(function () {
         loadTransactionFilters();
     });
-    
+
     function loadTransactionFilters() {
         $.get('{{ route('finance.filters') }}', function (response) {
             $('.reportFilters').html(response);

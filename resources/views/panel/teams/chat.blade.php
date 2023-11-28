@@ -18,7 +18,7 @@
       <div class="col-md-7 p-0">
         <div class="name-input-section">
           <div class="image-icon-section">
-            @if($channelInfo->team_logo)
+            @if ($channelInfo->team_logo)
             <div class="contentItem-wrp">
               <img src="{{ asset('uploads/groups/'.$channelInfo->team_logo.'?'.time()) }}">
             </div>

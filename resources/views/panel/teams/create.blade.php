@@ -15,7 +15,7 @@
   <div class="row flex-column m-0 p-0 w-100 groups-section">
     <div class="row justify-content-center m-0 p-0 w-100">
       <div class="col-md-6 p-0">
-        <div class="text-center py-3 top-title">CREATE OR EDIT MY ROOM</div>        
+        <div class="text-center py-3 top-title">CREATE OR EDIT MY ROOM</div>
         <div class="name-input-section">
           <div class="image-icon-section">
             <span class="image-icon"><i class="fa fa-image" aria-hidden="true"></i></span>

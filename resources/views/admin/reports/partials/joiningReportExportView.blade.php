@@ -1,5 +1,4 @@
-
-@if($joiningData->count())
+@if ($joiningData->count())
     <table>
         <thead>
         <tr>
@@ -13,7 +12,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($joiningData as $user)
+        @foreach ($joiningData as $user)
             <tr>
                 <td> {{ $loop->iteration }} </td>
                 <td> {{ $user->username }} </td>

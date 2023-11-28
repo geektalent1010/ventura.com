@@ -27,7 +27,7 @@
             <div class="col-md-6 p-0">
                 <div class="row p-0 m-0">
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 contentItem">
-                        @if(isset($user->profile->main_avatar_url))
+                        @if (isset($user->profile->main_avatar_url))
                             <div class="contentItem-wrp profile-avatar-wrp">
                                 <div class="optional-section">
                                     <span class="option-icon trash-avatar" attr-data="main_avatar"><i class="fa fa-trash" aria-hidden="true"></i></span>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 contentItem">
-                    @if(isset($user->profile->banner_img_url))
+                    @if (isset($user->profile->banner_img_url))
                         <div class="contentItem-wrp main-avatar">
                             <div class="optional-section banner-section">
                                 <span class="option-icon trash-avatar" attr-data="banner_img"><i class="fa fa-trash" aria-hidden="true"></i></span>
@@ -100,7 +100,7 @@
                                 Write your story
                             </div>
                             @endif
-                        </div>                        
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-12 p-0">
@@ -131,7 +131,7 @@
                         <div class="col-12 col-sm-12 p-0">
                             <div class="row justify-content-center m-0 p-0 w-100 card-border-wrp">
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->other_avatar_url1))
+                                    @if (isset($user->profile->other_avatar_url1))
                                         <div class="contentItem-wrp">
                                             <div class="optional-section">
                                                 <span class="option-icon trash-avatar" attr-data="thumbnail1"><i class="fa fa-trash" aria-hidden="true"></i></span>
@@ -150,7 +150,7 @@
                                     @endif
                                 </div>
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->other_avatar_url2))
+                                    @if (isset($user->profile->other_avatar_url2))
                                         <div class="contentItem-wrp">
                                             <div class="optional-section">
                                                 <span class="option-icon trash-avatar" attr-data="thumbnail2"><i class="fa fa-trash" aria-hidden="true"></i></span>
@@ -169,7 +169,7 @@
                                     @endif
                                 </div>
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->other_avatar_url3))
+                                    @if (isset($user->profile->other_avatar_url3))
                                         <div class="contentItem-wrp">
                                             <div class="optional-section">
                                                 <span class="option-icon trash-avatar" attr-data="thumbnail3"><i class="fa fa-trash" aria-hidden="true"></i></span>
@@ -188,7 +188,7 @@
                                     @endif
                                 </div>
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->other_avatar_url4))
+                                    @if (isset($user->profile->other_avatar_url4))
                                         <div class="contentItem-wrp">
                                             <div class="optional-section">
                                                 <span class="option-icon trash-avatar" attr-data="thumbnail4"><i class="fa fa-trash" aria-hidden="true"></i></span>
@@ -207,7 +207,7 @@
                                     @endif
                                 </div>
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->other_avatar_url5))
+                                    @if (isset($user->profile->other_avatar_url5))
                                         <div class="contentItem-wrp">
                                             <div class="optional-section">
                                                 <span class="option-icon trash-avatar" attr-data="thumbnail5"><i class="fa fa-trash" aria-hidden="true"></i></span>
@@ -226,7 +226,7 @@
                                     @endif
                                 </div>
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->other_avatar_url6))
+                                    @if (isset($user->profile->other_avatar_url6))
                                         <div class="contentItem-wrp">
                                             <div class="optional-section">
                                                 <span class="option-icon trash-avatar" attr-data="thumbnail6"><i class="fa fa-trash" aria-hidden="true"></i></span>
@@ -245,7 +245,7 @@
                                     @endif
                                 </div>
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->other_avatar_url7))
+                                    @if (isset($user->profile->other_avatar_url7))
                                         <div class="contentItem-wrp">
                                             <div class="optional-section">
                                                 <span class="option-icon trash-avatar" attr-data="thumbnail7"><i class="fa fa-trash" aria-hidden="true"></i></span>
@@ -264,7 +264,7 @@
                                     @endif
                                 </div>
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->other_avatar_url8))
+                                    @if (isset($user->profile->other_avatar_url8))
                                         <div class="contentItem-wrp">
                                             <div class="optional-section">
                                                 <span class="option-icon trash-avatar" attr-data="thumbnail8"><i class="fa fa-trash" aria-hidden="true"></i></span>
@@ -380,12 +380,12 @@
                 $('#crop__result').attr('src', resp);
                 $('.modal').modal('hide');
                 $('#crop__result').show();
-                
+
                 $("input[id='selectedFile']").val('');
                 var blobURL = resp;
                 const img = new Image();
                 img.src = blobURL;
-                
+
                 img.onload = function () {
                     const MAX_WIDTH = 640;
                     const MAX_HEIGHT = 640;
@@ -449,7 +449,7 @@
             return;
         }
         $("input[id='profile-avatar-file']").val('')
-        
+
         var blobURL;
         if (!file_data || file_data == undefined) {
             blobURL = img_src;
@@ -457,10 +457,10 @@
         else {
             blobURL = URL.createObjectURL(file_data);
         }
-        
+
         const img = new Image();
         img.src = blobURL;
-        
+
         img.onload = function () {
             const MAX_WIDTH = 1080;
             const MAX_HEIGHT = 675;
@@ -507,7 +507,7 @@
 
     $(".trash-avatar").click(function() {
         var send_data = {};
-        send_data['id'] = '{{$user->profile->id}}';
+        send_data['id'] = '{{ $user->profile->id }}';
         send_data['field'] = $(this).attr('attr-data');
         $.ajax({
           type: 'PUT',
@@ -526,7 +526,7 @@
         if (contents != $(this).html()) {
             contents = $(this).html();
             var send_data = {};
-            send_data['id'] = '{{$user->profile->id}}';
+            send_data['id'] = '{{ $user->profile->id }}';
             send_data['story_content'] = contents
             $.ajax({
               type: 'PUT',

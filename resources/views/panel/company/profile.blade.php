@@ -41,7 +41,7 @@
             <div class="col-md-6 p-0">
                 <div class="row p-0 m-0">
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 contentItem">
-                        @if(isset($user->profile->main_avatar_url))
+                        @if (isset($user->profile->main_avatar_url))
                             <a class="contentItem-wrp face" data-fancybox href="{{ asset('uploads/'.$user->username.'/'.$user->profile->main_avatar_url.'?'.time()) }}">
                                 <img src="{{ asset('uploads/'.$user->username.'/'.$user->profile->main_avatar_url.'?'.time()) }}">
                             </a>
@@ -60,7 +60,7 @@
                                     <p class="profile-card-title">{{ $user->profile->company_name ?? 'Company Name' }}</p>
                                     <p class="profile-card-context">
                                         @if (count($main_interests) > 0)
-                                            @foreach($main_interests as $tag)
+                                            @foreach ($main_interests as $tag)
                                                 {{ isset($categories[$tag]) ? $categories[$tag] : '' }}
                                             @endforeach
                                         @endif
@@ -71,14 +71,14 @@
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 contentItem">
-                    @if(isset($user->profile->banner_img_url))
+                    @if (isset($user->profile->banner_img_url))
                         <a class="contentItem-wrp main-avatar" data-fancybox href="{{ asset('uploads/'.$user->username.'/'.$user->profile->banner_img_url.'?'.time()) }}">
                             <img src="{{ asset('uploads/'.$user->username.'/'.$user->profile->banner_img_url.'?'.time()) }}">
                         </a>
                     @else
                         <div class="contentItem-wrp main-avatar">
                             <div class="thumbnail-card main_avatar_card_bg" attr-data="main_avatar">
-                                
+
                             </div>
                         </div>
                     @endif
@@ -126,7 +126,7 @@
                                 </div>
                             </div>
                         </div>
-                        @if(!$is_me)
+                        @if (!$is_me)
                         <div class="col-6 like-section">
                             <span class="heart-icon {{ in_array($authUser->id, explode(',', $user->profile->followers)) ? 'like' : '' }} company{{ $user->profile->id }}"  attr-data="{{ $user->profile->id }}"><i class="fa fa-heart" aria-hidden="true"></i></span>
                             <span class="likes-count{{ $user->profile->id }}">{{ $user->profile->followers && count(explode(',', $user->profile->followers)) > 0 ? count(explode(',', $user->profile->followers)) : 0 }}</span>
@@ -138,105 +138,105 @@
                         <div class="col-12 col-sm-12 p-0">
                             <div class="row justify-content-center m-0 p-0 w-100 card-border-wrp">
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->logo_url))
+                                    @if (isset($user->profile->logo_url))
                                         <a class="contentItem-wrp" data-fancybox href="{{ asset('uploads/'.$user->username.'/'.$user->profile->logo_url.'?'.time()) }}">
                                             <img src="{{ asset('uploads/'.$user->username.'/'.$user->profile->logo_url.'?'.time()) }}">
                                         </a>
                                     @else
                                         <div class="contentItem-wrp">
                                             <div class="thumbnail-card">
-                                                
+
                                             </div>
                                         </div>
                                     @endif
                                 </div>
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->other_avatar_url2))
+                                    @if (isset($user->profile->other_avatar_url2))
                                         <a class="contentItem-wrp" data-fancybox href="{{ asset('uploads/'.$user->username.'/'.$user->profile->other_avatar_url2.'?'.time()) }}">
                                             <img src="{{ asset('uploads/'.$user->username.'/'.$user->profile->other_avatar_url2.'?'.time()) }}">
                                         </a>
                                     @else
                                         <div class="contentItem-wrp">
                                             <div class="thumbnail-card">
-                                                
+
                                             </div>
                                         </div>
                                     @endif
                                 </div>
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->other_avatar_url3))
+                                    @if (isset($user->profile->other_avatar_url3))
                                         <a class="contentItem-wrp" data-fancybox href="{{ asset('uploads/'.$user->username.'/'.$user->profile->other_avatar_url3.'?'.time()) }}">
                                             <img src="{{ asset('uploads/'.$user->username.'/'.$user->profile->other_avatar_url3.'?'.time()) }}">
                                         </a>
                                     @else
                                         <div class="contentItem-wrp">
                                             <div class="thumbnail-card">
-                                                
+
                                             </div>
                                         </div>
                                     @endif
                                 </div>
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->other_avatar_url4))
+                                    @if (isset($user->profile->other_avatar_url4))
                                         <a class="contentItem-wrp" data-fancybox href="{{ asset('uploads/'.$user->username.'/'.$user->profile->other_avatar_url4.'?'.time()) }}">
                                             <img src="{{ asset('uploads/'.$user->username.'/'.$user->profile->other_avatar_url4.'?'.time()) }}">
                                         </a>
                                     @else
                                         <div class="contentItem-wrp">
                                             <div class="thumbnail-card">
-                                                
+
                                             </div>
                                         </div>
                                     @endif
                                 </div>
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->other_avatar_url5))
+                                    @if (isset($user->profile->other_avatar_url5))
                                         <a class="contentItem-wrp" data-fancybox href="{{ asset('uploads/'.$user->username.'/'.$user->profile->other_avatar_url5.'?'.time()) }}">
                                             <img src="{{ asset('uploads/'.$user->username.'/'.$user->profile->other_avatar_url5.'?'.time()) }}">
                                         </a>
                                     @else
                                         <div class="contentItem-wrp">
                                             <div class="thumbnail-card">
-                                                
+
                                             </div>
                                         </div>
                                     @endif
                                 </div>
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->other_avatar_url6))
+                                    @if (isset($user->profile->other_avatar_url6))
                                         <a class="contentItem-wrp" data-fancybox href="{{ asset('uploads/'.$user->username.'/'.$user->profile->other_avatar_url6.'?'.time()) }}">
                                             <img src="{{ asset('uploads/'.$user->username.'/'.$user->profile->other_avatar_url6.'?'.time()) }}">
                                         </a>
                                     @else
                                         <div class="contentItem-wrp">
                                             <div class="thumbnail-card">
-                                                
+
                                             </div>
                                         </div>
                                     @endif
                                 </div>
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->other_avatar_url7))
+                                    @if (isset($user->profile->other_avatar_url7))
                                         <a class="contentItem-wrp" data-fancybox href="{{ asset('uploads/'.$user->username.'/'.$user->profile->other_avatar_url7.'?'.time()) }}">
                                             <img src="{{ asset('uploads/'.$user->username.'/'.$user->profile->other_avatar_url7.'?'.time()) }}">
                                         </a>
                                     @else
                                         <div class="contentItem-wrp">
                                             <div class="thumbnail-card">
-                                                
+
                                             </div>
                                         </div>
                                     @endif
                                 </div>
                                 <div class="col-3 col-sm-3 col-md-3 contentItem thumbnail-card-border">
-                                    @if(isset($user->profile->other_avatar_url8))
+                                    @if (isset($user->profile->other_avatar_url8))
                                         <a class="contentItem-wrp" data-fancybox href="{{ asset('uploads/'.$user->username.'/'.$user->profile->other_avatar_url8.'?'.time()) }}">
                                             <img src="{{ asset('uploads/'.$user->username.'/'.$user->profile->other_avatar_url8.'?'.time()) }}">
                                         </a>
                                     @else
                                         <div class="contentItem-wrp">
                                             <div class="thumbnail-card">
-                                                
+
                                             </div>
                                         </div>
                                     @endif
@@ -245,14 +245,14 @@
                         </div>
                     </div>
                 </div>
-                @if($is_me)
+                @if ($is_me)
                     <div class="row justify-content-center align-items-center mt-4 mb-5 btn-section w-100 p-0 m-0">
                         <a href="{{ route('profile.edit') }}" class="btn btn-primary profile-edit-btn">EDIT</a>
                     </div>
                 @endif
             </div>
         </div>
-        
+
     </div>
 </div>
 
@@ -301,7 +301,7 @@
           else {
             $('.follow-btn').html('FOLLOW');
           }
-          
+
         }
       })
   });

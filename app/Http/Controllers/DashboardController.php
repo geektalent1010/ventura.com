@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
-use App\Channel;
-use App\Requests;
-use App\Notification;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Channel;
+use App\Models\Notification;
+use App\Models\Post;
+use App\Models\Requests;
 
 class DashboardController extends Controller
 {
@@ -28,7 +26,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $authUser = Auth::user();
+        $authUser = auth()->user();
         $otherUser = $channelInfo = null;
         $isNewRequests = false;
         $isNews = false;
@@ -56,6 +54,7 @@ class DashboardController extends Controller
         if ($authUser->IsAdmin()) {
             return view('admin.dashboard', compact('authUser', 'otherUser', 'channelInfo', 'channels', 'isNewRequests', 'isNews'));
         }
+
         return view('dashboard', compact('authUser', 'otherUser', 'channelInfo', 'channels', 'isNewRequests', 'isNews'));
     }
 }

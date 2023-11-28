@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class AddChannelColumnsToRanksTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::table('ranks', function (Blueprint $table) {
@@ -20,11 +15,6 @@ class AddChannelColumnsToRanksTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::table('ranks', function (Blueprint $table) {

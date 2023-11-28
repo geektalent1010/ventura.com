@@ -57,7 +57,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="row justify-content-center align-items-center pb-5 mx-0">
       <button class="btn btn-primary post-button">
         {{ __('PUBLISH') }}
@@ -133,11 +133,11 @@
       }
     }
     $("input[id='post-featured-image']").val('')
-    
+
     const blobURL = URL.createObjectURL(file);
     const img = new Image();
     img.src = blobURL;
-    
+
     img.onload = function () {
       const MAX_WIDTH = 1080;
       const MAX_HEIGHT = 675;

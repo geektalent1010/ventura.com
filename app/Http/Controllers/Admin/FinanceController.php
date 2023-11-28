@@ -2,18 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\User;
-use App\Profile;
-use App\Buddies;
-use App\Group;
-use App\City;
-use App\State;
-use App\Country;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Collection;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class FinanceController extends Controller
 {
@@ -25,44 +18,45 @@ class FinanceController extends Controller
             'filters' => [
                 'operation' => [
                     'values' => ['Registration'],
-                    'default' => ''
+                    'default' => '',
                 ],
                 'fromDate' => $fromDate,
                 'toDate' => date('Y-m-d'),
                 'groupBy' => [
                     'values' => ['Day', 'Month', 'Year'],
-                    'default' => 'day'
+                    'default' => 'day',
                 ],
                 'orderBy' => [
                     'values' => ['Asc', 'Desc'],
-                    'default' => 'desc'
+                    'default' => 'desc',
                 ],
             ],
             'package' => [],
-            'groupByTransactions' => app()->call([$this, 'fetchUserData'], ['filters' => collect($filters), 'pages' => 10])
+            'groupByTransactions' => app()->call([$this, 'fetchUserData'], ['filters' => collect($filters), 'pages' => 10]),
         ];
-        $data['totalBalance'] = User::get()->count() * 120;
+        $data['totalBalance'] = User::query()->count() * 120;
+
         return view('admin.finance.index', $data);
     }
 
-    function filters()
+    public function filters()
     {
         $fromDate = date('Y-m-d', strtotime(User::min('created_at')));
         $data = [
             'filters' => [
                 'operation' => [
                     'values' => ['Registration'],
-                    'default' => ''
+                    'default' => '',
                 ],
                 'fromDate' => $fromDate,
                 'toDate' => date('Y-m-d'),
                 'groupBy' => [
                     'values' => ['Day', 'Month', 'Year'],
-                    'default' => 'day'
+                    'default' => 'day',
                 ],
                 'orderBy' => [
                     'values' => ['Asc', 'Desc'],
-                    'default' => 'desc'
+                    'default' => 'desc',
                 ],
             ],
             'package' => [],
@@ -71,7 +65,7 @@ class FinanceController extends Controller
         return view('admin.finance.partials.filter', $data);
     }
 
-    function fetch(Request $request)
+    public function fetch(Request $request)
     {
         $filters = $request->input('filters');
         $fromDate = date('Y-m-d', strtotime(User::min('created_at')));
@@ -79,7 +73,7 @@ class FinanceController extends Controller
             'filters' => [
                 'operation' => [
                     'values' => ['Registration'],
-                    'default' => ''
+                    'default' => '',
                 ],
                 'fromDate' => [
                     'default' => $fromDate,
@@ -89,17 +83,18 @@ class FinanceController extends Controller
                 ],
                 'groupBy' => [
                     'values' => ['Day', 'Month', 'Year'],
-                    'default' => 'day'
+                    'default' => 'day',
                 ],
                 'orderBy' => [
                     'values' => ['Asc', 'Desc'],
-                    'default' => 'desc'
+                    'default' => 'desc',
                 ],
             ],
         ];
-        
-        foreach ($data['filters'] as $key => $value)
+
+        foreach ($data['filters'] as $key => $value) {
             $data['filters'][$key]['default'] = $request->input("filters.$key", $value['default']);
+        }
         $data['groupByTransactions'] = app()->call([$this, 'fetchUserData'], ['filters' => collect($filters), 'pages' => $request->input('totalToShow', 10)]);
 
         return view('admin.finance.partials.transactionList', $data);
@@ -121,22 +116,23 @@ class FinanceController extends Controller
                 $query->whereDate('created_at', '<=', $filters->get('toDate'));
             });
 
-            if($showAll) {
-                $result = $result->orderBy('created_at', $orderBy)->get();
-            } else {
-                $result = collect(
-                    $result
-                        ->orderBy('created_at', $orderBy)
-                        ->paginate($pages)
-                        ->items()
-                );
-            }
+        if ($showAll) {
+            $result = $result->orderBy('created_at', $orderBy)->get();
+        } else {
+            $result = collect(
+                $result
+                    ->orderBy('created_at', $orderBy)
+                    ->paginate($pages)
+                    ->items()
+            );
+        }
+
         return $result->groupBy(function ($value) use ($groupBy) {
             return $this->formatToGroupBy($value, $groupBy);
         });
     }
-    
-    function formatToGroupBy(Model $model, $groupBy)
+
+    public function formatToGroupBy(Model $model, $groupBy)
     {
         /** @var Carbon $createdAt */
         $createdAt = $model->created_at;
@@ -149,7 +145,7 @@ class FinanceController extends Controller
                 return $createdAt->format('F');
                 break;
             default:
-                return $createdAt->format('l');;
+                return $createdAt->format('l');
                 break;
         }
     }

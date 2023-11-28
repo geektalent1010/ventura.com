@@ -1,4 +1,4 @@
-@if($downlineData->count())
+@if ($downlineData->count())
     <div class="reportOptions">
         <button type="button" class="btn btn-primary downloadPdf"><i
                     class="fa fa-file-pdf"></i>Pdf</button>
@@ -27,7 +27,7 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($downlineData as $user)
+            @foreach ($downlineData as $user)
                 <tr>
                     <td></td>
                     <td>{{ ($downlineData->currentPage() * $downlineData->perPage()) - $downlineData->perPage() + $loop->iteration }}</td>

@@ -26,7 +26,7 @@
                 <a class="member-link" href="{{ route('profile', [ 'userID' => $request->request_user->id ]) }}">
                     <div class="member-avatar-wrp">
                         <div class="member-avatar">
-                          @if($request->request_user->profile->main_avatar_url)
+                          @if ($request->request_user->profile->main_avatar_url)
                             <img src="{{ asset('uploads/'.$request->request_user->username.'/'.$request->request_user->profile->main_avatar_url.'?'.time()) }}">
                           @else
                             <p class="first_letter">{{ $request->request_user->getMono() }}</p>
@@ -103,7 +103,7 @@
       }
     })
   });
-  
+
   $('#connectSearchIcon').click(function () {
   // $('#connectSearchKey').on('keyup', function () {
     if($("#connectSearchKey").val() == '') {
@@ -120,7 +120,7 @@
           if (res.length) {
             var html = '';
             for(var resIndex = 0; resIndex < res.length; resIndex++) {
-              html += 
+              html +=
                 '<div class="member-item">' +
                 '  <div class="member-link">' +
                 '    <div class="member-avatar-wrp">' +

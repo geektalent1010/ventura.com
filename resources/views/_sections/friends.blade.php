@@ -1,4 +1,3 @@
-
 <div class="member-body flat-scroll">
   @foreach ($friends as $user)
     <div class="member-item" attr-fullname="{{ $user->getFullname() }}">

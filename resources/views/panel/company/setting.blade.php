@@ -366,7 +366,7 @@
 
     $('.business-category-update').on('click', function() {
         var send_data = {};
-        send_data['id'] = '{{$user->profile->id}}';
+        send_data['id'] = '{{ $user->profile->id }}';
         send_data['main_interests'] = business_categories.join(',');
         $.ajax({
           type: 'PUT',

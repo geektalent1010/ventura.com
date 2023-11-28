@@ -14,7 +14,7 @@
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>New User Registration</title>
-    
+
     <style type="text/css">
           p{
               margin:10px 0;
@@ -207,7 +207,7 @@
                           <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
                             <tr>
                               <![endif]-->
-                          
+
                           <!--[if mso]>
                           <td valign="top" width="600" style="width:600px;">
                             <![endif]-->
@@ -215,13 +215,13 @@
                             <tbody>
                               <tr>
                                 <td valign="top" class="mcnTextContent" style="padding:12px;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;color:#ffffff;font-family:Helvetica;font-size:16px;line-height:150%;text-align:left;vertical-align:middle;width:33.3%;">
-                                    <img src="{{asset('images/LogoMenu.png')}}" style="height: auto; width: 45px;">
+                                    <img src="{{ asset('images/LogoMenu.png') }}" style="height: auto; width: 45px;">
                                 </td>
                                 <td valign="top" class="mcnTextContent" style="padding:12px;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;color:#ffffff;font-family:Helvetica;font-size:16px;line-height:150%;text-align:center;vertical-align:middle;width:33.3%;">
-                                    <img src="{{asset('images/Buddies.png')}}" style="height: auto; width: 120px;">
+                                    <img src="{{ asset('images/Buddies.png') }}" style="height: auto; width: 120px;">
                                 </td>
                                 <td valign="top" class="mcnTextContent" style="padding:12px;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;color:#ffffff;font-family:Helvetica;font-size:16px;line-height:150%;text-align:right;vertical-align:middle;width:33.3%;">
-                                    <img src="{{asset('images/Login.png')}}" style="height: auto; width: 25px;">
+                                    <img src="{{ asset('images/Login.png') }}" style="height: auto; width: 25px;">
                                 </td>
                               </tr>
                             </tbody>
@@ -249,7 +249,7 @@
                           <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
                             <tr>
                               <![endif]-->
-                          
+
                           <!--[if mso]>
                           <td valign="top" width="600" style="width:600px;">
                             <![endif]-->
@@ -257,13 +257,13 @@
                             <tbody>
                               <tr>
                                 <td valign="top" class="mcnTextContent" style="padding:0;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;color:#ffffff;font-family:Helvetica;font-size:16px;line-height:150%;text-align:left;">
-                                    <img src="{{asset('images/People01.png')}}" style="height: auto; width: 100%;">
+                                    <img src="{{ asset('images/People01.png') }}" style="height: auto; width: 100%;">
                                 </td>
                               </tr>
                               <tr>
                                 <td class="mcnTextContent" style="padding:30px; mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;font-family: DinPro Light, sans-serif;color:#ffffff;text-align:left;" valign="top">
                                   <p style="font-size: 14px; color:white; margin-bottom:25px;">Congratulations {{ $introducerName }},</p>
-                                  <p style="font-size: 14px; color:white; margin-bottom:25px;">We're pleased to inform you that your friend, {{$userData['first_name']}} {{$userData['last_name']}}, used your Referral Link to become a member of the <b>VENTURA</b> community.</p>
+                                  <p style="font-size: 14px; color:white; margin-bottom:25px;">We're pleased to inform you that your friend, {{ $userData['first_name'] }} {{ $userData['last_name'] }}, used your Referral Link to become a member of the <b>VENTURA</b> community.</p>
                                   <p style="font-size: 14px; color:white; margin-bottom:25px;">Your most important step now is to welcome your friend in CONNECT, become buddies, and enjoy a unique journey of happiness, love and care together.</p>
                                   <p style="font-size: 14px; color:white; margin-bottom:25px;">Always remember: WE ARE BETTER <b>TOGETHER</b></p>
                                   <p style="font-size: 14px; color:white; margin-bottom:25px;">Have fun and create some new memories,</p>
@@ -300,7 +300,7 @@
                           <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
                             <tr>
                               <![endif]-->
-                          
+
                           <!--[if mso]>
                           <td valign="top" width="600" style="width:600px;">
                             <![endif]-->
@@ -308,7 +308,7 @@
                             <tbody>
                               <tr>
                                 <td valign="top" class="mcnTextContent" style="padding:0;mso-line-height-rule:exactly;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;color:#ffffff;font-family:Helvetica;font-size:16px;line-height:150%;text-align:left;">
-                                    <img src="{{asset('images/People02.png')}}" style="height: auto; width: 100%;">
+                                    <img src="{{ asset('images/People02.png') }}" style="height: auto; width: 100%;">
                                 </td>
                               </tr>
                               <tr>

@@ -1,11 +1,10 @@
-
-        <form class="filterForm">
+<form class="filterForm">
             <div class="row">
                 <div class="eachFilter operation col-md-4 col-sm-6">
                     <label>Operation</label>
                     <select name="filters[operation]" id="operation" class="form-control" >
                         <option value="">All</option>
-                        @foreach($filters['operation']['values'] as $operation)
+                        @foreach ($filters['operation']['values'] as $operation)
                             <option {{ $filters['operation']['default'] == strtolower($operation) ? 'selected' : '' }} value="{{ strtolower($operation) }}">{{ $operation }}</option>
                         @endforeach
                     </select>
@@ -21,7 +20,7 @@
                 <div class="eachFilter operation col-md-4 col-sm-6">
                     <label>Group by</label>
                     <select name="filters[groupBy]" id="group-by" class="form-control" >
-                        @foreach($filters['groupBy']['values'] as $group)
+                        @foreach ($filters['groupBy']['values'] as $group)
                             <option {{ $filters['groupBy']['default'] == strtolower($group) ? 'selected' : '' }} value="{{ strtolower($group) }}">{{ $group }}</option>
                         @endforeach
                     </select>
@@ -29,7 +28,7 @@
                 <div class="eachFilter operation col-md-4 col-sm-6">
                     <label>Order by</label>
                     <select name="filters[orderBy]" id="order-by" class="form-control" >
-                        @foreach($filters['orderBy']['values'] as $order)
+                        @foreach ($filters['orderBy']['values'] as $order)
                             <option {{ $filters['orderBy']['default'] == strtolower($order) ? 'selected' : '' }} value="{{ strtolower($order) }}">{{ $order }}</option>
                         @endforeach
                     </select>
@@ -55,7 +54,7 @@
                 $('.clearFilter').click(function () {
                     loadTransactionFilters();
                 });
-                
+
                 $('.datePicker').datepicker({
                     format: 'yyyy-mm-dd',
                     autoclose: true,

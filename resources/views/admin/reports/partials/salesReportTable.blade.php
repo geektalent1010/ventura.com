@@ -1,4 +1,4 @@
-@if($salesData->count())
+@if ($salesData->count())
     <div class="reportOptions">
         <button type="button" class="btn btn-primary downloadPdf"><i
                     class="fa fa-file-pdf"></i>Pdf</button>
@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($salesData as $user)
+            @foreach ($salesData as $user)
                 <tr>
                     <td></td>
                     <td>{{ ($salesData->currentPage() * $salesData->perPage()) - $salesData->perPage() + $loop->iteration }}</td>

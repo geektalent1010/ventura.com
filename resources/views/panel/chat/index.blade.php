@@ -22,7 +22,7 @@
               <div class="member-link">
                 <div class="member-avatar-wrp">
                   <div class="member-avatar">
-                    @if($channelInfo->otherUser->profile->main_avatar_url)
+                    @if ($channelInfo->otherUser->profile->main_avatar_url)
                     <img src="{{ asset('uploads/'.$channelInfo->otherUser->username.'/'.$channelInfo->otherUser->profile->main_avatar_url.'?'.time()) }}">
                     @else
                     <p class="first_letter">{{ $channelInfo->otherUser->getMono() }}</p>
@@ -31,13 +31,13 @@
                 </div>
                 <div class="member-name">
                   {{ $channelInfo->otherUser->getFullname() }}
-                  <div class="@if(Cache::has('is_online' . $channelInfo->otherUser->id)) online-status @else offline-status @endif"></div>
+                  <div class="@if (Cache::has('is_online' . $channelInfo->otherUser->id)) online-status @else offline-status @endif"></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <chat-component :auth-user="{{ auth()->user() }}"  :channel-info="{{ $channelInfo }}" :current-channel="@if(!is_null($channelInfo)) true @else false @endif"></chat-component>
+        <chat-component :auth-user="{{ auth()->user() }}"  :channel-info="{{ $channelInfo }}" :current-channel="@if (!is_null($channelInfo)) true @else false @endif"></chat-component>
       </div>
     </div>
   </div>

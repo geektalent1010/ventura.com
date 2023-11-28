@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Profile;
-use App\Friend;
-use App\Channel;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Twilio\Rest\Client;
+use App\Models\Channel;
+use App\Models\Friend;
+use App\Models\Profile;
+use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Twilio\Rest\Client;
 
 class ChatController extends Controller
 {
@@ -32,7 +31,7 @@ class ChatController extends Controller
                 });
             })
             ->with('user')
-            ->whereHas('user', function($query) {
+            ->whereHas('user', function ($query) {
                 $query->where('user_type', 0);
             })
             ->where('user_id', '<>', $authUser->id)
@@ -45,30 +44,31 @@ class ChatController extends Controller
 
     public function chatRoomCreate(Request $request)
     {
-        $authUser = Auth::user();
+        $authUser = auth()->user();
         $otherUser = User::find($request->otherUserId);
-        $channelInfo = Channel::whereIn('channel_unique_name', [$authUser->id . '_' . $otherUser->id, $otherUser->id . '_' . $authUser->id])->where('user_id', '=', $authUser->id)->first();
+        $channelInfo = Channel::whereIn('channel_unique_name', [$authUser->id.'_'.$otherUser->id, $otherUser->id.'_'.$authUser->id])->where('user_id', '=', $authUser->id)->first();
 
         if (isset($channelInfo)) {
             $channelInfo->is_connected = 1;
             $channelInfo->save();
+
             return response()->json(['status' => true, 'exist' => true, 'unique_name' => $channelInfo->channel_unique_name]);
         } else {
-            $uniqueName = $authUser->id . '_' . $otherUser->id;
+            $uniqueName = $authUser->id.'_'.$otherUser->id;
             Channel::create([
-                'user_id'       => $authUser->id,
-                'receive_user_id'    => $otherUser->id,
-                'channel_unique_name'     => $uniqueName,
+                'user_id' => $authUser->id,
+                'receive_user_id' => $otherUser->id,
+                'channel_unique_name' => $uniqueName,
                 'is_connected' => 1,
-                'last_message_readed_at' => new Carbon()
+                'last_message_readed_at' => new Carbon(),
             ]);
 
             Channel::create([
-                'user_id'       => $otherUser->id,
-                'receive_user_id'    => $authUser->id,
-                'channel_unique_name'     => $uniqueName,
+                'user_id' => $otherUser->id,
+                'receive_user_id' => $authUser->id,
+                'channel_unique_name' => $uniqueName,
                 'is_connected' => 1,
-                'last_message_readed_at' => new Carbon()
+                'last_message_readed_at' => new Carbon(),
             ]);
 
             $twilio = new Client(config('app.TWILIO_AUTH_SID'), config('app.TWILIO_AUTH_TOKEN'));
@@ -114,22 +114,24 @@ class ChatController extends Controller
                     ->members
                     ->create($otherUser->email);
             }
+
             return response()->json(['status' => true, 'exist' => false]);
         }
+
         return response()->json(['status' => false, 'message' => 'error']);
     }
 
-    public function chatting(Request $request, $ids = Null)
+    public function chatting(Request $request, $ids = null)
     {
         $authUser = $request->user();
         $otherUser = $channelInfo = null;
         $channels = Channel::where('user_id', '=', $authUser->id)->where('is_connected', '=', 1)->get();
-        if (isset($ids) && explode('_', $ids)[1] != "") {
+        if (isset($ids) && explode('_', $ids)[1] != '') {
             $otherUser = User::find(explode('_', $ids)[1]);
 
-            $channelInfo = Channel::whereIn('channel_unique_name', [$authUser->id . '_' . $otherUser->id, $otherUser->id . '_' . $authUser->id])->where('user_id', '=', $authUser->id)->first();
-            if (!isset($channelInfo)) {
-                $channelInfo = Channel::where('user_id', '=', $authUser->id)->orderby('last_message_readed_at','desc')->first();
+            $channelInfo = Channel::whereIn('channel_unique_name', [$authUser->id.'_'.$otherUser->id, $otherUser->id.'_'.$authUser->id])->where('user_id', '=', $authUser->id)->first();
+            if (! isset($channelInfo)) {
+                $channelInfo = Channel::where('user_id', '=', $authUser->id)->orderby('last_message_readed_at', 'desc')->first();
             }
 
             $twilio = new Client(config('app.TWILIO_AUTH_SID'), config('app.TWILIO_AUTH_TOKEN'));
@@ -182,22 +184,26 @@ class ChatController extends Controller
         return view('panel.chat.index', compact('otherUser', 'channelInfo', 'channels'));
     }
 
-    public function updateConnectedStatus(Request $request) {
+    public function updateConnectedStatus(Request $request)
+    {
         $channel = Channel::find($request->channelId);
         $channel->is_connected = $request->status;
         $channel->save();
+
         return response()->json(['status' => true]);
     }
 
-    public function trashUser(Request $request) {
+    public function trashUser(Request $request)
+    {
         $authUserProfile = $request->user()->profile;
         $trashUserIds = [];
         if (isset($authUserProfile->trash_buddies)) {
-            $trashUserIds = json_decode($authUser->profile->trash_buddies);
+            $trashUserIds = json_decode($authUserProfile->profile->trash_buddies);
         }
         array_push($trashUserIds, $request->trashId);
         $authUserProfile->trash_buddies = json_encode($trashUserIds);
         $authUserProfile->save();
+
         return response()->json(['status' => true, 'success' => 'This Member successfully deleted']);
     }
 }

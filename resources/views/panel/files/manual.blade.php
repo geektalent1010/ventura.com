@@ -16,9 +16,9 @@
         <div class="row justify-content-center m-0 py-3 w-100">
             <div class="col-md-6 p-0">
                 <p class="link-title mt-4">YOUR LINK TO PROMOTE</p>
-                <p class="link-address">www.brandfields.social/{{ $user->customer_id ?? '1234567'}}</p>
+                <p class="link-address">www.brandfields.social/{{ $user->customer_id ?? '1234567' }}</p>
                 <div class="d-flex justify-content-center align-items-center btn-section w-100 p-0 m-0 mt-4 mb-5">
-                    <a class="btn btn-primary copy-btn" onclick="copyLink(this,event)" attr_href="{{url('/')}}/{{ $user->customer_id }}">COPY LINK</a>
+                    <a class="btn btn-primary copy-btn" onclick="copyLink(this,event)" attr_href="{{ url('/') }}/{{ $user->customer_id }}">COPY LINK</a>
                 </div>
                 <p class="link-title my-4">BUSINESS MATERIALS</p>
                 <div class="d-flex w-100">
