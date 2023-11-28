@@ -1,9 +1,9 @@
 $FORGE_COMPOSER install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
 ( flock -w 10 9 || exit 1
-    echo 'Restarting FPM...'; sudo -S service $FORGE_PHP_FPM reload ) 9>/tmp/fpmlock
+    echo 'Restarting FPM...'; service $FORGE_PHP_FPM reload ) 9>/tmp/fpmlock
 
-echo 'NPM ... '; npm ci --omit=dev && npm run production
+npm ci && npm run production
 
 echo 'Clearing caches';
 
