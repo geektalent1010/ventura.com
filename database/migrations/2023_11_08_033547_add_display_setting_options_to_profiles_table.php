@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class AddDisplaySettingOptionsToProfilesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::table('profiles', function (Blueprint $table) {
@@ -18,11 +13,6 @@ class AddDisplaySettingOptionsToProfilesTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::table('profiles', function (Blueprint $table) {

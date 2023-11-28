@@ -1,7 +1,7 @@
 <div style="background:linear-gradient(to right, #00c6ff, #0072b8);" class="d-flex justify-content-center align-items-center">
     <video autoplay muted loop class="video-section" playsinline>
         <source src="{{ asset('Video/VenturaGlobeH.mp4') }}" type="video/mp4">
-    </video>  
+    </video>
     <video autoplay muted loop class="video-section-mobile" playsinline>
         <source src="{{ asset('Video/VenturaGlobeV.mp4') }}" type="video/mp4">
     </video>

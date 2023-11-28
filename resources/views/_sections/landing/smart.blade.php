@@ -1,4 +1,4 @@
-        <div class="content-section d-flex align-items-center justify-content-center">
+<div class="content-section d-flex align-items-center justify-content-center">
             <div class="col-sm-7">
                 <div class="row">
                     <div class="col-12">

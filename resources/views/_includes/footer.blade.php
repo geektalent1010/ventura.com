@@ -35,7 +35,7 @@
                     <span class="nav-icon @if (isset($ACTIVE_PAGE) && $ACTIVE_PAGE == 'create') active @endif"><i class="fa-solid fa-circle"></i></span>
                 </a>
             @endif
-        </div>            
+        </div>
         @else
         <div class="video-controls">
             <img class="play-icon" src="{{ asset('images/svg/PlayButtonWhite.svg') }}" alt="PlayButton svg">

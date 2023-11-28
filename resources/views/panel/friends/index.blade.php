@@ -27,7 +27,7 @@
                   <a class="member-link" href="{{ route('profile', [ 'userID' => $request->request_user->id ]) }}">
                       <div class="member-avatar-wrp">
                           <div class="member-avatar">
-                            @if($request->request_user->profile->main_avatar_url)
+                            @if ($request->request_user->profile->main_avatar_url)
                               <img src="{{ asset('uploads/'.$request->request_user->username.'/'.$request->request_user->profile->main_avatar_url.'?'.time()) }}">
                             @else
                               <p class="first_letter">{{ $request->request_user->getMono() }}</p>

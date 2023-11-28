@@ -45,7 +45,7 @@
     $(function () {
         loadreportFilters();
     });
-    
+
     function loadreportFilters() {
         $.get('{{ route('downlineReport.filters') }}', function (response) {
             $('.reportFilters').html(response);

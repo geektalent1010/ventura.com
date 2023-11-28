@@ -1,7 +1,7 @@
-@if($groupByTransactions->count())
+@if ($groupByTransactions->count())
     <div class="w-100 mb-3">
         <div class="accordion" id="transaction">
-            @foreach($groupByTransactions as $key => $group)
+            @foreach ($groupByTransactions as $key => $group)
 
                 <div class="card">
                     <div class="card-header" id="transactionHead{{ $key }}">
@@ -17,7 +17,7 @@
                     </div>
 
                     <div id="transaction{{ $key }}" class="collapse" aria-labelledby="transactionHead{{ $key }}" data-parent="#transaction">
-                        @foreach($group as $user)
+                        @foreach ($group as $user)
                             <div class="card-body row">
                                 <div class="col-6 col-sm-3">{{ $user->username }}</div>
                                 <div class="col-6 col-sm-3 operation text-right">Registration</div>

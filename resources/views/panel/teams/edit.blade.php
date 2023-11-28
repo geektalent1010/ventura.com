@@ -16,7 +16,7 @@
     <div class="row justify-content-center m-0 py-3 w-100">
       <div class="col-md-6 p-0">
         <div class="text-center pb-3 top-title">CREATE OR EDIT MY ROOM</div>
-        
+
         <div class="name-input-section">
           <div class="image-icon-section">
             <span class="image-icon"><i class="fa fa-image" aria-hidden="true"></i></span>
@@ -26,9 +26,9 @@
         <div class="description-input-section">
           <input id="teamDescription" type="text" class="form-control" name="description" placeholder="Description" value="{{ $team->description }}">
         </div>
-        
+
         <div class="text-center py-3 top-title">ADD OR REMOVE FRIENDS</div>
-        
+
         <div class="search-input-section">
           <input id="searchKey" type="text" class="form-control" name="searchKey" placeholder="Find a Friend">
           <div class="search-icon-section">

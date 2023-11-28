@@ -23,11 +23,11 @@
         <p class="link-title mt-4">LET’S GO VIRAL</p>
         <p class="link-address">www.ventura.pro/{{ $user->customer_id }}</p>
         <div class="d-flex justify-content-center align-items-center btn-section w-100 p-0 m-0 mt-4 mb-5">
-            <a class="btn btn-primary copy-btn" onclick="copyLink(this,event)" attr_href="{{url('/')}}/{{ $user->customer_id }}/1">COPY LINK</a>
+            <a class="btn btn-primary copy-btn" onclick="copyLink(this,event)" attr_href="{{ url('/') }}/{{ $user->customer_id }}/1">COPY LINK</a>
         </div>
 				@if (isset($user->rank) && $user->rank->rank->level > 2)
         <div class="d-flex justify-content-center align-items-center btn-section w-100 p-0 m-0 mt-4 mb-5">
-            <a class="btn btn-primary copy-btn" onclick="copyLink2(this,event)" attr_href="{{url('/')}}/{{ $user->customer_id }}/2">COPY LINK2</a>
+            <a class="btn btn-primary copy-btn" onclick="copyLink2(this,event)" attr_href="{{ url('/') }}/{{ $user->customer_id }}/2">COPY LINK2</a>
         </div>
 				@endif
         <p class="share-title">SHARE ON SOCIAL MEDIA</p>
@@ -40,14 +40,14 @@
         </div>
 
         {{--@if (count($fileNames) > 0)
-          @foreach($fileNames as $filename)
+          @foreach ($fileNames as $filename)
             <div class="image-slider-wrapper mt-3">
               <div class="each-panel">
                 <a data-fancybox href="{{ asset($filename['src']) }}">
                   <img src="{{ asset($filename['src']) }}">
                 </a>
                 <div class="mt-4 px-3 w-100 d-flex justify-content-center">
-                  <a class="btn btn-primary download-button" href="{{ asset($filename['src']) }}" download attr-filename="{{$filename['name']}}">Download</a>
+                  <a class="btn btn-primary download-button" href="{{ asset($filename['src']) }}" download attr-filename="{{ $filename['name'] }}">Download</a>
                 </div>
               </div>
             </div>

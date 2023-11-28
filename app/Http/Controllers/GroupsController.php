@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\User;
 
 class GroupsController extends Controller
 {
@@ -18,11 +17,12 @@ class GroupsController extends Controller
 
     public function create_group(Request $request)
     {
-        $id = Auth::user()->id;
-        $data['is_me'] = $id === Auth::user()->id;
+        $id = auth()->user()->id;
+        $data['is_me'] = $id === auth()->user()->id;
         $data['user'] = User::find($id);
-        if (!isset($data['user']))
-            $data['user'] = Auth::user();
+        if (! isset($data['user'])) {
+            $data['user'] = auth()->user();
+        }
 
         return view('panel.teams.create', $data);
     }

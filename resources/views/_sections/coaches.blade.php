@@ -17,8 +17,8 @@
             <div class="option-icons-section">
                 <div class="option-icon-btn heart-icon-btn d-flex justify-content-center align-items-center"  id="coachhead{{ $index + 1 }}">
                     <span class="option-icon heart-icon {{ in_array($authUser->id, explode(',', $coach->profile->followers)) ? 'like' : '' }} coach{{ $coach->profile->id }}" attr-data="{{ $coach->profile->id }}"><i class="fa fa-heart" aria-hidden="true"></i></span>
-                    <p class="followers likes-count{{ $coach->id }}">{{ !empty($coach->profile->followers) ? $coach->profile->followers : '0' }}</p> 
-                    <a href="#" class="collapsed" data-toggle="collapse" data-target="#coach{{ $index + 1 }}" aria-expanded="true" aria-controls="coach{{ $index + 1 }}"></a> 
+                    <p class="followers likes-count{{ $coach->id }}">{{ !empty($coach->profile->followers) ? $coach->profile->followers : '0' }}</p>
+                    <a href="#" class="collapsed" data-toggle="collapse" data-target="#coach{{ $index + 1 }}" aria-expanded="true" aria-controls="coach{{ $index + 1 }}"></a>
                 </div>
             </div>
         </div>

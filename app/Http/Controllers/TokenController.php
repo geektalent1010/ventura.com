@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Channel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Twilio\Jwt\AccessToken;
 use Twilio\Jwt\Grants\ChatGrant;
-use App\Channel;
-use Carbon\Carbon;
 
 class TokenController extends Controller
 {
@@ -25,15 +25,17 @@ class TokenController extends Controller
         $token->addGrant($chatGrant);
 
         return response()->json([
-            'token' => $token->toJWT()
+            'token' => $token->toJWT(),
         ]);
     }
 
-    public function updateLastMessageSid(Request $request) {
+    public function updateLastMessageSid(Request $request)
+    {
         $channel = Channel::find($request->channelId);
         $channel->last_read_message_sid = $request->messageSid;
         $channel->last_message_readed_at = new Carbon($request->readedAt);
         $channel->save();
+
         return response()->json(['status' => true, 'result' => $channel]);
     }
 }

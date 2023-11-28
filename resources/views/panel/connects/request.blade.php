@@ -18,7 +18,7 @@
           <div class="member-link">
             <div class="member-avatar-wrp">
               <div class="member-avatar">
-                @if($user->profile->main_avatar_url)
+                @if ($user->profile->main_avatar_url)
                   <img src="{{ asset('uploads/'.$user->username.'/'.$user->profile->main_avatar_url.'?'.time()) }}">
                   @else
                   <p class="first_letter">{{ $user->getMono() }}</p>

@@ -54,7 +54,7 @@
                                 $shareByChannel2 = isset($authUser->advancedRank) && $authUser->advancedRank->rank->level >= $index ? 1 : 0;
                                 $totalMyCommission += $totalFloor > 0 ? $totalShareCommissions / $totalFloor * ($shareByChannel1 + $shareByChannel2) : 0;
                             @endphp
-                            <div class="center-section {{ isset($authUser->rank) && $authUser->rank->rank->level >= $index ? 'active' : ''}}">
+                            <div class="center-section {{ isset($authUser->rank) && $authUser->rank->rank->level >= $index ? 'active' : '' }}">
                                 {{ $shareByChannel1 + $shareByChannel2 }}
                             </div>
                             <div class="row right-section">
@@ -71,14 +71,14 @@
                 </div>
 
 
-                
+
                 {{--<div class="row justify-content-center rank-section px-0 m-0">
                     <div class="left-section">STATUS</div>
-                    <div class="center-section {{ isset($authUser->rank) ? 'active' : '' }}"></div>                    
+                    <div class="center-section {{ isset($authUser->rank) ? 'active' : '' }}"></div>
                     <div class="row right-section">
                         <div>
                             <img class="ml-2" src="{{ asset('images/svg/IconRANK.svg') }}">
-                            <p>{{ isset($authUser->rank) ? $authUser->rank->rank->level : '0'}}</p>
+                            <p>{{ isset($authUser->rank) ? $authUser->rank->rank->level : '0' }}</p>
                         </div>
                     </div>
                 </div>
@@ -95,13 +95,13 @@
                     @foreach ($authUser->referrers as $child)
                         <div class="row personal-item-section m-0">
                             <div class="left-section">
-                                <div class="status-section {{ isset($child->rank) ? 'active' : ''}}"></div>
+                                <div class="status-section {{ isset($child->rank) ? 'active' : '' }}"></div>
                                 <div class="ml-3">{{ $child->getFullname() }}</div>
                             </div>
                             <div class="right-section">
                                 <!-- <div class="center-section">0</div> -->
                                 <img class="" src="{{ asset('images/svg/IconRANK.svg') }}">
-                                <p>{{ isset($child->rank) ? $child->rank->rank->level : '0'}}</p>
+                                <p>{{ isset($child->rank) ? $child->rank->rank->level : '0' }}</p>
                             </div>
                         </div>
                     @endforeach
@@ -109,7 +109,7 @@
                 <div class="row justify-content-center personal-section px-0 m-0">
                     <div class="left-section">SALES FLOORS</div>
                     <div class="row right-section d-flex align-items-center font-weight-bold" id="incentivehead2">
-                        <div>{{ isset($authUser->rank) ? $authUser->rank->rank->level : ''}}</div>
+                        <div>{{ isset($authUser->rank) ? $authUser->rank->rank->level : '' }}</div>
                         <div class="floor-panel-extend">
                             <a href="#" class="option-icon collapsed" data-toggle="collapse" data-target="#incentive2" aria-expanded="true" aria-controls="incentive2"></a>
                         </div>
@@ -129,7 +129,7 @@
                                 <div class="left-section">
                                     <div class="disable-text">YOUR SHARE</div>
                                 </div>
-                                <div class="center-section {{ isset($authUser->rank) && $authUser->rank->rank->level >= $index ? 'active' : ''}}">
+                                <div class="center-section {{ isset($authUser->rank) && $authUser->rank->rank->level >= $index ? 'active' : '' }}">
                                 </div>
                                 <div class="row right-section">
                                     <div class="disable-text">€ {{ isset($rankCounts[$index]) ? $totalShareCommissions / $rankCounts[$index] : '0' }}</div>

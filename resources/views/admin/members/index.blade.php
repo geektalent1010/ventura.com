@@ -143,7 +143,7 @@
             <div class="item-label">Start</div>
             <div class="item-value">
               <div class="form-group">
-                <input type="text" class="form-control disabled" id="startDate" placeholder="Start At" value="{{ date_format($user->created_at, 'm-d-Y' )}}" disabled>
+                <input type="text" class="form-control disabled" id="startDate" placeholder="Start At" value="{{ date_format($user->created_at, 'm-d-Y' ) }}" disabled>
               </div>
             </div>
           </div>
@@ -258,7 +258,7 @@
                       if (res.length) {
                           var html = '';
                           for(var resIndex = 0; resIndex < res.length; resIndex++) {
-                              html += 
+                              html +=
                                   '<div class="address py-3" attr-data="' + res[resIndex].address + '"  attr-name="' + res[resIndex].name + '">' + res[resIndex].name + '</div>';
                           }
                           $('.address-search-section').html(html);
@@ -301,7 +301,7 @@
                   if (res.length) {
                       var html = '';
                       for(var resIndex = 0; resIndex < res.length; resIndex++) {
-                          html += 
+                          html +=
                               '<div class="user py-3" attr-data="' + res[resIndex].user_id + '">' + res[resIndex].first_name + ' ' + res[resIndex].last_name + '</div>';
                       }
                       $('.user-search-section').html(html);
@@ -314,7 +314,7 @@
           })
       }
   });
-  
+
   $('.search-input-section input[type="text"]').on('keyup', function () {
       const key = $(this).val();
       if (timer) {
@@ -335,7 +335,7 @@
                       if (res.length) {
                           var html = '';
                           for(var resIndex = 0; resIndex < res.length; resIndex++) {
-                              html += 
+                              html +=
                                   '<div class="user py-3" attr-data="' + res[resIndex].user_id + '">' + res[resIndex].first_name + ' ' + res[resIndex].last_name + '</div>';
                           }
                           $('.user-search-section').html(html);
@@ -546,7 +546,7 @@
           }
           timer = setTimeout(async function() {
               var response = await onVerify(action, value);
-              
+
               if (response.status) {
                   validationMessage = 'Email is in use already.';
                   self.emailError.removeClass('valid');
@@ -796,7 +796,7 @@
           this.passwordError.removeClass('valid');
           this.passwordError.show();
       },
-      // validatePasswordConfirmInput: function () { 
+      // validatePasswordConfirmInput: function () {
       //     var validationMessage = '';
       //     var password = this.passwordInput.val();
       //     var password_confirm = this.passwordConfirmInput.val();
@@ -846,7 +846,7 @@
   $('.suspend-button').on('click', function() {
       var status = $(this).attr('attr-data');
       var send_data = {};
-      send_data['id'] = '{{$user->id}}';
+      send_data['id'] = '{{ $user->id }}';
       send_data['status'] = status != 1 ? 1 : 0;
       $.ajax({
           type: 'PUT',

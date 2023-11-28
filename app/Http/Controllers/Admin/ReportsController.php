@@ -2,23 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\User;
-use App\Profile;
-use App\Buddies;
-use App\Group;
-use App\City;
-use App\State;
-use App\Country;
 use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Collection;
+use App\Models\Country;
+use App\Models\User;
 use Barryvdh\DomPDF\PDF;
+use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Facades\Excel;
+
 
 class ReportsController extends Controller
 {
@@ -32,8 +24,9 @@ class ReportsController extends Controller
             ],
             'package' => [],
             'countries' => Country::get(),
-            'joiningData' => app()->call([$this, 'fetchUserData'], ['filters' => collect($filters), 'pages' => 25])
+            'joiningData' => app()->call([$this, 'fetchUserData'], ['filters' => collect($filters), 'pages' => 25]),
         ];
+
         return view('admin.reports.index', $data);
     }
 
@@ -43,8 +36,9 @@ class ReportsController extends Controller
         $data = [
             'package' => [],
             'countries' => Country::get(),
-            'downlineData' => app()->call([$this, 'fetchUserData'], ['filters' => collect($filters), 'pages' => 25])
+            'downlineData' => app()->call([$this, 'fetchUserData'], ['filters' => collect($filters), 'pages' => 25]),
         ];
+
         return view('admin.reports.downline', $data);
     }
 
@@ -58,12 +52,13 @@ class ReportsController extends Controller
             ],
             'package' => [],
             'countries' => Country::get(),
-            'salesData' => app()->call([$this, 'fetchUserData'], ['filters' => collect($filters), 'pages' => 25])
+            'salesData' => app()->call([$this, 'fetchUserData'], ['filters' => collect($filters), 'pages' => 25]),
         ];
+
         return view('admin.reports.sales', $data);
     }
 
-    function filters()
+    public function filters()
     {
         $data = [
             'default_filter' => [
@@ -77,7 +72,7 @@ class ReportsController extends Controller
         return view('admin.reports.partials.joiningReportFilter', $data);
     }
 
-    function fetch(Request $request)
+    public function fetch(Request $request)
     {
         $filters = $request->input('filters');
         $data['joiningData'] = app()->call([$this, 'fetchUserData'], ['filters' => collect($filters), 'pages' => $request->input('totalToShow', 25)]);
@@ -85,7 +80,7 @@ class ReportsController extends Controller
         return view('admin.reports.partials.joiningReportTable', $data);
     }
 
-    function downlineFilters()
+    public function downlineFilters()
     {
         $data = [
             'package' => [],
@@ -95,7 +90,7 @@ class ReportsController extends Controller
         return view('admin.reports.partials.downlineReportFilter', $data);
     }
 
-    function downlineFetch(Request $request)
+    public function downlineFetch(Request $request)
     {
         $filters = $request->input('filters');
         $data['downlineData'] = app()->call([$this, 'fetchUserData'], ['filters' => collect($filters), 'pages' => $request->input('totalToShow', 25)]);
@@ -103,7 +98,7 @@ class ReportsController extends Controller
         return view('admin.reports.partials.downlineReportTable', $data);
     }
 
-    function salesFilters()
+    public function salesFilters()
     {
         $data = [
             'default_filter' => [
@@ -117,15 +112,15 @@ class ReportsController extends Controller
         return view('admin.reports.partials.salesReportFilter', $data);
     }
 
-    function salesFetch(Request $request)
+    public function salesFetch(Request $request)
     {
         $filters = $request->input('filters');
         $data['salesData'] = app()->call([$this, 'fetchUserData'], ['filters' => collect($filters), 'pages' => $request->input('totalToShow', 25)]);
 
         return view('admin.reports.partials.salesReportTable', $data);
     }
-    
-    function downloadJoiningReportPdf(Request $request, PDF $pdf)
+
+    public function downloadJoiningReportPdf(Request $request, PDF $pdf)
     {
         $filters = $request->input('filters');
         $data = [
@@ -134,14 +129,14 @@ class ReportsController extends Controller
         ];
 
         $pdf->loadHTML(view('admin.reports.partials.joiningReportExportView', $data));
-        $fileName = 'JoiningReport-' . date('Y-m-d-h-i-s') . '.pdf';
-        $relativePath = storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . $fileName);
+        $fileName = 'JoiningReport-'.date('Y-m-d-h-i-s').'.pdf';
+        $relativePath = storage_path('app'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.$fileName);
         $pdf->save($relativePath);
 
         return response()->json(['link' => asset("storage/{$fileName}")]);
     }
 
-    function downloadJoiningReportExcel(Request $request)
+    public function downloadJoiningReportExcel(Request $request)
     {
         $filters = $request->input('filters');
         $data = [
@@ -149,12 +144,14 @@ class ReportsController extends Controller
             'reportName' => 'Joinging report',
         ];
 
-        $fileName = 'JoiningReport-' . date('Y-m-d-h-i-s') . '.xlsx';
+        $fileName = 'JoiningReport-'.date('Y-m-d-h-i-s').'.xlsx';
 
-        return Excel::download(new UsersExport($data), $fileName);
+        // todo figure it out what is UserExport class
+        //return Excel::download(new UsersExport($data), $fileName);
+        return view('admin.reports.partials.joiningReportExportView', $data);
     }
 
-    function printJoiningReport(Request $request)
+    public function printJoiningReport(Request $request)
     {
         $filters = $request->input('filters');
         $data = [
@@ -172,7 +169,7 @@ class ReportsController extends Controller
         $memberId = $filters->get('customer_id') ?? null;
 
         $result = User::query()
-            ->when(!$filters->get('user_id') && $memberId, function ($query) use ($memberId) {
+            ->when(! $filters->get('user_id') && $memberId, function ($query) use ($memberId) {
                 /** @var Builder $query */
                 $query->where('customer_id', $memberId);
             })
@@ -200,8 +197,12 @@ class ReportsController extends Controller
             })
             ->whereHas('profile', function ($query) use ($filters) {
                 /** @var Builder $query */
-                if ($firstname = $filters->get('firstname')) $query->where('first_name', 'like', "%$firstname%");
-                if ($lastname = $filters->get('lastname')) $query->where('last_name', 'like', "%$lastname%");
+                if ($firstname = $filters->get('firstname')) {
+                    $query->where('first_name', 'like', "%$firstname%");
+                }
+                if ($lastname = $filters->get('lastname')) {
+                    $query->where('last_name', 'like', "%$lastname%");
+                }
                 if ($country = $filters->get('country_id')) {
                     $query->where('country', $country);
                     $country_name = Country::find($country)->name;
@@ -209,10 +210,10 @@ class ReportsController extends Controller
                 }
             });
 
-            if($showAll) {
-                return $result->get();
-            } else {
-                return $result->paginate($pages);
-            }
+        if ($showAll) {
+            return $result->get();
+        } else {
+            return $result->paginate($pages);
+        }
     }
 }

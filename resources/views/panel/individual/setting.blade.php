@@ -602,7 +602,7 @@
     });
 
     var selected_gender;
-    
+
     function select_gender(evt, value) {
         var tablinks = document.getElementsByClassName("gender_tablinks");
         for (var i = 0; i < tablinks.length; i++) {
@@ -634,9 +634,9 @@
         }
     })
 
-    $('.setting-save-btn').on('click', function() { 
+    $('.setting-save-btn').on('click', function() {
         var send_data = {};
-        send_data['id'] = '{{$user->profile->id}}';
+        send_data['id'] = '{{ $user->profile->id }}';
         send_data['gender'] = selected_gender;
         send_data['other_interests'] = interested_category.join(',');
 

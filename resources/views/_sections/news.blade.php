@@ -1,7 +1,7 @@
 <div class="accordion" id="news">
   @foreach ($posts as $index => $post)
     <div class="w-100 post-item mb-3">
-      <div class="text-right p-2 pr-md-0 created-at-label">{{ date_format($post->created_at, "d/m/Y" )}}</div>
+      <div class="text-right p-2 pr-md-0 created-at-label">{{ date_format($post->created_at, "d/m/Y" ) }}</div>
       <div class="member-body">
         <div class="member-item">
           <div class="member-link">
@@ -35,40 +35,40 @@
         @if (isset($post->small_featured_image_url1) || isset($post->small_featured_image_url2) || isset($post->small_featured_image_url3))
         <div class="row justify-content-center m-0 p-0 w-100 gap">
           <div class="col-4 col-sm-4 col-md-4 contentItem right-border-trans">
-              @if(isset($post->small_featured_image_url1))
+              @if (isset($post->small_featured_image_url1))
                   <a class="contentItem-wrp" data-fancybox href="{{ asset('uploads/posts/'.$post->small_featured_image_url1.'?'.time()) }}">
                       <img src="{{ asset('uploads/posts/'.$post->small_featured_image_url1.'?'.time()) }}">
                   </a>
               @else
                   <div class="contentItem-wrp">
                       <div class="thumbnail-card">
-                          
+
                       </div>
                   </div>
               @endif
           </div>
           <div class="col-4 col-sm-4 col-md-4 contentItem both-border-trans">
-              @if(isset($post->small_featured_image_url2))
+              @if (isset($post->small_featured_image_url2))
                   <a class="contentItem-wrp" data-fancybox href="{{ asset('uploads/posts/'.$post->small_featured_image_url2.'?'.time()) }}">
                       <img src="{{ asset('uploads/posts/'.$post->small_featured_image_url2.'?'.time()) }}">
                   </a>
               @else
                   <div class="contentItem-wrp">
                       <div class="thumbnail-card">
-                          
+
                       </div>
                   </div>
               @endif
           </div>
           <div class="col-4 col-sm-4 col-md-4 contentItem left-border-trans">
-              @if(isset($post->small_featured_image_url3))
+              @if (isset($post->small_featured_image_url3))
                   <a class="contentItem-wrp" data-fancybox href="{{ asset('uploads/posts/'.$post->small_featured_image_url3.'?'.time()) }}">
                       <img src="{{ asset('uploads/posts/'.$post->small_featured_image_url3.'?'.time()) }}">
                   </a>
               @else
                   <div class="contentItem-wrp">
                       <div class="thumbnail-card">
-                          
+
                       </div>
                   </div>
               @endif

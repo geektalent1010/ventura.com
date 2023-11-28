@@ -25,7 +25,7 @@
             <div class="member-link">
               <div class="member-avatar-wrp">
                 <div class="member-avatar">
-                  @if($user->profile->main_avatar_url)
+                  @if ($user->profile->main_avatar_url)
                   <img src="{{ asset('uploads/'.$user->username.'/'.$user->profile->main_avatar_url.'?'.time()) }}">
                   @else
                   <p class="first_letter">{{ $user->getMono() }}</p>
@@ -85,7 +85,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="row justify-content-center align-items-center pb-5 mx-0">
       <button class="btn btn-primary post-button">
         {{ __('PUBLISH') }}
@@ -166,11 +166,11 @@
       }
     }
     $("input[id='post-featured-image']").val('')
-    
+
     const blobURL = URL.createObjectURL(file);
     const img = new Image();
     img.src = blobURL;
-    
+
     img.onload = function () {
       const MAX_WIDTH = 1080;
       const MAX_HEIGHT = 675;

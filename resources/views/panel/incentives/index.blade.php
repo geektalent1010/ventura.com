@@ -51,7 +51,7 @@
                                 <div class="d-flex align-items-center justify-content-end">
                                     <div class="mr-3">
                                         @php
-                                            $referrals = new App\User();
+                                            $referrals = new App\Models\User();
                                             $referrersForChild = $child->referrers;
                                             $getAllReferrals = $referrals->getReferrals($referrersForChild);
                                             $fetchedAllReferrals = $referrals->fetchReferrals($getAllReferrals);
@@ -65,7 +65,7 @@
                     @endforeach
                 </div>
                 <div class="floor-section">
-                    @foreach (App\Rank::where('is_active', '1')->orderBy('level', 'asc')->get() as $floor)
+                    @foreach (App\Models\Rank::where('is_active', '1')->orderBy('level', 'asc')->get() as $floor)
                     <div class="floor-item {{ isset($authUser->rank) && $authUser->rank->rank->level >= $floor->level ? 'active' : '' }}">
                         <div class="text-center">FLOOR {{ $floor->level }}</div>
                         <div class="text-center font-weight-bold">{{ $floor->channel1 }}</div>
@@ -76,7 +76,7 @@
                     <div class="left-section">TOTAL SALES</div>
                     <div class="center-section text-center">
                         @php
-                            $referrals = new App\User();
+                            $referrals = new App\Models\User();
                             $referrersForChannel1 = $authUser->referrersForChannel1();
                             $getAllReferrals = $referrals->getReferrals($referrersForChannel1);
                             $fetchedAllReferrals = $referrals->fetchReferrals($getAllReferrals);
@@ -114,7 +114,7 @@
                                     <div class="d-flex align-items-center justify-content-end">
                                         <div class="mr-3">
                                             @php
-                                                $referrals = new App\User();
+                                                $referrals = new App\Models\User();
                                                 $referrersForChild = $child->referrers;
                                                 $getAllReferrals = $referrals->getReferrals($referrersForChild);
                                                 $fetchedAllReferrals = $referrals->fetchReferrals($getAllReferrals);
@@ -128,7 +128,7 @@
                         @endforeach
                     </div>
                     <div class="floor-section">
-                        @foreach (App\Rank::where('is_active', '1')->orderBy('level', 'asc')->get() as $floor)
+                        @foreach (App\Models\Rank::where('is_active', '1')->orderBy('level', 'asc')->get() as $floor)
                         <div class="floor-item {{ isset($authUser->advancedRank) && $authUser->advancedRank->rank->level >= $floor->level ? 'active' : '' }}">
                             <div class="text-center">FLOOR {{ $floor->level }}</div>
                             <div class="text-center font-weight-bold">{{ $floor->channel2 }}</div>
@@ -139,7 +139,7 @@
                         <div class="left-section">TOTAL SALES</div>
                         <div class="center-section text-center">
                             @php
-                                $referrals = new App\User();
+                                $referrals = new App\Models\User();
                                 $referrersForChannel2 = $authUser->referrersForChannel2();
                                 $getAllReferrals = $referrals->getReferrals($referrersForChannel2);
                                 $fetchedAllReferrals = $referrals->fetchReferrals($getAllReferrals);

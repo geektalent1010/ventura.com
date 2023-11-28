@@ -61,7 +61,7 @@
 		$temp.remove();
 		alert('Copied to Clipboard');
 	}
-  
+
 	function copyLink2(element, event) {
 		event.preventDefault();
 		var $temp = $("<input>");

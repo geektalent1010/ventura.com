@@ -18,9 +18,9 @@
     <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('images/Favicon180x180.png') }}">
     <!-- Retina iPhone Touch Icon-->
     <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('images/Favicon96x96.png') }}">
-    <!-- Standard iPad Touch Icon--> 
+    <!-- Standard iPad Touch Icon-->
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('images/Favicon96x96.png') }}">
-    <!-- Standard iPhone Touch Icon--> 
+    <!-- Standard iPhone Touch Icon-->
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('images/Favicon32x32.png') }}">
 
     <!--Favicon-->
@@ -48,13 +48,13 @@
     <!-- BEGIN PAGE START SECTION -->
     @yield('PAGE_START')
     <!-- END PAGE START SECTION -->
-    
+
     @yield('PAGE_CONTENT')
 
     <!-- BEGIN PAGE END SECTION -->
     @yield('PAGE_END')
     <!-- END PAGE END SECTION -->
-    
+
     @include('_includes.footer')
 
     <!-- BEGIN PAGE LEVEL SCRIPTS -->

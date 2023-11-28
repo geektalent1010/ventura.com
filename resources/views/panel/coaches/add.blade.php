@@ -89,7 +89,7 @@
     .addresstab {
         display: none;
         width: 100%;
-        z-index: 1000; 
+        z-index: 1000;
         background: #2d23a3;
         position: absolute;
         padding-top: 12px;
@@ -144,7 +144,7 @@
                 @csrf
 
                 <input type="hidden" name="user_type" id="userType" value="0" />
-                <input id="refererNumber" type="text" class="form-control" value="{{$referral_id}}" placeholder="Referer Number" disabled hidden>
+                <input id="refererNumber" type="text" class="form-control" value="{{ $referral_id }}" placeholder="Referer Number" disabled hidden>
 
                 <div class="row mx-0 mt-4">
                     <div class="col-md-6">
@@ -158,7 +158,7 @@
                     <div class="col-md-6">
                         <div class="login-page">
                             <div class="form-group">
-                                <input type="text" name="first_name" class="form-control" id="firstName" placeholder="First Name" tabindex="1" value="{{old('first_name')}}">
+                                <input type="text" name="first_name" class="form-control" id="firstName" placeholder="First Name" tabindex="1" value="{{ old('first_name') }}">
                                 <label id="first-name-error" class="has-error" for="first_name" style="display: none"></label>
                             </div>
                         </div>
@@ -166,11 +166,11 @@
                     <div class="col-md-6">
                         <div class="login-page">
                             <div class="form-group">
-                                <input type="text" name="last_name" class="form-control" id="lastName" placeholder="Last Name" tabindex="2" value="{{old('last_name')}}">
+                                <input type="text" name="last_name" class="form-control" id="lastName" placeholder="Last Name" tabindex="2" value="{{ old('last_name') }}">
                                 <label id="last-name-error" class="has-error" for="last_name" style="display: none"></label>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="row mx-0 mt-4">
                     <div class="col-md-6">
@@ -183,8 +183,8 @@
                             <div class="form-group">
                                 <div class="d-flex">
                                     <select class="form-control phone-select webkit_style" name="">
-                                        @foreach ($phonecodes as $code)                                    
-                                        <option value="+{{$code}}">+{{$code}}</option>
+                                        @foreach ($phonecodes as $code)
+                                        <option value="+{{ $code }}">+{{ $code }}</option>
                                         @endforeach
                                     </select>
                                     <input type="text" name="phone" class="form-control" id="real-mobileNumber" placeholder="Phone Number" hidden>
@@ -213,7 +213,7 @@
                     <div class="col-md-6">
                         <div class="login-page">
                             <div class="form-group">
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Email Address" tabindex="4" value="{{old('email')}}">
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Email Address" tabindex="4" value="{{ old('email') }}">
                                 <label id="email-error" class="has-error" for="email" style="display: none"></label>
                             </div>
                         </div>
@@ -221,7 +221,7 @@
                     <div class="col-md-6">
                         <div class="login-page">
                             <div class="form-group">
-                                <input type="text" name="website" class="form-control" id="website" placeholder="Website" tabindex="5" value="{{old('website')}}">
+                                <input type="text" name="website" class="form-control" id="website" placeholder="Website" tabindex="5" value="{{ old('website') }}">
                                 <label id="vat-number-error" class="has-error" for="website" style="display: none"></label>
                             </div>
                         </div>
@@ -239,7 +239,7 @@
                     <div class="col-md-6">
                         <div class="login-page">
                             <div class="form-group">
-                                <input type="text" name="street_name" class="form-control" id="streetName" placeholder="Street" tabindex="6" value="{{old('street_name')}}">
+                                <input type="text" name="street_name" class="form-control" id="streetName" placeholder="Street" tabindex="6" value="{{ old('street_name') }}">
                                 <label id="street-name-error" class="has-error" for="street_name" style="display: none"></label>
                             </div>
                         </div>
@@ -247,7 +247,7 @@
                     <div class="col-md-6">
                         <div class="login-page">
                             <div class="form-group">
-                                <input type="text" name="house_number" class="form-control" id="houseNumber" placeholder="House Number" tabindex="7" value="{{old('house_number')}}">
+                                <input type="text" name="house_number" class="form-control" id="houseNumber" placeholder="House Number" tabindex="7" value="{{ old('house_number') }}">
                                 <label id="house-number-error" class="has-error" for="house_number" style="display: none"></label>
                             </div>
                         </div>
@@ -255,7 +255,7 @@
                     <div class="col-md-6">
                         <div class="login-page">
                             <div class="form-group">
-                                <input type="text" name="postal_code" class="form-control" id="postalCode" placeholder="Postal Code" tabindex="8" value="{{old('postal_code')}}">
+                                <input type="text" name="postal_code" class="form-control" id="postalCode" placeholder="Postal Code" tabindex="8" value="{{ old('postal_code') }}">
                                 <label id="postal-code-error" class="has-error" for="postal_code" style="display: none"></label>
                             </div>
                         </div>
@@ -277,8 +277,8 @@
                                 <input type="text" name="country" class="form-control" id="country" placeholder="Country" hidden>
                                 <select class="form-control country-select webkit_style" name="">
                                     <option value="0">Country</option>
-                                    @foreach ($countries as $country)                                    
-                                    <option value="{{$country}}">{{$country}}</option>
+                                    @foreach ($countries as $country)
+                                    <option value="{{ $country }}">{{ $country }}</option>
                                     @endforeach
                                 </select>
                                 <label id="country-error" class="has-error" for="country" style="display: none"></label>
@@ -358,7 +358,7 @@
             var valThis = $('#txtSearchValue').val();
             $('.dropdown-select ul > li').each(function(){
             var text = $(this).text();
-                (text.toLowerCase().indexOf(valThis.toLowerCase()) > -1) ? $(this).show() : $(this).hide();         
+                (text.toLowerCase().indexOf(valThis.toLowerCase()) > -1) ? $(this).show() : $(this).hide();
         });
         };
         // Search
@@ -429,7 +429,7 @@
                 $('#country').addClass('d-none');
             }
         }
-        
+
         $('.search-cityyy input[type="text"]').on('keyup', function() {
             const key = $(this).val();
             if (timer) {
@@ -447,11 +447,11 @@
                         url: '{{ route("city.filter") }}',
                         method: "POST",
                         data: options,
-                        success:function(res){                            
+                        success:function(res){
                             if (res.length) {
                                 var html = '';
                                 for(var resIndex = 0; resIndex < res.length; resIndex++) {
-                                    html += 
+                                    html +=
                                         '<div class="address py-3" attr-data="' + res[resIndex].address + '"  attr-name="' + res[resIndex].name + '">' + res[resIndex].name + '</div>';
                                 }
                                 $('.addresstab').html(html);
@@ -907,7 +907,7 @@
                 else {
                     return ((/^[a-zA-Z\-0-9 ]{3,50}$/.test(value_from_dropdown)) || (/^[\p{L}\d\- ]{3,50}$/u.test(value_from_dropdown)));
                 }
-                
+
             },
             validateUsernameInput: function () {
                 var validationMessage = '';

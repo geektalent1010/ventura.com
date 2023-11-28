@@ -45,7 +45,7 @@
     $(function () {
         loadreportFilters();
     });
-    
+
     function loadreportFilters() {
         $.get('{{ route('salesReport.filters') }}', function (response) {
             $('.reportFilters').html(response);

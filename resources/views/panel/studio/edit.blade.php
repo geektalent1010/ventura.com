@@ -62,8 +62,8 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-center m-0 p-0 w-100 studio-section"> 
-        <div class="col-lg-6 p-0">   
+    <div class="row justify-content-center m-0 p-0 w-100 studio-section">
+        <div class="col-lg-6 p-0">
             <div class="row justify-content-center m-0 p-0 w-100">
                 <div class="col-12 col-sm-12 studioItem">
                     <div class="studioItem-wrp tabcontent" id="studio1">
@@ -74,9 +74,9 @@
                             <div class="cropme" attr-data="studio-image-1"></div>
                             <img src="{{ $user->profile->studio_image1 }}" class="studio-image remove-studio-image-1 {{ $user->profile->studio_image1 ? '' : 'd-none' }}" />
                         </div>
-                        
+
                         <div class="header-1">
-                            @if(isset($user->profile->studio_header1) && strlen($user->profile->studio_header1) > 0)
+                            @if (isset($user->profile->studio_header1) && strlen($user->profile->studio_header1) > 0)
                                 {!! html_entity_decode($user->profile->studio_header1) !!}
                             @else
                                 <p class="studio-header editable" contenteditable="true">HEADER</p>
@@ -84,15 +84,15 @@
                         </div>
 
                         <div class="content-1">
-                            @if(isset($user->profile->studio_content1) && strlen($user->profile->studio_content1) > 0)
+                            @if (isset($user->profile->studio_content1) && strlen($user->profile->studio_content1) > 0)
                                 {!! html_entity_decode($user->profile->studio_content1) !!}
                             @else
                                 <p class="studio-content editable" contenteditable="true">Content</p>
                             @endif
-                        </div>                        
+                        </div>
 
                         <div class="footer-1">
-                            @if(isset($user->profile->studio_footer1) && strlen($user->profile->studio_footer1) > 0)
+                            @if (isset($user->profile->studio_footer1) && strlen($user->profile->studio_footer1) > 0)
                                 {!! html_entity_decode($user->profile->studio_footer1) !!}
                             @else
                                 <p class="studio-footer editable" contenteditable="true">FOOTER</p>
@@ -107,9 +107,9 @@
                             <div class="cropme" attr-data="studio-image-2"></div>
                             <img src="{{ $user->profile->studio_image2 }}" class="studio-image remove-studio-image-2 {{ $user->profile->studio_image2 ? '' : 'd-none' }}" />
                         </div>
-                        
+
                         <div class="header-2">
-                            @if(isset($user->profile->studio_header2) && strlen($user->profile->studio_header2) > 0)
+                            @if (isset($user->profile->studio_header2) && strlen($user->profile->studio_header2) > 0)
                                 {!! html_entity_decode($user->profile->studio_header2) !!}
                             @else
                                 <p class="studio-header-2 editable" contenteditable="true">HEADER</p>
@@ -117,15 +117,15 @@
                         </div>
 
                         <div class="content-2">
-                            @if(isset($user->profile->studio_content2) && strlen($user->profile->studio_content2) > 0)
+                            @if (isset($user->profile->studio_content2) && strlen($user->profile->studio_content2) > 0)
                                 {!! html_entity_decode($user->profile->studio_content2) !!}
                             @else
                                 <p class="studio-content-2 editable" contenteditable="true">Content</p>
                             @endif
-                        </div>                        
+                        </div>
 
                         <div class="footer-2">
-                            @if(isset($user->profile->studio_footer2) && strlen($user->profile->studio_footer2) > 0)
+                            @if (isset($user->profile->studio_footer2) && strlen($user->profile->studio_footer2) > 0)
                                 {!! html_entity_decode($user->profile->studio_footer2) !!}
                             @else
                                 <p class="studio-footer-2 editable" contenteditable="true">FOOTER</p>
@@ -140,9 +140,9 @@
                             <div class="cropme" attr-data="studio-image-3"></div>
                             <img src="{{ $user->profile->studio_image3 }}" class="studio-image remove-studio-image-3 {{ $user->profile->studio_image3 ? '' : 'd-none' }}" />
                         </div>
-                        
+
                         <div class="header-3">
-                            @if(isset($user->profile->studio_header3) && strlen($user->profile->studio_header3) > 0)
+                            @if (isset($user->profile->studio_header3) && strlen($user->profile->studio_header3) > 0)
                                 {!! html_entity_decode($user->profile->studio_header3) !!}
                             @else
                                 <p class="studio-header editable" contenteditable="true">HEADER</p>
@@ -150,15 +150,15 @@
                         </div>
 
                         <div class="content-3">
-                            @if(isset($user->profile->studio_content3) && strlen($user->profile->studio_content3) > 0)
+                            @if (isset($user->profile->studio_content3) && strlen($user->profile->studio_content3) > 0)
                                 {!! html_entity_decode($user->profile->studio_content3) !!}
                             @else
                                 <p class="studio-content editable" contenteditable="true">Content</p>
                             @endif
-                        </div>                        
+                        </div>
 
                         <div class="footer-3">
-                            @if(isset($user->profile->studio_footer3) && strlen($user->profile->studio_footer3) > 0)
+                            @if (isset($user->profile->studio_footer3) && strlen($user->profile->studio_footer3) > 0)
                                 {!! html_entity_decode($user->profile->studio_footer3) !!}
                             @else
                                 <p class="studio-footer editable" contenteditable="true">FOOTER</p>
@@ -173,9 +173,9 @@
                             <div class="cropme" attr-data="studio-image-4"></div>
                             <img src="{{ $user->profile->studio_image4 }}" class="studio-image remove-studio-image-4 {{ $user->profile->studio_image4 ? '' : 'd-none' }}" />
                         </div>
-                        
+
                         <div class="header-4 header-2">
-                            @if(isset($user->profile->studio_header4) && strlen($user->profile->studio_header4) > 0)
+                            @if (isset($user->profile->studio_header4) && strlen($user->profile->studio_header4) > 0)
                                 {!! html_entity_decode($user->profile->studio_header4) !!}
                             @else
                                 <p class="studio-header-2 editable" contenteditable="true">HEADER</p>
@@ -183,15 +183,15 @@
                         </div>
 
                         <div class="content-4 content-2">
-                            @if(isset($user->profile->studio_content4) && strlen($user->profile->studio_content4) > 0)
+                            @if (isset($user->profile->studio_content4) && strlen($user->profile->studio_content4) > 0)
                                 {!! html_entity_decode($user->profile->studio_content4) !!}
                             @else
                                 <p class="studio-content-2 editable" contenteditable="true">Content</p>
                             @endif
-                        </div>                        
+                        </div>
 
                         <div class="footer-4 footer-2">
-                            @if(isset($user->profile->studio_footer4) && strlen($user->profile->studio_footer4) > 0)
+                            @if (isset($user->profile->studio_footer4) && strlen($user->profile->studio_footer4) > 0)
                                 {!! html_entity_decode($user->profile->studio_footer4) !!}
                             @else
                                 <p class="studio-footer-2 editable" contenteditable="true">FOOTER</p>
@@ -200,7 +200,7 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
     <div class="menu">
         <div class="m-0 p-0 row right-menu menuItem">
@@ -285,7 +285,7 @@
                         </div>
                     </div>
                 </div>
-            </div>            
+            </div>
         </div>
     </div>
 </div>
@@ -396,13 +396,13 @@
                     toastr['error'](data.error, 'Error');
                 } else {
                     toastr['success'](data.success, 'Success');
-                    
+
                 }
             },
             error:function(data){
                 console.log(data);
             }
-        }); 
+        });
 
         if (image_url == 'studio-image-1') {
             $('.remove-studio-image-1').attr('src', URL.createObjectURL(file_data));
@@ -432,11 +432,11 @@
                 $('.remove-studio-image-4').removeClass('d-none')
             }
         }
-        
+
         const blobURL = URL.createObjectURL(file_data);
         const img = new Image();
         img.src = blobURL;
-        
+
         img.onload = function () {
             const MAX_WIDTH = 1080;
             const MAX_HEIGHT = 675;
@@ -459,7 +459,7 @@
 
     $(".image-remove").click(function() {
         var send_data = {};
-        send_data['id'] = '{{$user->profile->id}}';
+        send_data['id'] = '{{ $user->profile->id }}';
         send_data['field'] = $(this).attr('attr-data');
         $.ajax({
           type: 'PUT',
@@ -467,7 +467,7 @@
           data: send_data,
           success: function(data) {
             toastr['success'](data.success, 'Success');
-            
+
           }
         })
         $("input[id='studio-image-file']").val('');
@@ -497,7 +497,7 @@
             if ($('.plus-studio-image-4').hasClass('d-none')) {
                 $('.plus-studio-image-4').removeClass('d-none')
             }
-        }        
+        }
     });
 
     function increaseFontSize() {
@@ -509,7 +509,7 @@
                 span.style.fontSize = 'larger';
                 range.surroundContents(span);
             }
-            
+
         }
     }
 
@@ -633,7 +633,7 @@
         var header4 = $('.header-4').html().replace(/<div>/g, '<br>').replace(/<\/div>/g, '');
         var content4 = $('.content-4').html().replace(/<div>/g, '<br>').replace(/<\/div>/g, '');
         var footer4 = $('.footer-4').html().replace(/<div>/g, '<br>').replace(/<\/div>/g, '');
-        form_data.append('id', '{{ $user->profile->id}}');
+        form_data.append('id', '{{ $user->profile->id }}');
         form_data.append('header1', header1);
         form_data.append('content1', content1);
         form_data.append('footer1', footer1);
@@ -672,59 +672,59 @@
 
     function imgColorToWhite() {
         switch (currentTab) {
-            case "studio1" : 
+            case "studio1" :
                 $('.blur-image-1').addClass('d-none');
                 var send_data = {};
-                send_data['id'] = '{{$user->profile->id}}';
+                send_data['id'] = '{{ $user->profile->id }}';
                 send_data['darken_mode_1'] = 0;
                 $.ajax({
                     type: 'PUT',
                     url: '{{ route('studio.update.mode1') }}',
                     data: send_data,
                     success: function(data) {
-                        
+
                     }
                 });
                 break;
-            case "studio2" : 
+            case "studio2" :
                 $('.blur-image-2').addClass('d-none');
                 var send_data = {};
-                send_data['id'] = '{{$user->profile->id}}';
+                send_data['id'] = '{{ $user->profile->id }}';
                 send_data['darken_mode_2'] = 0;
                 $.ajax({
                     type: 'PUT',
                     url: '{{ route('studio.update.mode2') }}',
                     data: send_data,
                     success: function(data) {
-                        
+
                     }
                 });
                 break;
-            case "studio3" : 
+            case "studio3" :
                 $('.blur-image-3').addClass('d-none');
                 var send_data = {};
-                send_data['id'] = '{{$user->profile->id}}';
+                send_data['id'] = '{{ $user->profile->id }}';
                 send_data['darken_mode_3'] = 0;
                 $.ajax({
                     type: 'PUT',
                     url: '{{ route('studio.update.mode3') }}',
                     data: send_data,
                     success: function(data) {
-                        
+
                     }
                 });
                 break;
-            case "studio4" : 
+            case "studio4" :
                 $('.blur-image-4').addClass('d-none');
                 var send_data = {};
-                send_data['id'] = '{{$user->profile->id}}';
+                send_data['id'] = '{{ $user->profile->id }}';
                 send_data['darken_mode_4'] = 0;
                 $.ajax({
                     type: 'PUT',
                     url: '{{ route('studio.update.mode4') }}',
                     data: send_data,
                     success: function(data) {
-                        
+
                     }
                 });
                 break;
@@ -735,24 +735,24 @@
 
     function imgColorToBlack() {
         switch (currentTab) {
-            case "studio1" : 
+            case "studio1" :
                 $('.blur-image-1').removeClass('d-none');
                 var send_data = {};
-                send_data['id'] = '{{$user->profile->id}}';
+                send_data['id'] = '{{ $user->profile->id }}';
                 send_data['darken_mode_1'] = 1;
                 $.ajax({
                     type: 'PUT',
                     url: '{{ route('studio.update.mode1') }}',
                     data: send_data,
                     success: function(data) {
-                        
+
                     }
                 });
                 break;
-            case "studio2" : 
+            case "studio2" :
                 $('.blur-image-2').removeClass('d-none');
                 var send_data = {};
-                send_data['id'] = '{{$user->profile->id}}';
+                send_data['id'] = '{{ $user->profile->id }}';
                 send_data['darken_mode_2'] = 1;
                 $.ajax({
                     type: 'PUT',
@@ -762,31 +762,31 @@
                     }
                 });
                 break;
-            case "studio3" : 
+            case "studio3" :
                 $('.blur-image-3').removeClass('d-none');
                 var send_data = {};
-                send_data['id'] = '{{$user->profile->id}}';
+                send_data['id'] = '{{ $user->profile->id }}';
                 send_data['darken_mode_3'] = 1;
                 $.ajax({
                     type: 'PUT',
                     url: '{{ route('studio.update.mode3') }}',
                     data: send_data,
                     success: function(data) {
-                        
+
                     }
                 });
                 break;
-            case "studio4" : 
+            case "studio4" :
                 $('.blur-image-4').removeClass('d-none');
                 var send_data = {};
-                send_data['id'] = '{{$user->profile->id}}';
+                send_data['id'] = '{{ $user->profile->id }}';
                 send_data['darken_mode_4'] = 1;
                 $.ajax({
                     type: 'PUT',
                     url: '{{ route('studio.update.mode4') }}',
                     data: send_data,
                     success: function(data) {
-                    
+
                     }
                 });
                 break;

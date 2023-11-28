@@ -13,7 +13,7 @@
                 <div class="login-title text-center mb-4">
                     <p>ALMOST...</p>
                     <span class="join-desc">We will open up soon for registrations.<br>Leave your name, country, email address<br>and we’ll keep you in the loop.</span>
-                </div>                
+                </div>
                 <form id="enquiryform">
                     @csrf
 

@@ -1,4 +1,4 @@
-@if($joiningData->count())
+@if ($joiningData->count())
     <div class="reportOptions">
         <button type="button" class="btn btn-primary downloadPdf"><i
                     class="fa fa-file-pdf"></i>Pdf</button>
@@ -27,7 +27,7 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($joiningData as $user)
+            @foreach ($joiningData as $user)
                 <tr>
                     <td></td>
                     <td>{{ ($joiningData->currentPage() * $joiningData->perPage()) - $joiningData->perPage() + $loop->iteration }}</td>

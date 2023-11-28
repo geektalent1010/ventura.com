@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTradesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('trades', function (Blueprint $table) {
@@ -30,11 +25,6 @@ class CreateTradesTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('trades');

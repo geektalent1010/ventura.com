@@ -35,11 +35,11 @@
                 </div>
                 <div class="row w-100 p-0 m-0 poolitem-section">
                     @for ($index = 1; $index < 6; $index++)
-                        <div class="poolItem" attr-data={{$index}}>
-                            <div class="poolItem-wrp level-{{$index}}">
+                        <div class="poolItem" attr-data={{ $index }}>
+                            <div class="poolItem-wrp level-{{ $index }}">
                                 <div class="item">
                                     <img class="" src="{{ asset('images/svg/IconRANK.svg') }}">
-                                    <p>{{$index}}</p>
+                                    <p>{{ $index }}</p>
                                 </div>
                             </div>
                         </div>
@@ -54,10 +54,10 @@
                         </div>
                     </div>
                 </div>
-                
+
                 @if (is_null($viewer))
                 <div class="no-members text-center mt-5">
-                    
+
                 </div>
                 @else
                 <div class="row w-100 p-0 m-0">
@@ -72,14 +72,14 @@
                         <div class="rowItem-wrp active">
                             <div class="item">
                                 <div class="item-icon mb-2">
-                                    <p>{{ isset($viewer->rank) ? $viewer->rank->rank->level : '0'}}</p>
+                                    <p>{{ isset($viewer->rank) ? $viewer->rank->rank->level : '0' }}</p>
                                     <img src="{{ asset('images/svg/IconRANK.svg') }}">
                                 </div>
                                 <span class="name-label mb-1">{{ $viewer->getFullname() }}</span>
                                 <span class="score-label mb-1">{{ $viewer->referrers->count() }}</span>
                                 <div class="d-flex align-items-center">
                                     <span class="date-icon mr-2 {{ isset($viewer->rank) ? 'active' : '' }}"><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                    <span class="date-label">{{ date_format($viewer->created_at, "d.m.Y" )}}</span>
+                                    <span class="date-label">{{ date_format($viewer->created_at, "d.m.Y" ) }}</span>
                                 </div>
                             </div>
                         </div>
@@ -98,14 +98,14 @@
                             <div class="rowItem-wrp secondRow">
                                 <div class="item">
                                     <div class="item-icon mb-2">
-                                        <p>{{ isset($user->rank) ? $user->rank->rank->level : '0'}}</p>
+                                        <p>{{ isset($user->rank) ? $user->rank->rank->level : '0' }}</p>
                                         <img src="{{ asset('images/svg/IconRANK.svg') }}">
                                     </div>
                                     <span class="name-label mb-1">{{ $user->getFullname() }}</span>
                                     <span class="score-label mb-1">{{ $user->referrers->count() }}</span>
                                     <div class="d-flex align-items-center">
                                         <span class="date-icon mr-2 {{ isset($user->rank) ? 'active' : '' }}"><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                        <span class="date-label">{{ date_format($user->created_at, "d.m.Y" )}}</span>
+                                        <span class="date-label">{{ date_format($user->created_at, "d.m.Y" ) }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +173,7 @@
             })
         }
     })
-    
+
 
     $('#trackerSearchKey').on('keyup', function() {
         const key = $(this).val();

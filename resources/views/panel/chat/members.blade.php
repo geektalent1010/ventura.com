@@ -32,7 +32,7 @@
             </div>
           @else
             @foreach ($channels as $channel)
-            <member-component :auth-user="{{ auth()->user() }}" :channel-info="{{ $channel }}" :member-info="{{ $channel->otherUser }}" :member-profile="{{ $channel->otherUser->profile }}" :current-channel="@if(!is_null($channelInfo) && $channelInfo->id === $channel->id) true @else false @endif" :online-status="@if(Cache::has('is_online' . $channel->otherUser->id)) true @else false @endif"></member-component>
+            <member-component :auth-user="{{ auth()->user() }}" :channel-info="{{ $channel }}" :member-info="{{ $channel->otherUser }}" :member-profile="{{ $channel->otherUser->profile }}" :current-channel="@if (!is_null($channelInfo) && $channelInfo->id === $channel->id) true @else false @endif" :online-status="@if (Cache::has('is_online' . $channel->otherUser->id)) true @else false @endif"></member-component>
             @endforeach
           @endif
         </div>

@@ -4,7 +4,7 @@
             <div class="member-link">
                 <div class="member-avatar-wrp">
                     <div class="member-avatar">
-                        @if($member->team->team_logo)
+                        @if ($member->team->team_logo)
                         <img src="{{ asset('uploads/teams/'.$member->team->team_logo.'?'.time()) }}">
                         @else
                         <p class="first_letter">{{ substr($member->team->name, 0, 1) }}</p>
