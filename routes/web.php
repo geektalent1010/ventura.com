@@ -196,8 +196,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Stories Route
     Route::get('stories', 'StoriesController@index')->name('stories.index')->middleware('auth');
-    Route::get('stories/friends', 'StoriesController@friends_story')->name('stories.friends')->middleware('auth');
-    Route::get('stories/mine', 'StoriesController@my_story')->name('stories.mine')->middleware('auth');
+    Route::get('stories/friends', 'StoriesController@friendsStory')->name('stories.friends')->middleware('auth');
+    Route::get('stories/mine', 'StoriesController@myStory')->name('stories.mine')->middleware('auth');
     Route::get('stories/create', 'StoriesController@create')->name('stories.create')->middleware('auth');
     Route::get('stories/edit/{id}', 'StoriesController@edit')->name('stories.mine.edit')->middleware('auth');
 
@@ -233,7 +233,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Wisdom Route
     Route::get('wisdom', 'WisdomContoller@index')->name('wisdom.index');
-    Route::get('wisdom/mine', 'WisdomContoller@my_story')->name('wisdom.mine');
+    Route::get('wisdom/mine', 'WisdomContoller@myStory')->name('wisdom.mine');
     Route::get('wisdom/create', 'WisdomContoller@create')->name('wisdom.create');
     Route::get('wisdom/edit/{id}', 'WisdomContoller@edit')->name('wisdom.mine.edit');
 

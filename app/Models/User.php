@@ -53,7 +53,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Channel');
     }
 
-    public function IsAdmin()
+    public function isAdmin()
     {
         if ($this->is_admin == 1) {
             return true;
@@ -62,7 +62,7 @@ class User extends Authenticatable
         }
     }
 
-    public function IsIndividual()
+    public function isIndividual()
     {
         if ($this->user_type == 0) {
             return true;
@@ -71,7 +71,7 @@ class User extends Authenticatable
         }
     }
 
-    public function IsCompany()
+    public function isCompany()
     {
         if ($this->user_type == 1) {
             return true;
@@ -80,7 +80,7 @@ class User extends Authenticatable
         }
     }
 
-    public function IsCoach()
+    public function isCoach()
     {
         if ($this->user_type == 2) {
             return true;

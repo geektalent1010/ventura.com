@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Requests extends Model
 {
@@ -18,7 +19,7 @@ class Requests extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-    public function request_user()
+    public function requestUser(): BelongsTo
     {
         return $this->belongsTo('App\Models\User', 'requester', 'id');
     }

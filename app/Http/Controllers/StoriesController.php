@@ -34,7 +34,7 @@ class StoriesController extends Controller
         return view('panel.stories.edit', $data);
     }
 
-    public function friends_story()
+    public function friendsStory()
     {
         $data['authUser'] = auth()->user();
         $friendIds = Friend::where('user_id', '=', $data['authUser']->id)->pluck('connected_user_id')->toArray();
@@ -44,7 +44,7 @@ class StoriesController extends Controller
         return view('panel.stories.friends', $data);
     }
 
-    public function my_story()
+    public function myStory()
     {
         $data['authUser'] = auth()->user();
         $data['stories'] = Post::where('type', '=', 1)->where('is_active', '=', 1)->where('created_by',

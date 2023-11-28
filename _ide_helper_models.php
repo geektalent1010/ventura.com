@@ -116,7 +116,7 @@ namespace App\Models{
  * @property int $connected_user_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\User $connected_user
+ * @property-read \App\Models\User|null $connectedUser
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|Friend newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Friend newQuery()
@@ -141,8 +141,8 @@ namespace App\Models{
  * @property int|null $is_active
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\Member $invite_member
- * @property-read \App\Models\User $request_user
+ * @property-read \App\Models\Member $inviteMember
+ * @property-read \App\Models\User $requestUser
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|Invite newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Invite newQuery()
@@ -474,7 +474,7 @@ namespace App\Models{
  * @property int|null $is_active
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \App\Models\User $request_user
+ * @property-read \App\Models\User $requestUser
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|Requests newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Requests newQuery()

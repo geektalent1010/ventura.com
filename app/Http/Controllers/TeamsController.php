@@ -309,7 +309,7 @@ class TeamsController extends Controller
     {
         $requestInfo = Invite::find($request->request_id);
         if (isset($requestInfo)) {
-            $member = $requestInfo->invite_member;
+            $member = $requestInfo->inviteMember;
             if (isset($member)) {
                 $member->is_banned = 0;
                 $member->save();

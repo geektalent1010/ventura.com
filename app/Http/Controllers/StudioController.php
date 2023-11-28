@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profile;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Intervention\Image\Facades\Image;
 
 class StudioController extends Controller
