@@ -41,7 +41,7 @@ Route::group([], function () {
         }
 
         return redirect()->route('home');
-    })->where('referral_id', '[0-9]{6}+')->name('referral:referral-link');
+    })->where('referral_id', '[0-9]{6}+')->name('referral:referral-link-channel');
 });
 
 Route::group([
