@@ -8,7 +8,7 @@ npm ci && npm run production
 echo 'Clearing caches';
 
 if [ -f artisan ]; then
-    $FORGE_PHP artisan migrate
+    $FORGE_PHP artisan migrate --force
 
     # Clear caches
     $FORGE_PHP artisan cache:clear
