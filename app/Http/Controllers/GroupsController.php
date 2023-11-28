@@ -15,7 +15,7 @@ class GroupsController extends Controller
         return view('panel.teams.index', compact('users', 'authUser'));
     }
 
-    public function create_group(Request $request)
+    public function createGroup(Request $request)
     {
         $id = auth()->user()->id;
         $data['is_me'] = $id === auth()->user()->id;

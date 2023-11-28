@@ -16,7 +16,7 @@ class Friend extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-    public function connected_user()
+    public function connectedUser()
     {
         return $this->belongsTo('App\Models\User', 'connected_user_id', 'id');
     }

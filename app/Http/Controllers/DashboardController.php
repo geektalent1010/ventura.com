@@ -51,7 +51,7 @@ class DashboardController extends Controller
                 $isNewRequests = true;
             }
         }
-        if ($authUser->IsAdmin()) {
+        if ($authUser->isAdmin()) {
             return view('admin.dashboard', compact('authUser', 'otherUser', 'channelInfo', 'channels', 'isNewRequests', 'isNews'));
         }
 

@@ -24,14 +24,14 @@
                 <div class="member-link">
                     <div class="member-avatar-wrp">
                         <div class="member-avatar">
-                          @if ($invite->invite_member->team->team_logo)
-                          <img src="{{ asset('uploads/teams/'.$invite->invite_member->team->team_logo.'?'.time()) }}">
+                          @if ($invite->inviteMember->team->team_logo)
+                          <img src="{{ asset('uploads/teams/'.$invite->inviteMember->team->team_logo.'?'.time()) }}">
                           @else
-                          <p class="first_letter">{{ substr($invite->invite_member->team->name, 0, 1) }}</p>
+                          <p class="first_letter">{{ substr($invite->inviteMember->team->name, 0, 1) }}</p>
                           @endif
                         </div>
                     </div>
-                    <div class="member-name">{{ $invite->invite_member->team->name }}</div>
+                    <div class="member-name">{{ $invite->inviteMember->team->name }}</div>
                 </div>
                 <div class="option-icons-section">
                     <div class="option-icon-btn accept-invite" attr-data="{{ $invite->id }}">
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="description-input-section">
-              <input id="teamDescription" type="text" class="form-control desc-body" name="description" value="{{ $invite->invite_member->team->description }}" readonly>
+              <input id="teamDescription" type="text" class="form-control desc-body" name="description" value="{{ $invite->inviteMember->team->description }}" readonly>
             </div>
           @endforeach
         </div>

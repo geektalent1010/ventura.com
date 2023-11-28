@@ -27,10 +27,10 @@ class Roles
     private function checkRole($role)
     {
         switch ($role) {
-            case 'individual': return auth()->user()->IsIndividual();
-            case 'company': return auth()->user()->IsCompany();
-            case 'coach': return auth()->user()->IsCoach();
-            case 'admin': return auth()->user()->IsAdmin();
+            case 'individual': return auth()->user()->isIndividual();
+            case 'company': return auth()->user()->isCompany();
+            case 'coach': return auth()->user()->isCoach();
+            case 'admin': return auth()->user()->isAdmin();
         }
 
         return false;

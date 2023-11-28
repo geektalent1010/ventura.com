@@ -1,6 +1,6 @@
 @extends('layouts.app', ['ACTIVE_TITLE' => 'NEWS', 'ROUTES' => [
   ['ROUTE' => 'news.index', 'ACTIVE' => 'all', 'ACTIVE_ROUTE' => true],
-  ['ROUTE' => 'news.mine', 'ACTIVE' => 'mine', 'ACTIVE_ROUTE' => $authUser->IsAdmin()]
+  ['ROUTE' => 'news.mine', 'ACTIVE' => 'mine', 'ACTIVE_ROUTE' => $authUser->isAdmin()]
 ], 'ACTIVE_PAGE' => 'all'])
 
 @section('title', __('- News'))

@@ -32,7 +32,7 @@ class WisdomContoller extends Controller
         return view('panel.wisdom.edit', $data);
     }
 
-    public function my_story()
+    public function myStory()
     {
         $data['authUser'] = auth()->user();
         $data['stories'] = Post::where('type', '=', 5)->where('is_active', '=', 1)->where('created_by', $data['authUser']->id)->orderBy('created_at', 'desc')->get();

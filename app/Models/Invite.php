@@ -18,12 +18,12 @@ class Invite extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-    public function request_user()
+    public function requestUser()
     {
         return $this->belongsTo('App\Models\User', 'requester', 'id');
     }
 
-    public function invite_member()
+    public function inviteMember()
     {
         return $this->belongsTo('App\Models\Member', 'member_id', 'id');
     }
