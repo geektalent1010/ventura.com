@@ -19,6 +19,11 @@ After cloning the repository get into the `ventura.pro` directory and run:
 
 `./vendor/bin/sail artisan migrate:fresh --seed` (optional)
 
+Without sail:
+ - `composer install`
+ - `php artisan serve`
+ - obviously the rest of the command above with direct `php` command where `php` version is `8.2`
+
 Go to [http://localhost](http://localhost) in order to see the application running.
 
 ## Deployment

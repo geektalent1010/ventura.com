@@ -26,7 +26,7 @@ class UserController extends Controller
         $data['authUser'] = auth()->user();
         $data['is_me'] = $userId == auth()->user()->id;
         $data['user'] = $user = User::find($userId);
-        if (!isset($user)) {
+        if (! isset($user)) {
             return redirect()->route('profile');
         }
         $friendIds = Friend::where('user_id', '=', $user->id)->pluck('connected_user_id')->toArray();
@@ -55,8 +55,8 @@ class UserController extends Controller
         $country = '';
         $addressStatus = false;
 
-        $data['address'] = $city . ', ' . $state . ', ' . $country;
-        $data['selected_address'] = $user->profile->city . ',' . $user->profile->state . ',' . $user->profile->country;
+        $data['address'] = $city.', '.$state.', '.$country;
+        $data['selected_address'] = $user->profile->city.','.$user->profile->state.','.$user->profile->country;
         $data['addressStatus'] = $addressStatus;
 
         $data['city'] = City::find($user->profile->city) ? City::find($user->profile->city)->name : '';
@@ -114,8 +114,8 @@ class UserController extends Controller
                 ->get();
             if (count($states)) {
                 foreach ($states as $state) {
-                    $name = $state->name . ', ' . $state->country->name;
-                    $address = $state->id . ',' . $state->country->id;
+                    $name = $state->name.', '.$state->country->name;
+                    $address = $state->id.','.$state->country->id;
                     array_push($data, ['name' => $name, 'address' => $address]);
                 }
             }
@@ -152,13 +152,7 @@ class UserController extends Controller
         }
 
         $countries = Country::where('active', 1)->get();
-        $phonecodes = Country::where('active', 1)
-            ->where('phonecode', '<>', 0)
-            ->orderBy('phonecode', 'asc')
-            ->select('phonecode')
-            ->distinct()
-            ->get()
-            ->all();
+        $phonecodes = Country::where('active', 1)->where('phonecode', '<>', 0)->orderBy('phonecode', 'asc')->select('phonecode')->distinct()->get()->all();
 
         return view('panel.individual.detail.edit', ['user' => $user, 'cityname' => $city, 'countryname' => $country, 'sponsor' => $sponsor, 'referral_id' => $referralCookie, 'countries' => $countries, 'phonecodes' => $phonecodes]);
     }
@@ -242,12 +236,12 @@ class UserController extends Controller
     {
         $profile = auth()->user()->profile;
         $file = $request->file('file');
-        $filename = $profile->user->username . '-' . $request->field . '.jpg';
+        $filename = $profile->user->username.'-'.$request->field.'.jpg';
 
-        if (!file_exists(base_path() . '/public/uploads/' . $profile->user->username)) {
-            mkdir(base_path() . '/public/uploads/' . $profile->user->username, 0777, true);
+        if (! file_exists(base_path().'/public/uploads/'.$profile->user->username)) {
+            mkdir(base_path().'/public/uploads/'.$profile->user->username, 0777, true);
         }
-        $file->move(base_path() . '/public/uploads/' . $profile->user->username, $filename);
+        $file->move(base_path().'/public/uploads/'.$profile->user->username, $filename);
         switch ($request->field) {
             case 'thumbnail1':
                 $profile->other_avatar_url1 = $filename;
@@ -341,8 +335,8 @@ class UserController extends Controller
                 $profile->main_avatar_url = null;
                 break;
         }
-        if (file_exists(base_path() . '/public/uploads/' . $profile->user->username . '/' . $filename)) {
-            unlink(base_path() . '/public/uploads/' . $profile->user->username . '/' . $filename);
+        if (file_exists(base_path().'/public/uploads/'.$profile->user->username.'/'.$filename)) {
+            unlink(base_path().'/public/uploads/'.$profile->user->username.'/'.$filename);
         }
         $profile->save();
 
@@ -435,7 +429,11 @@ class UserController extends Controller
         if ($request->input('key') == 'verifyEmail') {
             return response()->json(['status' => User::where('email', $request->input('value'))->where('id', '<>', $request->user()->id)->exists()]);
         } elseif ($request->input('key') == 'verifyUsername') {
-            return response()->json(['status' => User::where('username', $request->input('value'))->where('id', '<>', $request->user()->id)->exists()]);
+            return response()
+                ->json(['status' => User::where('username', $request->input('value'))
+                    ->where('id', '<>', $request->user()->id)
+                    ->exists(),
+                ]);
         }
     }
 }
