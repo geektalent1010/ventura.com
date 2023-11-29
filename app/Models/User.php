@@ -55,56 +55,46 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        if ($this->is_admin == 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return (bool) (1 === $this->is_admin);
+
     }
 
     public function isIndividual()
     {
-        if ($this->user_type == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return (bool) (0 === $this->user_type);
+
     }
 
     public function isCompany()
     {
-        if ($this->user_type == 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return (bool) (1 === $this->user_type);
+
     }
 
     public function isCoach()
     {
-        if ($this->user_type == 2) {
-            return true;
-        } else {
-            return false;
-        }
+        return (bool) (2 === $this->user_type);
+
     }
 
     public function getMono(): string
     {
-        if ($this->user_type == 1) {
-            return isset($this->profile->company_name) ? substr($this->profile->company_name, 0, 1) : 'C';
-        } else {
-            return substr($this->profile->first_name, 0, 1);
+        if (1 === $this->user_type) {
+            return isset($this->profile->company_name) ? mb_substr($this->profile->company_name, 0, 1) : 'C';
         }
+
+        return mb_substr($this->profile->first_name, 0, 1);
+
     }
 
     public function getFullname()
     {
-        if ($this->user_type == 1) {
-            return $this->profile->company_name ?? 'Company Name'.$this->id;
-        } else {
-            return $this->profile->first_name.' '.$this->profile->last_name;
+        if (1 === $this->user_type) {
+            return $this->profile->company_name ?? 'Company Name' . $this->id;
         }
+
+        return $this->profile->first_name . ' ' . $this->profile->last_name;
+
     }
 
     public function posts(): HasMany
@@ -131,7 +121,7 @@ class User extends Authenticatable
     {
         return $this->referrers->filter(function ($child) {
             /** @var User $child */
-            return $child->channel == 1;
+            return 1 === $child->channel;
         });
     }
 
@@ -139,7 +129,7 @@ class User extends Authenticatable
     {
         return $this->referrers->filter(function ($child) {
             /** @var User $child */
-            return $child->channel == 2;
+            return 2 === $child->channel;
         });
     }
 
@@ -152,9 +142,10 @@ class User extends Authenticatable
     {
         if ($sponser = User::find($this->sponsor_id)) {
             return $sponser->username;
-        } else {
-            return '-';
         }
+
+        return '-';
+
     }
 
     public function rank(): HasOne

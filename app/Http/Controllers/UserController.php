@@ -24,9 +24,9 @@ class UserController extends Controller
     {
         $userId = $userID ? $userID : auth()->user()->id;
         $data['authUser'] = auth()->user();
-        $data['is_me'] = $userId == auth()->user()->id;
+        $data['is_me'] = $userId === auth()->user()->id;
         $data['user'] = $user = User::find($userId);
-        if (! isset($user)) {
+        if ( ! isset($user)) {
             return redirect()->route('profile');
         }
         $friendIds = Friend::where('user_id', '=', $user->id)->pluck('connected_user_id')->toArray();
@@ -36,13 +36,15 @@ class UserController extends Controller
         $data['state'] = State::find($user->profile->state) ? State::find($user->profile->state)->name : '';
         $data['country'] = Country::find($user->profile->country) ? Country::find($user->profile->country)->name : '';
 
-        if ($user->user_type === 1) {
+        if (1 === $user->user_type) {
             return view('panel.company.profile', $data);
-        } elseif ($user->user_type === 2) {
-            return view('panel.coaches.profile', $data);
-        } else {
-            return view('panel.individual.profile', $data);
         }
+        if (2 === $user->user_type) {
+            return view('panel.coaches.profile', $data);
+        }
+
+        return view('panel.individual.profile', $data);
+
     }
 
     public function edit()
@@ -55,19 +57,20 @@ class UserController extends Controller
         $country = '';
         $addressStatus = false;
 
-        $data['address'] = $city.', '.$state.', '.$country;
-        $data['selected_address'] = $user->profile->city.','.$user->profile->state.','.$user->profile->country;
+        $data['address'] = $city . ', ' . $state . ', ' . $country;
+        $data['selected_address'] = $user->profile->city . ',' . $user->profile->state . ',' . $user->profile->country;
         $data['addressStatus'] = $addressStatus;
 
         $data['city'] = City::find($user->profile->city) ? City::find($user->profile->city)->name : '';
         $data['state'] = State::find($user->profile->state) ? State::find($user->profile->state)->name : '';
         $data['country'] = Country::find($user->profile->country) ? Country::find($user->profile->country)->name : '';
 
-        if ($user->user_type !== 1) {
+        if (1 !== $user->user_type) {
             return view('panel.individual.edit', $data);
-        } else {
-            return view('panel.company.edit', $data);
         }
+
+        return view('panel.company.edit', $data);
+
     }
 
     public function detail()
@@ -99,33 +102,33 @@ class UserController extends Controller
         $distance = $request->get('distance');
         $keyword = $request->get('keyword');
         $data = [];
-        if ($distance == 'CITY') {
+        if ('CITY' === $distance) {
             $cities = City::query()
                 ->where('name', 'LIKE', "%{$keyword}%")
                 ->select('name')->distinct()->get()->all();
             if (count($cities)) {
                 foreach ($cities as $city) {
-                    array_push($data, ['name' => $city, 'address' => $city]);
+                    $data[] = ['name' => $city, 'address' => $city];
                 }
             }
-        } elseif ($distance == 'AREA') {
+        } elseif ('AREA' === $distance) {
             $states = State::query()
                 ->where('name', 'LIKE', "%{$keyword}%")
                 ->get();
             if (count($states)) {
                 foreach ($states as $state) {
-                    $name = $state->name.', '.$state->country->name;
-                    $address = $state->id.','.$state->country->id;
-                    array_push($data, ['name' => $name, 'address' => $address]);
+                    $name = $state->name . ', ' . $state->country->name;
+                    $address = $state->id . ',' . $state->country->id;
+                    $data[] = ['name' => $name, 'address' => $address];
                 }
             }
-        } elseif ($distance == 'COUNTRY') {
+        } elseif ('COUNTRY' === $distance) {
             $countries = Country::query()
                 ->where('name', 'LIKE', "%{$keyword}%")
                 ->get();
             if (count($countries)) {
                 foreach ($countries as $country) {
-                    array_push($data, ['name' => $country->name, 'address' => $country->id]);
+                    $data[] = ['name' => $country->name, 'address' => $country->id];
                 }
             }
         }
@@ -161,7 +164,7 @@ class UserController extends Controller
     {
         $user = auth()->user();
         // $user->username = $request->username;
-        if ($request->changePassword == 1) {
+        if (1 === $request->changePassword) {
             $user->password = Hash::make($request->password);
         }
         $user->email = $request->email;
@@ -192,11 +195,12 @@ class UserController extends Controller
     {
         $data['user'] = $user = auth()->user();
 
-        if ($user->user_type !== 0) {
+        if (0 !== $user->user_type) {
             return view('panel.company.setting', $data);
-        } else {
-            return view('panel.individual.setting', $data);
         }
+
+        return view('panel.individual.setting', $data);
+
     }
 
     public function updateProfileAddress(Request $request)
@@ -236,12 +240,12 @@ class UserController extends Controller
     {
         $profile = auth()->user()->profile;
         $file = $request->file('file');
-        $filename = $profile->user->username.'-'.$request->field.'.jpg';
+        $filename = $profile->user->username . '-' . $request->field . '.jpg';
 
-        if (! file_exists(base_path().'/public/uploads/'.$profile->user->username)) {
-            mkdir(base_path().'/public/uploads/'.$profile->user->username, 0777, true);
+        if ( ! file_exists(base_path() . '/public/uploads/' . $profile->user->username)) {
+            mkdir(base_path() . '/public/uploads/' . $profile->user->username, 0777, true);
         }
-        $file->move(base_path().'/public/uploads/'.$profile->user->username, $filename);
+        $file->move(base_path() . '/public/uploads/' . $profile->user->username, $filename);
         switch ($request->field) {
             case 'thumbnail1':
                 $profile->other_avatar_url1 = $filename;
@@ -335,8 +339,8 @@ class UserController extends Controller
                 $profile->main_avatar_url = null;
                 break;
         }
-        if (file_exists(base_path().'/public/uploads/'.$profile->user->username.'/'.$filename)) {
-            unlink(base_path().'/public/uploads/'.$profile->user->username.'/'.$filename);
+        if (file_exists(base_path() . '/public/uploads/' . $profile->user->username . '/' . $filename)) {
+            unlink(base_path() . '/public/uploads/' . $profile->user->username . '/' . $filename);
         }
         $profile->save();
 
@@ -426,9 +430,10 @@ class UserController extends Controller
 
     public function verify(Request $request)
     {
-        if ($request->input('key') == 'verifyEmail') {
+        if ('verifyEmail' === $request->input('key')) {
             return response()->json(['status' => User::where('email', $request->input('value'))->where('id', '<>', $request->user()->id)->exists()]);
-        } elseif ($request->input('key') == 'verifyUsername') {
+        }
+        if ('verifyUsername' === $request->input('key')) {
             return response()
                 ->json(['status' => User::where('username', $request->input('value'))
                     ->where('id', '<>', $request->user()->id)

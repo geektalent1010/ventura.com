@@ -13,7 +13,7 @@ class Handler extends ExceptionHandler
      * @var string[]
      */
     protected $dontReport = [
-        //
+
     ];
 
     /**
@@ -29,11 +29,10 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * @return void
      *
-     * @throws \Throwable
+     * @throws Throwable
      */
-    public function report(Throwable $exception)
+    public function report(Throwable $exception): void
     {
         parent::report($exception);
     }
@@ -44,7 +43,7 @@ class Handler extends ExceptionHandler
      * @param  \Illuminate\Http\Request  $request
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function render($request, Throwable $exception)
     {

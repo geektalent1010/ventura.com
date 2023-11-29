@@ -34,8 +34,10 @@ class IncentivesController extends Controller
         });
 
         $totalSales = $this->calculateSales() * 120;
-        $totalShareCommissions = $totalSales * Rank::where('is_active',
-            '1')->sum('profit') / 100 / Rank::where('is_active', '1')->count();
+        $totalShareCommissions = $totalSales * Rank::where(
+            'is_active',
+            '1'
+        )->sum('profit') / 100 / Rank::where('is_active', '1')->count();
         $groupByRank = RankUser::select('rank_id', DB::raw('count(*) as rank_count'))
             ->groupBy('rank_id')
             ->get();
@@ -52,8 +54,8 @@ class IncentivesController extends Controller
         }
 
         foreach (Rank::where('is_active', '1')->orderBy('level', 'desc')->get() as $floor) {
-            $floorByChannel1 = isset($rankCounts[$floor->level]) ? $rankCounts[$floor->level] : 0;
-            $floorByChannel2 = isset($advancedRankCounts[$floor->level]) ? $advancedRankCounts[$floor->level] : 0;
+            $floorByChannel1 = $rankCounts[$floor->level] ?? 0;
+            $floorByChannel2 = $advancedRankCounts[$floor->level] ?? 0;
             $totalFloor = $floorByChannel1 + $floorByChannel2;
             $shareByChannel1 = isset($authUser->rank) && $authUser->rank->rank->level >= $floor->level ? 1 : 0;
             $shareByChannel2 = isset($authUser->advancedRank) && $authUser->advancedRank->rank->level >= $floor->level ? 1 : 0;
@@ -76,8 +78,10 @@ class IncentivesController extends Controller
     {
         $authUser = auth()->user();
         $totalSales = $this->calculateSales() * 120;
-        $totalShareCommissions = $totalSales * Rank::where('is_active',
-            '1')->sum('profit') / 100 / Rank::where('is_active', '1')->count();
+        $totalShareCommissions = $totalSales * Rank::where(
+            'is_active',
+            '1'
+        )->sum('profit') / 100 / Rank::where('is_active', '1')->count();
 
         $groupByRank = RankUser::select('rank_id', DB::raw('count(*) as rank_count'))
             ->groupBy('rank_id')
@@ -114,12 +118,7 @@ class IncentivesController extends Controller
 
     public function calculateRank(User $user, $channel2)
     {
-        return Rank::where('is_active', '1')->orderBy('id', 'desc')->get()->filter(function ($rank) use (
-            $user,
-            $channel2
-        ) {
-            return $this->isQualifiedByFloor($rank, $user, $channel2);
-        })->first();
+        return Rank::where('is_active', '1')->orderBy('id', 'desc')->get()->filter(fn ($rank) => $this->isQualifiedByFloor($rank, $user, $channel2))->first();
     }
 
     public function isQualified(Rank $rank, User $user)
@@ -136,11 +135,7 @@ class IncentivesController extends Controller
                 return $child->referrers->count() >= $ranksToCheck['count_by_partner'];
             });
 
-            if ($children->count() < $ranksToCheck['partners']) {
-                return false;
-            }
-
-            return true;
+            return ! ($children->count() < $ranksToCheck['partners']);
         };
 
         $ranksToCheck = [
@@ -149,11 +144,7 @@ class IncentivesController extends Controller
             'count_by_partner' => $rank->partner_group,
         ];
 
-        if (! $checkChildren($ranksToCheck)) {
-            return false;
-        }
-
-        return true;
+        return ! ( ! $checkChildren($ranksToCheck));
     }
 
     public function isQualifiedByFloor(Rank $rank, User $user, $channel2)
@@ -169,11 +160,7 @@ class IncentivesController extends Controller
             $getAllReferrals = $referrals->getReferrals($referrersForChannel1);
             $fetchedAllReferrals = $referrals->fetchReferrals($getAllReferrals);
 
-            if (count($fetchedAllReferrals) < $ranksToCheck['channel1']) {
-                return false;
-            }
-
-            return true;
+            return ! (count($fetchedAllReferrals) < $ranksToCheck['channel1']);
         };
         $checkChildrenForChannel2 = function ($ranksToCheck) use ($user) {
             $referrersForChannel2 = $user->referrersForChannel2();
@@ -186,11 +173,7 @@ class IncentivesController extends Controller
             $getAllReferrals = $referrals->getReferrals($referrersForChannel2);
             $fetchedAllReferrals = $referrals->fetchReferrals($getAllReferrals);
 
-            if (count($fetchedAllReferrals) < $ranksToCheck['channel2']) {
-                return false;
-            }
-
-            return true;
+            return ! (count($fetchedAllReferrals) < $ranksToCheck['channel2']);
         };
 
         $ranksToCheck = [
@@ -201,11 +184,11 @@ class IncentivesController extends Controller
         ];
 
         if ($channel2) {
-            if (! $checkChildrenForChannel2($ranksToCheck)) {
+            if ( ! $checkChildrenForChannel2($ranksToCheck)) {
                 return false;
             }
         } else {
-            if (! $checkChildren($ranksToCheck)) {
+            if ( ! $checkChildren($ranksToCheck)) {
                 return false;
             }
         }
@@ -213,11 +196,11 @@ class IncentivesController extends Controller
         return true;
     }
 
-    public function distribute(User $user, $rank, $channel2)
+    public function distribute(User $user, $rank, $channel2): void
     {
         if ($channel2) {
             $existingRank = AdvancedRank::where('user_id', $user->id)->first();
-            if (! $existingRank || ($rank->id != $existingRank->rank_id)) {
+            if ( ! $existingRank || ($rank->id !== $existingRank->rank_id)) {
                 if ($existingRank) {
                     AdvancedRank::where('user_id', $user->id)->update([
                         'rank_id' => $rank->id,
@@ -231,7 +214,7 @@ class IncentivesController extends Controller
             }
         } else {
             $existingRank = RankUser::where('user_id', $user->id)->first();
-            if (! $existingRank || ($rank->id != $existingRank->rank_id)) {
+            if ( ! $existingRank || ($rank->id !== $existingRank->rank_id)) {
                 if ($existingRank) {
                     RankUser::where('user_id', $user->id)->update([
                         'rank_id' => $rank->id,
@@ -273,7 +256,7 @@ class IncentivesController extends Controller
         $levels = isset($levels) ? explode(',', $levels) : [];
 
         $result = User::query()
-            ->whereHas('profile', function ($query) use ($request) {
+            ->whereHas('profile', function ($query) use ($request): void {
                 /** @var Builder $query */
                 if ($keyword = $request->get('keyword')) {
                     $query->whereRaw('concat(first_name," ",last_name) LIKE ?', "{$keyword}%");
@@ -281,7 +264,7 @@ class IncentivesController extends Controller
             });
         if (count($levels)) {
             $result = $result
-                ->whereHas('rank', function ($query) use ($levels) {
+                ->whereHas('rank', function ($query) use ($levels): void {
                     /** @var Builder $query */
                     $query->whereIn('rank_id', $levels);
                 });

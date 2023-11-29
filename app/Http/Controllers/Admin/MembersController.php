@@ -15,10 +15,10 @@ class MembersController extends Controller
     public function index($userID = null)
     {
         $id = $userID ? $userID : auth()->user()->id;
-        $data['is_me'] = $id == auth()->user()->id;
+        $data['is_me'] = $id === auth()->user()->id;
         $data['user'] = $user = User::find($id);
         $data['authUser'] = auth()->user();
-        if (! isset($user)) {
+        if ( ! isset($user)) {
             return redirect()->route('dashboard');
         }
 
@@ -33,7 +33,7 @@ class MembersController extends Controller
     {
         $user = User::find($request->user_id);
         // $user->username = $request->username;
-        if ($request->changePassword == 1) {
+        if (1 === $request->changePassword) {
             $user->password = Hash::make($request->password);
         }
         $user->email = $request->email;
@@ -59,6 +59,6 @@ class MembersController extends Controller
         $user->status = $request->status;
         $user->save();
 
-        return response()->json(['success' => $request->status == 1 ? 'This account successfully unblocked' : 'This account successfully blocked']);
+        return response()->json(['success' => 1 === $request->status ? 'This account successfully unblocked' : 'This account successfully blocked']);
     }
 }

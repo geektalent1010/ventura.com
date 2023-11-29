@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTradesTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
-        Schema::create('trades', function (Blueprint $table) {
+        Schema::create('trades', function (Blueprint $table): void {
             $table->id();
             $table->text('title');
             $table->text('description');
@@ -25,7 +25,7 @@ class CreateTradesTable extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('trades');
     }

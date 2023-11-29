@@ -135,8 +135,8 @@ class StudioController extends Controller
 
     public function download(Request $request)
     {
-        $filepath = public_path('images/avatar/').$request->filename;
-        $resized_filepath = public_path('images/logo/').$request->filename;
+        $filepath = public_path('images/avatar/') . $request->filename;
+        $resized_filepath = public_path('images/logo/') . $request->filename;
 
         // Resize the image to 1080x1080
         $image = Image::make($filepath)->fit(1080, 1080);

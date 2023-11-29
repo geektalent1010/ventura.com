@@ -19,7 +19,7 @@ class ConnectController extends Controller
         $requests = Requests::where('user_id', '=', $authUser->id)->where('is_active', '=', 1)->get();
         $lastRequest = Requests::where('user_id', '=', $authUser->id)->where('is_active', '=', 1)->orderBy('created_at', 'desc')->first();
         if (isset($authUser->notification)) {
-            if (isset($lastRequest) && $lastRequest->id != $authUser->notification->last_read_request_id) {
+            if (isset($lastRequest) && $lastRequest->id !== $authUser->notification->last_read_request_id) {
                 $notification = $authUser->notification;
                 $notification->last_read_request_id = $lastRequest->id;
                 $notification->save();
@@ -92,7 +92,7 @@ class ConnectController extends Controller
         //         })
         //         ->where('user_id', '<>', $authUser->id)->whereNotIn('user_id', $friendIds)->orderBy('first_name', 'asc')->get();
         // }
-        $users = Profile::whereHas('user', function ($query) {
+        $users = Profile::whereHas('user', function ($query): void {
             $query->where('user_type', 0);
         })
             ->where('user_id', '<>', $authUser->id)->whereNotIn('user_id', $friendIds)->orderBy('first_name', 'asc')->get();
@@ -105,9 +105,9 @@ class ConnectController extends Controller
         $authUser = $request->user();
         $friendIds = Friend::where('user_id', '=', $authUser->id)->pluck('connected_user_id')->toArray();
         $data = Profile::query()
-            ->when($keyword = $request->get('keyword'), function ($query) use ($keyword) {
+            ->when($keyword = $request->get('keyword'), function ($query) use ($keyword): void {
                 /** @var Builder $query */
-                $query->where(function ($query) use ($keyword) {
+                $query->where(function ($query) use ($keyword): void {
                     /** @var Builder $query */
                     $query->whereRaw('concat(first_name," ",last_name) LIKE ?', "{$keyword}%");
                 });
@@ -166,7 +166,7 @@ class ConnectController extends Controller
     public function request($userID)
     {
         $data['user'] = User::find($userID);
-        if (! isset($data['user']) || $userID == auth()->user()->id) {
+        if ( ! isset($data['user']) || $userID === auth()->user()->id) {
             return redirect()->route('connect.index');
         }
 

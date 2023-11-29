@@ -128,8 +128,8 @@ class ReportsController extends Controller
         ];
 
         $pdf->loadHTML(view('admin.reports.partials.joiningReportExportView', $data));
-        $fileName = 'JoiningReport-'.date('Y-m-d-h-i-s').'.pdf';
-        $relativePath = storage_path('app'.DIRECTORY_SEPARATOR.'public'.DIRECTORY_SEPARATOR.$fileName);
+        $fileName = 'JoiningReport-' . date('Y-m-d-h-i-s') . '.pdf';
+        $relativePath = storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . $fileName);
         $pdf->save($relativePath);
 
         return response()->json(['link' => asset("storage/{$fileName}")]);
@@ -143,7 +143,7 @@ class ReportsController extends Controller
             'reportName' => 'Joinging report',
         ];
 
-        $fileName = 'JoiningReport-'.date('Y-m-d-h-i-s').'.xlsx';
+        $fileName = 'JoiningReport-' . date('Y-m-d-h-i-s') . '.xlsx';
 
         // todo figure it out what is UserExport class
         //return Excel::download(new UsersExport($data), $fileName);
@@ -168,51 +168,52 @@ class ReportsController extends Controller
         $memberId = $filters->get('customer_id') ?? null;
 
         $result = User::query()
-            ->when(! $filters->get('user_id') && $memberId, function ($query) use ($memberId) {
+            ->when( ! $filters->get('user_id') && $memberId, function ($query) use ($memberId): void {
                 /** @var Builder $query */
                 $query->where('customer_id', $memberId);
             })
-            ->when($userId = $filters->get('user_id'), function ($query) use ($userId) {
+            ->when($userId = $filters->get('user_id'), function ($query) use ($userId): void {
                 /** @var Builder $query */
                 $query->where('id', $userId);
             })
-            ->when($username = $filters->get('username'), function ($query) use ($username) {
+            ->when($username = $filters->get('username'), function ($query) use ($username): void {
                 /** @var Builder $query */
-                $query->where('username', 'like', "%$username%");
+                $query->where('username', 'like', "%{$username}%");
             })
-            ->when($email = $filters->get('email'), function ($query) use ($email) {
+            ->when($email = $filters->get('email'), function ($query) use ($email): void {
                 /** @var Builder $query */
-                $query->where('email', 'like', "%$email%");
+                $query->where('email', 'like', "%{$email}%");
             })
             // // ->when($package_id = $filters->get('package'), function ($query) use ($package_id) {
             // //     /** @var Builder $query */
             // //     $query->where('package_id', $package_id);
             // // })
-            ->when($filters->get('date'), function ($query) use ($filters) {
+            ->when($filters->get('date'), function ($query) use ($filters): void {
                 /** @var Builder $query */
                 $dates = explode(' - ', $filters->get('date'));
                 $query->whereDate('created_at', '>=', $dates[0]);
                 $query->whereDate('created_at', '<=', $dates[1]);
             })
-            ->whereHas('profile', function ($query) use ($filters) {
+            ->whereHas('profile', function ($query) use ($filters): void {
                 /** @var Builder $query */
                 if ($firstname = $filters->get('firstname')) {
-                    $query->where('first_name', 'like', "%$firstname%");
+                    $query->where('first_name', 'like', "%{$firstname}%");
                 }
                 if ($lastname = $filters->get('lastname')) {
-                    $query->where('last_name', 'like', "%$lastname%");
+                    $query->where('last_name', 'like', "%{$lastname}%");
                 }
                 if ($country = $filters->get('country_id')) {
                     $query->where('country', $country);
                     $country_name = Country::find($country)->name;
-                    $query->orWhere('country', 'like', "%$country_name%");
+                    $query->orWhere('country', 'like', "%{$country_name}%");
                 }
             });
 
         if ($showAll) {
             return $result->get();
-        } else {
-            return $result->paginate($pages);
         }
+
+        return $result->paginate($pages);
+
     }
 }

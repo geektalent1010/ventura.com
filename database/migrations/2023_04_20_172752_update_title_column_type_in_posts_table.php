@@ -6,16 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class UpdateTitleColumnTypeInPostsTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::table('posts', function (Blueprint $table): void {
             $table->text('title')->nullable()->change();
         });
     }
 
-    public function down()
+    public function down(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::table('posts', function (Blueprint $table): void {
             $table->text('title')->change();
         });
     }

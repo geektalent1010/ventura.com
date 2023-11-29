@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 class AddCustomerIdToUsersTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table): void {
             $table->integer('customer_id')->nullable()->after('id');
             $table->integer('sponsor_id')
                 ->unsigned()
@@ -17,9 +17,9 @@ class AddCustomerIdToUsersTable extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table): void {
             $table->dropColumn('customer_id');
             $table->dropColumn('sponsor_id');
         });

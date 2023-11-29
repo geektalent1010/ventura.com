@@ -17,7 +17,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+
         ];
     }
 }

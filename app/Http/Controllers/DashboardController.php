@@ -34,10 +34,10 @@ class DashboardController extends Controller
         $lastNews = Post::where('type', '=', 4)->where('is_active', '=', 1)->where('created_by', '!=', $authUser->id)->orderBy('created_at', 'desc')->first();
         $lastRequest = Requests::where('user_id', '=', $authUser->id)->where('is_active', '=', 1)->orderBy('created_at', 'desc')->first();
         if (isset($authUser->notification)) {
-            if (isset($lastNews) && $lastNews->id != $authUser->notification->last_read_news_id) {
+            if (isset($lastNews) && $lastNews->id !== $authUser->notification->last_read_news_id) {
                 $isNews = true;
             }
-            if (isset($lastRequest) && $lastRequest->id != $authUser->notification->last_read_request_id) {
+            if (isset($lastRequest) && $lastRequest->id !== $authUser->notification->last_read_request_id) {
                 $isNewRequests = true;
             }
         } else {

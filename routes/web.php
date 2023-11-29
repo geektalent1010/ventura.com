@@ -19,12 +19,16 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // No Auth Panel
-Route::group([], function () {
+Route::group([], function (): void {
     Route::get('/', 'LandingController@index')->name('home');
     Route::get('{referral_id}', static function ($referral_id) {
         if (User::where('customer_id', $referral_id)->exists()) {
             Cookie::queue(cookie(
-                'referral_id', $referral_id, 60 * 24 * 30 * 3, null, '.'.config('app.base_domain')
+                'referral_id',
+                $referral_id,
+                60 * 24 * 30 * 3,
+                null,
+                '.' . config('app.base_domain')
             ));
         }
 
@@ -33,10 +37,18 @@ Route::group([], function () {
     Route::get('{referral_id}/{channel}', static function ($referral_id, $channel) {
         if (User::where('customer_id', $referral_id)->exists()) {
             Cookie::queue(cookie(
-                'referral_id', $referral_id, 60 * 24 * 30 * 3, null, '.'.config('app.base_domain')
+                'referral_id',
+                $referral_id,
+                60 * 24 * 30 * 3,
+                null,
+                '.' . config('app.base_domain')
             ));
             Cookie::queue(cookie(
-                'channel_id', $channel, 60 * 24 * 30 * 3, null, '.'.config('app.base_domain')
+                'channel_id',
+                $channel,
+                60 * 24 * 30 * 3,
+                null,
+                '.' . config('app.base_domain')
             ));
         }
 
@@ -47,14 +59,14 @@ Route::group([], function () {
 Route::group([
     'middleware' => ['web'],
     'namespace' => 'Auth',
-], function () {
+], function (): void {
     Route::post('verify', 'RegisterController@verify')->name('auth.verify');
     Route::post('address-filter', 'RegisterController@addressFilter')->name('address.search');
     Route::post('enquiry-send', 'RegisterController@sendEnquiry')->name('enquiry.send');
 });
 
 // Auth Panel
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth']], function (): void {
     // Route::group(['middleware' => ['roles:admin']], function() {
     //     Route::get('/news/mine', 'NewsController@mine')->name('news.mine');
     //     Route::get('/news/create', 'NewsController@create')->name('news.create');
@@ -63,12 +75,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group([
         'middleware' => ['roles:admin'],
         'namespace' => 'Admin',
-    ], function () {
+    ], function (): void {
         Route::get('admin/members/{userID?}', 'MembersController@index')->name('members.index');
-        Route::post('admin/members/update-detail-info',
-            'MembersController@updateUserDetailInfo')->name('admin.members.infoUpdate');
-        Route::put('admin/members/update_account_status',
-            'MembersController@updateAccountStatus')->name('admin.members.statusUpdate');
+        Route::post(
+            'admin/members/update-detail-info',
+            'MembersController@updateUserDetailInfo'
+        )->name('admin.members.infoUpdate');
+        Route::put(
+            'admin/members/update_account_status',
+            'MembersController@updateAccountStatus'
+        )->name('admin.members.statusUpdate');
         Route::get('admin/joining-reports', 'ReportsController@index')->name('joining.reports.index');
         Route::get('admin/downline-reports', 'ReportsController@downline')->name('downline.reports.index');
         Route::get('admin/sales-reports', 'ReportsController@sales')->name('sales.reports.index');
@@ -80,10 +96,14 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('admin/salesReportFilters', 'ReportsController@salesFilters')->name('salesReport.filters');
         Route::post('admin/salesReportTable', 'ReportsController@salesFetch')->name('salesReport.fetch');
 
-        Route::post('admin/downloadJoiningReportPdf',
-            'ReportsController@downloadJoiningReportPdf')->name('joiningReport.download.pdf');
-        Route::get('admin/downloadJoiningReportExcel',
-            'ReportsController@downloadJoiningReportExcel')->name('joiningReport.download.excel');
+        Route::post(
+            'admin/downloadJoiningReportPdf',
+            'ReportsController@downloadJoiningReportPdf'
+        )->name('joiningReport.download.pdf');
+        Route::get(
+            'admin/downloadJoiningReportExcel',
+            'ReportsController@downloadJoiningReportExcel'
+        )->name('joiningReport.download.excel');
         Route::post('admin/printJoiningReport', 'ReportsController@printJoiningReport')->name('joiningReport.print');
 
         Route::get('admin/products', 'ProductsController@index')->name('products.index');
@@ -105,12 +125,18 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('profile/update-detail-info', 'UserController@updateUserDetailInfo')->name('update.detail');
 
     // Setting Route
-    Route::put('settings/profile-address-update',
-        'UserController@updateProfileAddress')->name('setting.profile.address');
-    Route::put('settings/other-interested-update',
-        'UserController@updateOtherInterested')->name('setting.other.interested');
-    Route::put('settings/main-interested-update',
-        'UserController@updateMainInterested')->name('setting.main.interested');
+    Route::put(
+        'settings/profile-address-update',
+        'UserController@updateProfileAddress'
+    )->name('setting.profile.address');
+    Route::put(
+        'settings/other-interested-update',
+        'UserController@updateOtherInterested'
+    )->name('setting.other.interested');
+    Route::put(
+        'settings/main-interested-update',
+        'UserController@updateMainInterested'
+    )->name('setting.main.interested');
     Route::post('settings/profile-avatar-upload', 'UserController@uploadProfileAvatar')->name('setting.profile.avatar');
     Route::put('settings/profile-avatar-remove', 'UserController@removeProfileAvatar')->name('setting.remove.avatar');
     Route::put('settings/update_story', 'UserController@updateStoryContent')->name('setting.update.story');

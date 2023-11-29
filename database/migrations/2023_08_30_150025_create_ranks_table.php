@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateRanksTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
-        Schema::create('ranks', function (Blueprint $table) {
+        Schema::create('ranks', function (Blueprint $table): void {
             $table->id();
             $table->string('name')->nullable();
             $table->integer('level')->nullable();
@@ -20,7 +20,7 @@ class CreateRanksTable extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('ranks');
     }

@@ -6,16 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class AddLastSeenToUsersTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table): void {
             $table->timestamp('last_seen')->nullable();
         });
     }
 
-    public function down()
+    public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table): void {
             $table->timestamp('last_seen');
         });
     }

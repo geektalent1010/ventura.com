@@ -20,7 +20,7 @@ class GroupsController extends Controller
         $id = auth()->user()->id;
         $data['is_me'] = $id === auth()->user()->id;
         $data['user'] = User::find($id);
-        if (! isset($data['user'])) {
+        if ( ! isset($data['user'])) {
             $data['user'] = auth()->user();
         }
 

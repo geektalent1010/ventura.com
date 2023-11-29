@@ -25,7 +25,7 @@ class WisdomContoller extends Controller
     {
         $data['user'] = auth()->user();
         $data['story'] = Post::find($id);
-        if (! isset($data['story']) || $data['story']->created_by != auth()->user()->id) {
+        if ( ! isset($data['story']) || $data['story']->created_by !== auth()->user()->id) {
             return redirect()->route('wisdom.mine');
         }
 

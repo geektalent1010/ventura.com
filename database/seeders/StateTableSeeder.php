@@ -9,10 +9,8 @@ class StateTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         $sql = "
             INSERT INTO `states` (`id`, `name`, `country_id`) VALUES

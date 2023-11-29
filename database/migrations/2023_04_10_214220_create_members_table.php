@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMembersTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
-        Schema::create('members', function (Blueprint $table) {
+        Schema::create('members', function (Blueprint $table): void {
             $table->id();
             $table->foreignId('team_id')
                 ->constrained('teams')
@@ -21,7 +21,7 @@ class CreateMembersTable extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('members');
     }

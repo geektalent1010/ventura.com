@@ -36,26 +36,29 @@ class Profile extends Model
     {
         if (City::find($this->city)) {
             return City::find($this->city)->name;
-        } else {
-            return $this->city;
         }
+
+        return $this->city;
+
     }
 
     public function getState()
     {
         if (State::find($this->state)) {
             return State::find($this->state)->name;
-        } else {
-            return $this->state;
         }
+
+        return $this->state;
+
     }
 
     public function getCountry()
     {
         if (Country::find($this->country)) {
             return Country::find($this->country)->name;
-        } else {
-            return $this->country;
         }
+
+        return $this->country;
+
     }
 }

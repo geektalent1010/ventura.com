@@ -10,7 +10,7 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
-    public function register()
+    public function register(): void
     {
         if ($this->app->isLocal()) {
             $this->app->register(IdeHelperServiceProvider::class);
@@ -22,6 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+
     }
 }

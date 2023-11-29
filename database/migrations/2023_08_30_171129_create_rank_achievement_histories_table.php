@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateRankAchievementHistoriesTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
-        Schema::create('rank_achievement_histories', function (Blueprint $table) {
+        Schema::create('rank_achievement_histories', function (Blueprint $table): void {
             $table->id();
             $table->foreignId('user_id')
                 ->constrained('users')
@@ -20,7 +20,7 @@ class CreateRankAchievementHistoriesTable extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('rank_achievement_histories');
     }

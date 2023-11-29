@@ -108,9 +108,10 @@ class RegisterController extends Controller
 
     public function verify(Request $request)
     {
-        if ($request->input('key') == 'verifyEmail') {
+        if ('verifyEmail' === $request->input('key')) {
             return response()->json(['status' => User::where('email', $request->input('value'))->exists()]);
-        } elseif ($request->input('key') == 'verifyUsername') {
+        }
+        if ('verifyUsername' === $request->input('key')) {
             return response()->json(['status' => User::where('username', $request->input('value'))->exists()]);
         }
     }
@@ -120,33 +121,33 @@ class RegisterController extends Controller
         $distance = $request->get('distance');
         $keyword = $request->get('keyword');
         $data = [];
-        if ($distance == 'CITY') {
+        if ('CITY' === $distance) {
             $cities = City::query()
                 ->where('name', 'LIKE', "%{$keyword}%")
                 ->select('name')->distinct()->get()->all();
             if (count($cities)) {
                 foreach ($cities as $city) {
-                    array_push($data, ['name' => $city, 'address' => $city]);
+                    $data[] = ['name' => $city, 'address' => $city];
                 }
             }
-        } elseif ($distance == 'AREA') {
+        } elseif ('AREA' === $distance) {
             $states = State::query()
                 ->where('name', 'LIKE', "%{$keyword}%")
                 ->get();
             if (count($states)) {
                 foreach ($states as $state) {
-                    $name = $state->name.', '.$state->country->name;
-                    $address = $state->id.','.$state->country->id;
-                    array_push($data, ['name' => $name, 'address' => $address]);
+                    $name = $state->name . ', ' . $state->country->name;
+                    $address = $state->id . ',' . $state->country->id;
+                    $data[] = ['name' => $name, 'address' => $address];
                 }
             }
-        } elseif ($distance == 'COUNTRY') {
+        } elseif ('COUNTRY' === $distance) {
             $countries = Country::query()
                 ->where('name', 'LIKE', "%{$keyword}%")
                 ->get();
             if (count($countries)) {
                 foreach ($countries as $country) {
-                    array_push($data, ['name' => $country->name, 'address' => $country->id]);
+                    $data[] = ['name' => $country->name, 'address' => $country->id];
                 }
             }
         }
@@ -156,9 +157,7 @@ class RegisterController extends Controller
 
     public function calculateRank(User $user, $channel2)
     {
-        return Rank::where('is_active', '1')->orderBy('id', 'desc')->get()->filter(function ($rank) use ($user, $channel2) {
-            return $this->isQualifiedByFloor($rank, $user, $channel2);
-        })->first();
+        return Rank::where('is_active', '1')->orderBy('id', 'desc')->get()->filter(fn ($rank) => $this->isQualifiedByFloor($rank, $user, $channel2))->first();
     }
 
     public function isQualified(Rank $rank, User $user)
@@ -175,11 +174,7 @@ class RegisterController extends Controller
                 return $child->referrers->count() >= $ranksToCheck['count_by_partner'];
             });
 
-            if ($children->count() < $ranksToCheck['partners']) {
-                return false;
-            }
-
-            return true;
+            return ! ($children->count() < $ranksToCheck['partners']);
         };
 
         $ranksToCheck = [
@@ -188,11 +183,7 @@ class RegisterController extends Controller
             'count_by_partner' => $rank->partner_group,
         ];
 
-        if (! $checkChildren($ranksToCheck)) {
-            return false;
-        }
-
-        return true;
+        return ! ( ! $checkChildren($ranksToCheck));
     }
 
     public function isQualifiedByFloor(Rank $rank, User $user, $channel2)
@@ -200,7 +191,7 @@ class RegisterController extends Controller
         $checkChildren = function ($ranksToCheck) use ($user, $rank) {
             $referrersForChannel1 = $user->referrers->filter(function ($child) {
                 /** @var User $child */
-                return $child->channel == 1;
+                return 1 === $child->channel;
             });
 
             if ($referrersForChannel1->count() < $ranksToCheck['minCount']) {
@@ -225,7 +216,7 @@ class RegisterController extends Controller
         $checkChildrenForChannel2 = function ($ranksToCheck) use ($user, $rank) {
             $referrersForChannel2 = $user->referrers->filter(function ($child) {
                 /** @var User $child */
-                return $child->channel == 2;
+                return 2 === $child->channel;
             });
 
             if ($referrersForChannel2->count() < $ranksToCheck['minCount']) {
@@ -256,11 +247,11 @@ class RegisterController extends Controller
         ];
 
         if ($channel2) {
-            if (! $checkChildrenForChannel2($ranksToCheck)) {
+            if ( ! $checkChildrenForChannel2($ranksToCheck)) {
                 return false;
             }
         } else {
-            if (! $checkChildren($ranksToCheck)) {
+            if ( ! $checkChildren($ranksToCheck)) {
                 return false;
             }
         }
@@ -268,11 +259,11 @@ class RegisterController extends Controller
         return true;
     }
 
-    public function distribute(User $user, $rank, $channel2)
+    public function distribute(User $user, $rank, $channel2): void
     {
         if ($channel2) {
             $existingRank = AdvancedRank::where('user_id', $user->id)->first();
-            if (! $existingRank || ($rank->id != $existingRank->rank_id)) {
+            if ( ! $existingRank || ($rank->id !== $existingRank->rank_id)) {
                 if ($existingRank) {
                     AdvancedRank::where('user_id', $user->id)->update([
                         'rank_id' => $rank->id,
@@ -286,7 +277,7 @@ class RegisterController extends Controller
             }
         } else {
             $existingRank = RankUser::where('user_id', $user->id)->first();
-            if (! $existingRank || ($rank->id != $existingRank->rank_id)) {
+            if ( ! $existingRank || ($rank->id !== $existingRank->rank_id)) {
                 if ($existingRank) {
                     RankUser::where('user_id', $user->id)->update([
                         'rank_id' => $rank->id,
@@ -331,7 +322,7 @@ class RegisterController extends Controller
         try {
             Mail::to($user->email)->send(new Welcome($userData));
 
-            $introducerName = $introducer->profile->first_name.' '.$introducer->profile->last_name;
+            $introducerName = $introducer->profile->first_name . ' ' . $introducer->profile->last_name;
             Mail::to($introducer->email)->send(new ReferralEmail($userData, $introducerName));
 
             // echo 'Message has been sent. ';
@@ -382,7 +373,7 @@ class RegisterController extends Controller
             $sponsor_user = User::where('customer_id', $referralCookie)->first();
         }
 
-        if (! isset($sponsor_user)) {
+        if ( ! isset($sponsor_user)) {
             return redirect(route('register'))
                 ->withErrors([
                     'message' => trans('auth.sponsor_failed'),
@@ -442,9 +433,9 @@ class RegisterController extends Controller
 
         if (isset($sponsor_user)) {
             if ($channel_id = Cookie::get('channel_id')) {
-                $rank = $this->calculateRank($sponsor_user, $channel_id == 2);
+                $rank = $this->calculateRank($sponsor_user, 2 === $channel_id);
                 if ($rank) {
-                    $this->distribute($sponsor_user, $rank, $channel_id == 2);
+                    $this->distribute($sponsor_user, $rank, 2 === $channel_id);
                 }
             } else {
                 $rank = $this->calculateRank($sponsor_user, false);

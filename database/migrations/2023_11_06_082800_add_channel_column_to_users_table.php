@@ -6,16 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class AddChannelColumnToUsersTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table): void {
             $table->integer('channel')->nullable()->default(1)->after('status');
         });
     }
 
-    public function down()
+    public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table): void {
             $table->dropColumn('channel');
         });
     }

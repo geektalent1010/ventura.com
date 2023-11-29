@@ -40,10 +40,10 @@ class CompaniesController extends Controller
                 array_splice($followers, $index, 1);
                 $like = false;
             } else {
-                array_push($followers, $authUserId);
+                $followers[] = $authUserId;
             }
         } else {
-            array_push($followers, $authUserId);
+            $followers[] = $authUserId;
         }
         $profile->followers = implode(',', $followers);
         $profile->save();
@@ -80,7 +80,7 @@ class CompaniesController extends Controller
             $sponsor_user = User::where('customer_id', $referralCookie)->first();
         }
 
-        if (! isset($sponsor_user)) {
+        if ( ! isset($sponsor_user)) {
 
         }
 
@@ -108,7 +108,7 @@ class CompaniesController extends Controller
             'sponsor_id' => isset($sponsor_user) ? $sponsor_user->id : 0,
             'email' => $request->email,
             'user_type' => 1,
-            'username' => 'company--'.$customer_id,
+            'username' => 'company--' . $customer_id,
             'password' => ' ',
             'status' => 0,
         ]);

@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 class AddStudioInfosToProfilesTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
-        Schema::table('profiles', function (Blueprint $table) {
+        Schema::table('profiles', function (Blueprint $table): void {
             $table->text('studio_header1')->nullable();
             $table->text('studio_content1')->nullable();
             $table->text('studio_footer1')->nullable();
@@ -32,9 +32,9 @@ class AddStudioInfosToProfilesTable extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
-        Schema::table('profiles', function (Blueprint $table) {
+        Schema::table('profiles', function (Blueprint $table): void {
             $table->dropColumn('studio_header1');
             $table->dropColumn('studio_content1');
             $table->dropColumn('studio_footer1');

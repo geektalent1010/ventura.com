@@ -6,16 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class AddFollowersToProfilesTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
-        Schema::table('profiles', function (Blueprint $table) {
+        Schema::table('profiles', function (Blueprint $table): void {
             $table->text('followers')->nullable()->after('story_content');
         });
     }
 
-    public function down()
+    public function down(): void
     {
-        Schema::table('profiles', function (Blueprint $table) {
+        Schema::table('profiles', function (Blueprint $table): void {
             $table->dropColumn('followers');
         });
     }

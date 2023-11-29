@@ -51,7 +51,7 @@ class CoachController extends Controller
             $sponsor_user = User::where('customer_id', $referralCookie)->first();
         }
 
-        if (! isset($sponsor_user)) {
+        if ( ! isset($sponsor_user)) {
 
         }
 
@@ -79,7 +79,7 @@ class CoachController extends Controller
             'sponsor_id' => isset($sponsor_user) ? $sponsor_user->id : 0,
             'email' => $request->email,
             'user_type' => 2,
-            'username' => 'coach--'.$customer_id,
+            'username' => 'coach--' . $customer_id,
             'password' => ' ',
             'status' => 0,
         ]);

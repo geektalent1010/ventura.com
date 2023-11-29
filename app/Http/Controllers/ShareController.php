@@ -22,7 +22,7 @@ class ShareController extends Controller
         foreach ($files as $file) {
             $fileNames[] = [
                 'name' => pathinfo($file)['basename'],
-                'src' => $url.pathinfo($file)['basename'],
+                'src' => $url . pathinfo($file)['basename'],
             ];
         }
         $data['fileNames'] = $fileNames;
@@ -39,22 +39,22 @@ class ShareController extends Controller
 
     public function download(Request $request)
     {
-        $filepath = public_path('images/ads/').$request->filename;
-        $resized_filepath = public_path('images/logo/').$request->filename;
+        $filepath = public_path('images/ads/') . $request->filename;
+        $resized_filepath = public_path('images/logo/') . $request->filename;
 
         $maxWidth = 1080;
         $img = Image::make($filepath);
         $width = $img->width();
-        if ($width != $maxWidth) {
+        if ($width !== $maxWidth) {
             // Resize the image to 1080x1080
             $image = Image::make($filepath)->fit(1080, 1080);
             $image->save($resized_filepath);
 
             return Response::download($resized_filepath)->deleteFileAfterSend(true);
-        } else {
-            $filepath = public_path('images/ads/').$request->filename;
-
-            return Response::download($filepath);
         }
+        $filepath = public_path('images/ads/') . $request->filename;
+
+        return Response::download($filepath);
+
     }
 }

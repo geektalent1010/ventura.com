@@ -93,7 +93,7 @@ class FinanceController extends Controller
         ];
 
         foreach ($data['filters'] as $key => $value) {
-            $data['filters'][$key]['default'] = $request->input("filters.$key", $value['default']);
+            $data['filters'][$key]['default'] = $request->input("filters.{$key}", $value['default']);
         }
         $data['groupByTransactions'] = app()->call([$this, 'fetchUserData'], ['filters' => collect($filters), 'pages' => $request->input('totalToShow', 10)]);
 
@@ -107,11 +107,11 @@ class FinanceController extends Controller
         $groupBy = $filters->get('groupBy') ? $filters->get('groupBy') : 'day';
 
         $result = User::query()
-            ->when($filters->get('fromDate'), function ($query) use ($filters) {
+            ->when($filters->get('fromDate'), function ($query) use ($filters): void {
                 /** @var Builder $query */
                 $query->whereDate('created_at', '>=', $filters->get('fromDate'));
             })
-            ->when($filters->get('toDate'), function ($query) use ($filters) {
+            ->when($filters->get('toDate'), function ($query) use ($filters): void {
                 /** @var Builder $query */
                 $query->whereDate('created_at', '<=', $filters->get('toDate'));
             });
@@ -127,9 +127,7 @@ class FinanceController extends Controller
             );
         }
 
-        return $result->groupBy(function ($value) use ($groupBy) {
-            return $this->formatToGroupBy($value, $groupBy);
-        });
+        return $result->groupBy(fn ($value) => $this->formatToGroupBy($value, $groupBy));
     }
 
     public function formatToGroupBy(Model $model, $groupBy)

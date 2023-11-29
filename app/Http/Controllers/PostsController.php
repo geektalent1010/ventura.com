@@ -17,8 +17,8 @@ class PostsController extends Controller
         $file3 = $request->file('file3');
         $file4 = $request->file('file4');
         if (isset($file) || isset($file1) || isset($file2) || isset($file3) || isset($file4)) {
-            if (! file_exists(base_path().'/public/uploads/posts')) {
-                mkdir(base_path().'/public/uploads/posts', 0777, true);
+            if ( ! file_exists(base_path() . '/public/uploads/posts')) {
+                mkdir(base_path() . '/public/uploads/posts', 0777, true);
             }
             $currentDateTime = new DateTime();
             $currentDateTime = $currentDateTime->getTimestamp();
@@ -28,24 +28,24 @@ class PostsController extends Controller
             $filename3 = null;
             $filename4 = null;
             if (isset($file)) {
-                $filename = $currentDateTime.uniqid().'.jpg';
-                $file->move(base_path().'/public/uploads/posts', $filename);
+                $filename = $currentDateTime . uniqid() . '.jpg';
+                $file->move(base_path() . '/public/uploads/posts', $filename);
             }
             if (isset($file1)) {
-                $filename1 = $currentDateTime.uniqid().'.jpg';
-                $file1->move(base_path().'/public/uploads/posts', $filename1);
+                $filename1 = $currentDateTime . uniqid() . '.jpg';
+                $file1->move(base_path() . '/public/uploads/posts', $filename1);
             }
             if (isset($file2)) {
-                $filename2 = $currentDateTime.uniqid().'.jpg';
-                $file2->move(base_path().'/public/uploads/posts', $filename2);
+                $filename2 = $currentDateTime . uniqid() . '.jpg';
+                $file2->move(base_path() . '/public/uploads/posts', $filename2);
             }
             if (isset($file3)) {
-                $filename3 = $currentDateTime.uniqid().'.jpg';
-                $file3->move(base_path().'/public/uploads/posts', $filename3);
+                $filename3 = $currentDateTime . uniqid() . '.jpg';
+                $file3->move(base_path() . '/public/uploads/posts', $filename3);
             }
             if (isset($file4)) {
-                $filename4 = $currentDateTime.uniqid().'.jpg';
-                $file4->move(base_path().'/public/uploads/posts', $filename4);
+                $filename4 = $currentDateTime . uniqid() . '.jpg';
+                $file4->move(base_path() . '/public/uploads/posts', $filename4);
             }
 
             $post = Post::create([
@@ -88,8 +88,8 @@ class PostsController extends Controller
         $file3 = $request->file('file3');
         $file4 = $request->file('file4');
         if (isset($file) || isset($file1) || isset($file2) || isset($file3) || isset($file4)) {
-            if (! file_exists(base_path().'/public/uploads/posts')) {
-                mkdir(base_path().'/public/uploads/posts', 0777, true);
+            if ( ! file_exists(base_path() . '/public/uploads/posts')) {
+                mkdir(base_path() . '/public/uploads/posts', 0777, true);
             }
             $currentDateTime = new DateTime();
             $currentDateTime = $currentDateTime->getTimestamp();
@@ -99,58 +99,58 @@ class PostsController extends Controller
             $filename3 = null;
             $filename4 = null;
             if (isset($file)) {
-                $filename = $post->main_featured_image_url ?? $currentDateTime.uniqid().'.jpg';
-                $file->move(base_path().'/public/uploads/posts', $filename);
+                $filename = $post->main_featured_image_url ?? $currentDateTime . uniqid() . '.jpg';
+                $file->move(base_path() . '/public/uploads/posts', $filename);
                 $post->main_featured_image_url = $filename;
             }
             if (isset($file1)) {
-                $filename1 = $post->small_featured_image_url1 ?? $currentDateTime.uniqid().'.jpg';
-                $file1->move(base_path().'/public/uploads/posts', $filename1);
+                $filename1 = $post->small_featured_image_url1 ?? $currentDateTime . uniqid() . '.jpg';
+                $file1->move(base_path() . '/public/uploads/posts', $filename1);
                 $post->small_featured_image_url1 = $filename1;
             }
             if (isset($file2)) {
-                $filename2 = $post->small_featured_image_url2 ?? $currentDateTime.uniqid().'.jpg';
-                $file2->move(base_path().'/public/uploads/posts', $filename2);
+                $filename2 = $post->small_featured_image_url2 ?? $currentDateTime . uniqid() . '.jpg';
+                $file2->move(base_path() . '/public/uploads/posts', $filename2);
                 $post->small_featured_image_url2 = $filename2;
             }
             if (isset($file3)) {
-                $filename3 = $post->small_featured_image_url3 ?? $currentDateTime.uniqid().'.jpg';
-                $file3->move(base_path().'/public/uploads/posts', $filename3);
+                $filename3 = $post->small_featured_image_url3 ?? $currentDateTime . uniqid() . '.jpg';
+                $file3->move(base_path() . '/public/uploads/posts', $filename3);
                 $post->small_featured_image_url3 = $filename3;
             }
             if (isset($file4)) {
-                $filename4 = $post->small_featured_image4_url ?? $currentDateTime.uniqid().'.jpg';
-                $file4->move(base_path().'/public/uploads/posts', $filename4);
+                $filename4 = $post->small_featured_image4_url ?? $currentDateTime . uniqid() . '.jpg';
+                $file4->move(base_path() . '/public/uploads/posts', $filename4);
                 $post->small_featured_image4_url = $filename4;
             }
         }
-        if ($request->removeImage === 'true') {
-            if ($post->main_featured_image_url && file_exists(base_path().'/public/uploads/posts/'.$post->main_featured_image_url)) {
-                unlink(base_path().'/public/uploads/posts/'.$post->main_featured_image_url);
+        if ('true' === $request->removeImage) {
+            if ($post->main_featured_image_url && file_exists(base_path() . '/public/uploads/posts/' . $post->main_featured_image_url)) {
+                unlink(base_path() . '/public/uploads/posts/' . $post->main_featured_image_url);
             }
             $post->main_featured_image_url = null;
         }
-        if ($request->removeImage1 === 'true') {
-            if ($post->small_featured_image_url1 && file_exists(base_path().'/public/uploads/posts/'.$post->small_featured_image_url1)) {
-                unlink(base_path().'/public/uploads/posts/'.$post->small_featured_image_url1);
+        if ('true' === $request->removeImage1) {
+            if ($post->small_featured_image_url1 && file_exists(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url1)) {
+                unlink(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url1);
             }
             $post->small_featured_image_url1 = null;
         }
-        if ($request->removeImage2 === 'true') {
-            if ($post->small_featured_image_url2 && file_exists(base_path().'/public/uploads/posts/'.$post->small_featured_image_url2)) {
-                unlink(base_path().'/public/uploads/posts/'.$post->small_featured_image_url2);
+        if ('true' === $request->removeImage2) {
+            if ($post->small_featured_image_url2 && file_exists(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url2)) {
+                unlink(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url2);
             }
             $post->small_featured_image_url2 = null;
         }
-        if ($request->removeImage3 === 'true') {
-            if ($post->small_featured_image_url3 && file_exists(base_path().'/public/uploads/posts/'.$post->small_featured_image_url3)) {
-                unlink(base_path().'/public/uploads/posts/'.$post->small_featured_image_url3);
+        if ('true' === $request->removeImage3) {
+            if ($post->small_featured_image_url3 && file_exists(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url3)) {
+                unlink(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url3);
             }
             $post->small_featured_image_url3 = null;
         }
-        if ($request->removeImage4 === 'true') {
-            if ($post->small_featured_image_url4 && file_exists(base_path().'/public/uploads/posts/'.$post->small_featured_image_url4)) {
-                unlink(base_path().'/public/uploads/posts/'.$post->small_featured_image_url4);
+        if ('true' === $request->removeImage4) {
+            if ($post->small_featured_image_url4 && file_exists(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url4)) {
+                unlink(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url4);
             }
             $post->small_featured_image_url4 = null;
         }
@@ -168,20 +168,20 @@ class PostsController extends Controller
     public function delete(Request $request)
     {
         $post = Post::find($request->id);
-        if ($post->main_featured_image_url && file_exists(base_path().'/public/uploads/posts/'.$post->main_featured_image_url)) {
-            unlink(base_path().'/public/uploads/posts/'.$post->main_featured_image_url);
+        if ($post->main_featured_image_url && file_exists(base_path() . '/public/uploads/posts/' . $post->main_featured_image_url)) {
+            unlink(base_path() . '/public/uploads/posts/' . $post->main_featured_image_url);
         }
-        if ($post->small_featured_image_url1 && file_exists(base_path().'/public/uploads/posts/'.$post->small_featured_image_url1)) {
-            unlink(base_path().'/public/uploads/posts/'.$post->small_featured_image_url1);
+        if ($post->small_featured_image_url1 && file_exists(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url1)) {
+            unlink(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url1);
         }
-        if ($post->small_featured_image_url2 && file_exists(base_path().'/public/uploads/posts/'.$post->small_featured_image_url2)) {
-            unlink(base_path().'/public/uploads/posts/'.$post->small_featured_image_url2);
+        if ($post->small_featured_image_url2 && file_exists(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url2)) {
+            unlink(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url2);
         }
-        if ($post->small_featured_image_url3 && file_exists(base_path().'/public/uploads/posts/'.$post->small_featured_image_url3)) {
-            unlink(base_path().'/public/uploads/posts/'.$post->small_featured_image_url3);
+        if ($post->small_featured_image_url3 && file_exists(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url3)) {
+            unlink(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url3);
         }
-        if ($post->small_featured_image_url4 && file_exists(base_path().'/public/uploads/posts/'.$post->small_featured_image_url4)) {
-            unlink(base_path().'/public/uploads/posts/'.$post->small_featured_image_url4);
+        if ($post->small_featured_image_url4 && file_exists(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url4)) {
+            unlink(base_path() . '/public/uploads/posts/' . $post->small_featured_image_url4);
         }
         $post->delete();
 
@@ -201,10 +201,10 @@ class PostsController extends Controller
                 array_splice($followers, $index, 1);
                 $like = false;
             } else {
-                array_push($followers, $authUserId);
+                $followers[] = $authUserId;
             }
         } else {
-            array_push($followers, $authUserId);
+            $followers[] = $authUserId;
         }
         $post->followers = implode(',', $followers);
         $post->save();

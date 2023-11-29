@@ -16,7 +16,7 @@ class FriendsController extends Controller
         $requests = Requests::where('user_id', '=', $authUser->id)->where('is_active', '=', 1)->get();
         $lastRequest = Requests::where('user_id', '=', $authUser->id)->where('is_active', '=', 1)->orderBy('created_at', 'desc')->first();
         if (isset($authUser->notification)) {
-            if (isset($lastRequest) && $lastRequest->id != $authUser->notification->last_read_request_id) {
+            if (isset($lastRequest) && $lastRequest->id !== $authUser->notification->last_read_request_id) {
                 $notification = $authUser->notification;
                 $notification->last_read_request_id = $lastRequest->id;
                 $notification->save();

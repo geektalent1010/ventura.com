@@ -44,7 +44,7 @@ class TeamsController extends Controller
         $friendIds = Friend::where('user_id', '=', $authUser->id)->pluck('connected_user_id')->toArray();
         $data['friends'] = User::whereIn('id', $friendIds)->get();
         $data['team'] = Team::find($teamId);
-        if (! isset($data['team'])) {
+        if ( ! isset($data['team'])) {
             return redirect()->route('team.create.index')->with('error', 'Team is not exist');
         }
         $data['unbannedUserIds'] = $data['team']->members->where('is_banned', '<>', 1)->pluck('user_id')->toArray();
@@ -66,7 +66,7 @@ class TeamsController extends Controller
     {
         $authUser = auth()->user();
         $invites = Invite::where('user_id', '=', $authUser->id)->where('is_active', '=', 1)->get();
-        $members = Member::whereHas('team', function ($query) use ($authUser) {
+        $members = Member::whereHas('team', function ($query) use ($authUser): void {
             $query->where('user_id', '<>', $authUser->id);
         })
             ->where('user_id', $authUser->id)->where('is_banned', '<>', 1)->get();
@@ -79,17 +79,17 @@ class TeamsController extends Controller
         $authUser = auth()->user();
 
         $channelInfo = null;
-        if (! $id) {
+        if ( ! $id) {
             $channelInfo = Team::where('user_id', '=', $authUser->id)->first();
             $member = Member::where('user_id', '=', $authUser->id)->where('is_banned', '<>', 1)->orderBy('created_at', 'desc')->first();
-            if (! isset($channelInfo) && isset($member)) {
+            if ( ! isset($channelInfo) && isset($member)) {
                 $channelInfo = $member->team;
             }
         } else {
             $channelInfo = Team::find($id);
         }
 
-        if (! isset($channelInfo)) {
+        if ( ! isset($channelInfo)) {
             return redirect()->route('teams.index');
         }
         $data['channelInfo'] = $channelInfo;
@@ -117,7 +117,7 @@ class TeamsController extends Controller
         $authUser = auth()->user();
         $currentDateTime = new DateTime();
         $currentDateTime = $currentDateTime->getTimestamp();
-        $uniqueName = 'team_chatroom_'.$authUser->id.'_'.$currentDateTime.uniqid();
+        $uniqueName = 'team_chatroom_' . $authUser->id . '_' . $currentDateTime . uniqid();
 
         $teamInfo = Team::where('channel_unique_name', '=', $uniqueName)->first();
 
@@ -155,52 +155,52 @@ class TeamsController extends Controller
             }
 
             return response()->json(['status' => true, 'exist' => true]);
-        } else {
-            $team = Team::create([
-                'user_id' => $authUser->id,
-                'channel_unique_name' => $uniqueName,
-                'name' => $request->name,
-                'description' => $request->description,
-            ]);
-
-            Member::create([
-                'team_id' => $team->id,
-                'user_id' => $authUser->id,
-            ]);
-
-            // Fetch channel or create a new one if it doesn't exist
-            try {
-                $channel = $twilio->chat->v2->services(config('app.TWILIO_SERVICE_SID'))
-                    ->channels($uniqueName)
-                    ->fetch();
-            } catch (RestException $e) {
-                $channel = $twilio->chat->v2->services(config('app.TWILIO_SERVICE_SID'))
-                    ->channels
-                    ->create([
-                        'friendlyName' => $uniqueName,
-                        'uniqueName' => $uniqueName,
-                        'createdBy' => $authUser->username,
-                    ]);
-            }
-
-            // Add Admin user to the channel
-            try {
-                $twilio->chat->v2->services(config('app.TWILIO_SERVICE_SID'))
-                    ->channels($channel->sid)
-                    ->members($authUser->username)
-                    ->fetch();
-
-            } catch (RestException $e) {
-                $twilio->chat->v2->services(config('app.TWILIO_SERVICE_SID'))
-                    ->channels($channel->sid)
-                    ->members
-                    ->create($authUser->username, [
-                        'roleSid' => config('app.MIX_CHANNEL_ADMIN_ROLE_SID'),
-                    ]);
-            }
-
-            return response()->json(['status' => true, 'exist' => false]);
         }
+        $team = Team::create([
+            'user_id' => $authUser->id,
+            'channel_unique_name' => $uniqueName,
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+
+        Member::create([
+            'team_id' => $team->id,
+            'user_id' => $authUser->id,
+        ]);
+
+        // Fetch channel or create a new one if it doesn't exist
+        try {
+            $channel = $twilio->chat->v2->services(config('app.TWILIO_SERVICE_SID'))
+                ->channels($uniqueName)
+                ->fetch();
+        } catch (RestException $e) {
+            $channel = $twilio->chat->v2->services(config('app.TWILIO_SERVICE_SID'))
+                ->channels
+                ->create([
+                    'friendlyName' => $uniqueName,
+                    'uniqueName' => $uniqueName,
+                    'createdBy' => $authUser->username,
+                ]);
+        }
+
+        // Add Admin user to the channel
+        try {
+            $twilio->chat->v2->services(config('app.TWILIO_SERVICE_SID'))
+                ->channels($channel->sid)
+                ->members($authUser->username)
+                ->fetch();
+
+        } catch (RestException $e) {
+            $twilio->chat->v2->services(config('app.TWILIO_SERVICE_SID'))
+                ->channels($channel->sid)
+                ->members
+                ->create($authUser->username, [
+                    'roleSid' => config('app.MIX_CHANNEL_ADMIN_ROLE_SID'),
+                ]);
+        }
+
+        return response()->json(['status' => true, 'exist' => false]);
+
     }
 
     public function updateTeamInfo(Request $request)

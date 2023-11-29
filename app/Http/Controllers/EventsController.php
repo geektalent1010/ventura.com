@@ -19,7 +19,7 @@ class EventsController extends Controller
     {
         $data['user'] = auth()->user();
         $data['post'] = Post::find($id);
-        if (! isset($data['post']) || $data['post']->created_by != auth()->user()->id) {
+        if ( ! isset($data['post']) || $data['post']->created_by !== auth()->user()->id) {
             return redirect()->route('events.mine');
         }
 

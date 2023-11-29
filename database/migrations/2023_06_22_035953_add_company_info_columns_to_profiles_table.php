@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 class AddCompanyInfoColumnsToProfilesTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
-        Schema::table('profiles', function (Blueprint $table) {
+        Schema::table('profiles', function (Blueprint $table): void {
             $table->string('gender')->nullable()->after('birthday');
             $table->string('phone')->nullable()->after('gender');
             $table->string('company_name')->nullable()->after('phone');
@@ -23,9 +23,9 @@ class AddCompanyInfoColumnsToProfilesTable extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
-        Schema::table('profiles', function (Blueprint $table) {
+        Schema::table('profiles', function (Blueprint $table): void {
             $table->dropColumn('name');
             $table->dropColumn('phone');
             $table->dropColumn('site_url');

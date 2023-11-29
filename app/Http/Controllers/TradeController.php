@@ -26,7 +26,7 @@ class TradeController extends Controller
     {
         $data['user'] = auth()->user();
         $data['trade'] = Post::find($id);
-        if (! isset($data['trade']) || $data['trade']->created_by != auth()->user()->id) {
+        if ( ! isset($data['trade']) || $data['trade']->created_by !== auth()->user()->id) {
             return redirect()->route('trades.mine');
         }
 

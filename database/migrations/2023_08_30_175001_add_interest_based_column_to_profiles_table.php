@@ -6,16 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 class AddInterestBasedColumnToProfilesTable extends Migration
 {
-    public function up()
+    public function up(): void
     {
-        Schema::table('profiles', function (Blueprint $table) {
+        Schema::table('profiles', function (Blueprint $table): void {
             $table->string('interest_based')->nullable()->after('trash_buddies');
         });
     }
 
-    public function down()
+    public function down(): void
     {
-        Schema::table('profiles', function (Blueprint $table) {
+        Schema::table('profiles', function (Blueprint $table): void {
             $table->dropColumn('interest_based');
         });
     }
