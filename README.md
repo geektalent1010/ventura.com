@@ -2,7 +2,7 @@
 ## Requirements for building and running the application
 
 - [Composer](https://getcomposer.org/download/) in case of you are preferring to run the app in your host. 
-  - Please not that all the below examples are with [sail](https://laravel.com/docs/10.x/sail)
+  - Please note that all the below examples are with [sail](https://laravel.com/docs/10.x/sail)
 - [Docker](https://docs.docker.com/get-docker/)
 
 ## Application Build and Run
@@ -33,12 +33,14 @@ Go to [http://localhost](http://localhost) in order to see the application runni
 
 ## Contribution
 - a coding style is enforced by [Duster](https://github.com/tighten/duster) & [PhpStan](https://phpstan.org/writing-php-code/phpdocs-basics)
-  - manual check by `./vendor/bin/sail bin duster lint`
-  - manual fix by `./vendor/bin/sail bin duster fix`
+  - manual check by `./vendor/bin/sail bin duster lint` (`php ./vendor/bin/duster lint` without docker)
+  - manual fix by `./vendor/bin/sail bin duster fix` (`php ./vendor/bin/duster fix` without docker)
 - on each commit an auto check/fix will be executed without fixing the issues the commit will fail
-- if somehow one will push with `--no-verify` a github action will be triggered which will create a commit on the top of the PR with the needed fixes
 - to enhance the IDE's autocomplete we are using a helper to generate the ide helper file. for more [details](https://github.com/barryvdh/laravel-ide-helper)
-- in order to merge a PR an approval is required
+- in order to merge a PR:
+  - an approval is required
+  - `duster` status check needs to pass
+  - branch must be in sync with master
 
 
 
