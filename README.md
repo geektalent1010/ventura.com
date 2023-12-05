@@ -9,7 +9,7 @@
 
 After cloning the repository get into the `ventura.pro` directory and run:
 
-`cp .env.example .env`
+`cp .env.dev .env`
 
 `./vendor/bin/sail up`
 
@@ -37,6 +37,8 @@ Go to [http://localhost](http://localhost) in order to see the application runni
   - manual fix by `./vendor/bin/sail bin duster fix` (`php ./vendor/bin/duster fix` without docker)
 - on each commit an auto check/fix will be executed without fixing the issues the commit will fail
 - to enhance the IDE's autocomplete we are using a helper to generate the ide helper file. for more [details](https://github.com/barryvdh/laravel-ide-helper)
+- the env file is encrypted, forge has the encryption key. the file is restored by forge after each deploy.
+    - important note: Do not push `.env.example` because forge will use it as `.env` [read more](https://forge.laravel.com/docs/sites/deployments.html)
 - in order to merge a PR:
   - an approval is required
   - `duster` status check needs to pass
