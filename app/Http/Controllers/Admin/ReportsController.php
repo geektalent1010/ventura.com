@@ -145,9 +145,7 @@ class ReportsController extends Controller
 
         $fileName = 'JoiningReport-' . date('Y-m-d-h-i-s') . '.xlsx';
 
-        // todo figure it out what is UserExport class
-        //return Excel::download(new UsersExport($data), $fileName);
-        return view('admin.reports.partials.joiningReportExportView', $data);
+        return Excel::download(new UsersExport($data), $fileName);
     }
 
     public function printJoiningReport(Request $request)
