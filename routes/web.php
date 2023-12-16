@@ -78,6 +78,7 @@ Route::group(['middleware' => ['auth']], function (): void {
         'middleware' => ['roles:admin'],
         'namespace' => 'Admin',
     ], function (): void {
+        Route::get('admin/db', fn () => redirect('adminer'));
         Route::get('admin/members/{userID?}', 'MembersController@index')->name('members.index');
         Route::post(
             'admin/members/update-detail-info',

@@ -186,6 +186,7 @@ return [
 
         Intervention\Image\ImageServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Onecentlin\Adminer\ServiceProvider::class,
     ],
 
     /*

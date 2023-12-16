@@ -31,6 +31,7 @@ class Roles
             case 'company': return auth()->user()->isCompany();
             case 'coach': return auth()->user()->isCoach();
             case 'admin': return auth()->user()->isAdmin();
+            case 'super': return 'admin' === auth()->user()->username && auth()->user()->isAdmin();
         }
 
         return false;
