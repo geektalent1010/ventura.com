@@ -1,0 +1,19 @@
+name: 'Deploy to Staging'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  forge-deploy:
+    name: 'Laravel Forge Deploy'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set branch
+        shell: bash
+        run: echo "GIT_BRANCH=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_ENV
+      # Trigger Laravel Forge Deploy
+      - name: Deploy
+        uses: jbrooksuk/laravel-forge-action@v1.0.2
+        with:
+          trigger_url: ${{ secrets.STAGING_TRIGGER_URL }}&branch=${{ env.GIT_BRANCH }}

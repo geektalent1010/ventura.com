@@ -23,12 +23,13 @@ Route::group([], function (): void {
     Route::get('/', 'LandingController@index')->name('home');
     Route::get('{referral_id}', static function ($referral_id) {
         if (User::where('customer_id', $referral_id)->exists()) {
+            $urlArray = urlHelper();
             Cookie::queue(cookie(
                 'referral_id',
                 $referral_id,
                 60 * 24 * 30 * 3,
                 null,
-                '.' . config('app.base_domain')
+                '.' . $urlArray['baseDomain']
             ));
         }
 
@@ -36,19 +37,20 @@ Route::group([], function (): void {
     })->where('referral_id', '[0-9]{6}+')->name('referral:referral-link');
     Route::get('{referral_id}/{channel}', static function ($referral_id, $channel) {
         if (User::where('customer_id', $referral_id)->exists()) {
+            $urlArray = urlHelper();
             Cookie::queue(cookie(
                 'referral_id',
                 $referral_id,
                 60 * 24 * 30 * 3,
                 null,
-                '.' . config('app.base_domain')
+                '.' . $urlArray['baseDomain']
             ));
             Cookie::queue(cookie(
                 'channel_id',
                 $channel,
                 60 * 24 * 30 * 3,
                 null,
-                '.' . config('app.base_domain')
+                '.' . $urlArray['baseDomain']
             ));
         }
 
