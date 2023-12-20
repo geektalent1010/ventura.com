@@ -49,4 +49,6 @@ if [ -f artisan ]; then
     $FORGE_PHP artisan optimize
 fi
 
+jq -n --arg branch "$(git rev-parse --abbrev-ref HEAD)" --arg hash "$(git rev-parse --short HEAD)" --arg author "$(git --no-pager show -s --format='%an <%ae>')" --arg timestamp "$(date +%s)" '{branch: $branch, hash: $hash, author: $author, timestamp: $timestamp}' > ./storage/app/deployment.json
+
 echo 'Deployment done. ';

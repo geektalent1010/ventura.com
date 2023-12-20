@@ -56,6 +56,15 @@ Route::group([], function (): void {
 
         return redirect()->route('home');
     })->where('referral_id', '[0-9]{6}+')->name('referral:referral-link-channel');
+
+    Route::get('deployment', function () {
+        if ( ! app()->isProduction()) {
+            return response()
+                ->json(Storage::json('deployment.json'), 200, [], JSON_PRETTY_PRINT);
+        }
+
+        return redirect()->route('home');
+    });
 });
 
 Route::group([
